@@ -44,7 +44,7 @@ digraph
 	LED_ring_1 -> LED_ring_2
 	LED_ring_2 -> LED_ring_3
 	LED_ring_3 [label = "..."]
-	LED_ring_3 -> LED_ring_24
+	LED_ring_3 -> LED_ring_25
 
 	controller -> DAC_en_versterker
 	DAC_en_versterker -> luidspreker
