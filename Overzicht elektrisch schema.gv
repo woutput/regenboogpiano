@@ -1,0 +1,57 @@
+digraph
+{
+	rankdir = LR
+
+	subgraph cluster_pcb {
+		label = "Zelfgemaakte printplaat"
+		shift_register_1
+		shift_register_2
+		shift_register_3
+		controller
+	}
+
+	aanraak_toets_1 -> shift_register_1
+	aanraak_toets_2 -> shift_register_1
+	aanraak_toets_3 [label = "..."]
+	aanraak_toets_3 -> shift_register_1
+	aanraak_toets_8 -> shift_register_1
+
+	aanraak_toets_9 -> shift_register_2
+	aanraak_toets_10 -> shift_register_2
+	aanraak_toets_11 [label = "..."]
+	aanraak_toets_11 -> shift_register_2
+	aanraak_toets_16 -> shift_register_2
+
+	aanraak_toets_17 -> shift_register_3
+	aanraak_toets_18 -> shift_register_3
+	aanraak_toets_19 [label = "..."]
+	aanraak_toets_19 -> shift_register_3
+	aanraak_toets_24 -> shift_register_3
+
+	aanraak_menu -> controller
+
+	shift_register_1 -> controller
+	shift_register_2 -> controller
+	shift_register_3 -> controller
+
+	RFID_lezer -> controller
+
+	controller -> LED_display_8x32_1
+	LED_display_8x32_1 -> LED_display_8x32_2
+	LED_display_8x32_2 -> LED_display_8x32_3
+
+	controller -> LED_ring_1
+	LED_ring_1 -> LED_ring_2
+	LED_ring_2 -> LED_ring_3
+	LED_ring_3 [label = "..."]
+	LED_ring_3 -> LED_ring_24
+
+	controller -> DAC_en_versterker
+	DAC_en_versterker -> luidspreker
+
+	zonnepaneel -> accu_controller [style = dashed]
+	accu_controller -> loodaccu_12v [style = dashed]
+	loodaccu_12v -> accu_controller [style = dashed]
+	accu_controller -> omvormer_12v_naar_5v [style = dashed]
+	omvormer_12v_naar_5v -> controller [style = dashed]
+}
