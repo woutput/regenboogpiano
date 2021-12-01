@@ -192,4 +192,30 @@ U 61C61687
 F0 "Shift registers" 50
 F1 "Shift_registers.sch" 50
 $EndSheet
+$Comp
+L Connector:Conn_01x15_Female J?
+U 1 1 61A752BC
+P 6350 4000
+F 0 "J?" H 6378 4026 50  0000 L CNN
+F 1 "Conn_01x15_Female" H 6378 3935 50  0000 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x15_Pitch2.54mm" H 6350 4000 50  0001 C CNN
+F 3 "~" H 6350 4000 50  0001 C CNN
+	1    6350 4000
+	1    0    0    -1  
+$EndComp
+Text Notes 6000 3150 0    50   ~ 0
+RFID reader: SPI
+$Comp
+L Connector:Conn_01x15_Female J?
+U 1 1 61A76510
+P 8300 4000
+F 0 "J?" H 8328 4026 50  0000 L CNN
+F 1 "Conn_01x15_Female" H 8328 3935 50  0000 L CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x15_Pitch2.54mm" H 8300 4000 50  0001 C CNN
+F 3 "~" H 8300 4000 50  0001 C CNN
+	1    8300 4000
+	1    0    0    -1  
+$EndComp
+Text Notes 7850 3150 0    50   ~ 0
+microSD card reader
 $EndSCHEMATC
