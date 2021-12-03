@@ -192,30 +192,49 @@ U 61C61687
 F0 "Shift registers" 50
 F1 "Shift_registers.sch" 50
 $EndSheet
-$Comp
-L Connector:Conn_01x15_Female J?
-U 1 1 61A752BC
-P 6350 4000
-F 0 "J?" H 6378 4026 50  0000 L CNN
-F 1 "Conn_01x15_Female" H 6378 3935 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x15_Pitch2.54mm" H 6350 4000 50  0001 C CNN
-F 3 "~" H 6350 4000 50  0001 C CNN
-	1    6350 4000
-	1    0    0    -1  
-$EndComp
-Text Notes 6000 3150 0    50   ~ 0
-RFID reader: SPI
-$Comp
-L Connector:Conn_01x15_Female J?
-U 1 1 61A76510
-P 8300 4000
-F 0 "J?" H 8328 4026 50  0000 L CNN
-F 1 "Conn_01x15_Female" H 8328 3935 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x15_Pitch2.54mm" H 8300 4000 50  0001 C CNN
-F 3 "~" H 8300 4000 50  0001 C CNN
-	1    8300 4000
-	1    0    0    -1  
-$EndComp
+Text Notes 6200 3050 0    50   ~ 0
+RFID reader
 Text Notes 7850 3150 0    50   ~ 0
 microSD card reader
+Text Notes 6950 850  0    50   ~ 0
+I2S DAC
+$Comp
+L Connector:Conn_01x08_Female J?
+U 1 1 61A79F62
+P 6550 3650
+F 0 "J?" H 6400 4200 50  0000 L CNN
+F 1 "Conn_01x08_Female" H 6100 4100 50  0000 L CNN
+F 2 "" H 6550 3650 50  0001 C CNN
+F 3 "~" H 6550 3650 50  0001 C CNN
+	1    6550 3650
+	1    0    0    -1  
+$EndComp
+Text Notes 6650 4100 0    63   ~ 0
+SDA\nSCK\nMOSI\nMISO\nIRQ\nGND\nRST\n3.3V
+Text Notes 7150 1750 0    63   ~ 0
+BCK\nDATA\nLRCK\nGND\nGND\nVCC
+$Comp
+L Connector:Conn_01x06_Female J?
+U 1 1 61A7BB18
+P 7050 1400
+F 0 "J?" H 7000 1850 50  0000 L CNN
+F 1 "Conn_01x06_Female" H 6750 1750 50  0000 L CNN
+F 2 "" H 7050 1400 50  0001 C CNN
+F 3 "~" H 7050 1400 50  0001 C CNN
+	1    7050 1400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x08_Female J?
+U 1 1 61A7DBA6
+P 8350 3850
+F 0 "J?" H 8200 4400 50  0000 L CNN
+F 1 "Conn_01x08_Female" H 7900 4300 50  0000 L CNN
+F 2 "" H 8350 3850 50  0001 C CNN
+F 3 "~" H 8350 3850 50  0001 C CNN
+	1    8350 3850
+	1    0    0    -1  
+$EndComp
+Text Notes 8400 4300 0    63   ~ 0
+GND\nNC\nCS\nMOSI\nCLK\nMISO\nNC\nVCC
 $EndSCHEMATC
