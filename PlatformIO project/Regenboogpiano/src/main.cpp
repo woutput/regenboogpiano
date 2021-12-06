@@ -1,3 +1,10 @@
+#define PIN_I2SDAC_BCLK     15
+#define PIN_I2SDAC_LRCLK    12
+#define PIN_I2SDAC_DATA      2
+
+#define PIN_TEST_BUTTON_LEFT 0
+#define PIN_TEST_BUTTON_RIGHT 35
+
 
 //// Regenboogpiano op TFT
 
@@ -594,9 +601,6 @@
 #include "left.h"
 #include "right.h"
 
-#define PIN_TEST_BUTTON_LEFT 0
-#define PIN_TEST_BUTTON_RIGHT 35
-
 AudioGeneratorMP3 *mp3;
 AudioFileSourcePROGMEM *file;
 AudioOutputI2S *out;
@@ -614,6 +618,7 @@ void setup()
   audioLogger = &Serial;
   file = new AudioFileSourcePROGMEM(left_h, sizeof(left_h));
   out = new AudioOutputI2S();
+  out->SetPinout(PIN_I2SDAC_BCLK, PIN_I2SDAC_LRCLK, PIN_I2SDAC_DATA);
   mp3 = new AudioGeneratorMP3();
 }
 
