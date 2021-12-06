@@ -3,7 +3,13 @@
 #define PIN_I2SDAC_LRCLK    12
 #define PIN_I2SDAC_DATA      2
 
-// TFT display
+// micro SD card
+#define PIN_SDCARD_HSPI_SCLK   25
+#define PIN_SDCARD_HSPI_MISO   26
+#define PIN_SDCARD_HSPI_MOSI   27
+#define PIN_SDCARD_HSPI_SS     32
+
+// TFT display (fixed, do not change)
 #define PIN_TFT_CS        5
 #define PIN_TFT_RST       -1 // Or set to -1 and connect to Arduino RESET pin
 #define PIN_TFT_DC        16
@@ -15,6 +21,9 @@
 #define PIN_TEST_BUTTON_LEFT 0
 #define PIN_TEST_BUTTON_RIGHT 35
 
+
+
+
 #include <Arduino.h>
 #include <WiFi.h>
 #include "AudioFileSourcePROGMEM.h"
@@ -23,6 +32,8 @@
 #include <Adafruit_GFX.h>    // Core graphics library
 #include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
 #include <SPI.h>
+#include "FS.h"
+#include "SD.h"
 
 #include "left.h"
 #include "right.h"
@@ -36,12 +47,41 @@ AudioOutputI2S *out;
 SPIClass* spi = &SPI;
 Adafruit_ST7789 tft = Adafruit_ST7789(PIN_TFT_CS, PIN_TFT_DC, PIN_TFT_MOSI, PIN_TFT_SCLK, PIN_TFT_RST);
 
+SPIClass spiSD(HSPI);
+File root;
+
+void printDirectory(File dir, int numTabs) {
+  while (true) {
+
+    File entry =  dir.openNextFile();
+    if (! entry) {
+      // no more files
+      break;
+    }
+    for (uint8_t i = 0; i < numTabs; i++) {
+      Serial.print('\t');
+    }
+    Serial.print(entry.name());
+    if (entry.isDirectory()) {
+      Serial.println("/");
+      printDirectory(entry, numTabs + 1);
+    } else {
+      // files have sizes, directories do not
+      Serial.print("\t\t");
+      Serial.println(entry.size(), DEC);
+    }
+    entry.close();
+  }
+}
+
 void setup()
 {
   WiFi.mode(WIFI_OFF); // TODO turn on later for firmware updates
   Serial.begin(115200);
-  delay(1000);
-  Serial.printf("Sample MP3 playback begins...\n");
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+  Serial.println("Begin of setup");
 
 // Pins
   pinMode(PIN_TEST_BUTTON_LEFT, INPUT_PULLUP);
@@ -90,6 +130,20 @@ void setup()
   tft.print("n");
   tft.setTextColor(ST77XX_MAGENTA);
   tft.print("o");
+
+  // SD card
+  spiSD.begin(PIN_SDCARD_HSPI_SCLK, PIN_SDCARD_HSPI_MISO, PIN_SDCARD_HSPI_MOSI, PIN_SDCARD_HSPI_SS);
+  if (!SD.begin(PIN_SDCARD_HSPI_SS, spiSD))
+  {
+    Serial.println("SD card initialization failed!");
+    while (1); // TODO add diagnostics
+  }
+  Serial.println("SD card initialization done.");
+
+  root = SD.open("/");  // Debug only
+  printDirectory(root, 0);  // Debug only
+
+  Serial.println("End of setup");
 }
 
 void loop()
