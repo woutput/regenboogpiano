@@ -1,6 +1,4 @@
-# For PCBs designed using KiCad: http://www.kicad-pcb.org/
-# Format documentation: http://kicad-pcb.org/help/file-formats/
-
+## KiCAD
 # Temporary files
 *.000
 *.bak
@@ -14,18 +12,19 @@ _autosave-*
 *-save.kicad_pcb
 fp-info-cache
 *-cache.lib
-
 # Netlist files (exported from Eeschema)
 *.net
-
 # Autorouter files (exported from Pcbnew)
 *.dsn
 *.ses
-
 # Exported BOM files
 *.xml
 *.csv
 
-
-# Sketchup backup file
+## Sketchup
+# Backup file
 *.skb
+
+## Excel
+# Temporary file
+~*.xlsx
