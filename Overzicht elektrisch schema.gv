@@ -22,8 +22,8 @@ digraph
 
 	aanraak_menu -> controller
 
-	shift_register_1 -> controller
-	shift_register_2 -> controller
+	shift_register_1 -> shift_register_2
+	shift_register_2 -> shift_register_3
 	shift_register_3 -> controller
 
 	RFID_lezer -> controller
