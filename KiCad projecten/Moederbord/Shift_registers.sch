@@ -148,4 +148,20 @@ Text Label 7100 4400 2    50   ~ 0
 TouchIO_23
 Text Label 7100 4500 2    50   ~ 0
 TouchIO_24
+Wire Wire Line
+	4450 4500 4550 4500
+Wire Wire Line
+	4550 4500 4550 3700
+Wire Wire Line
+	4550 3700 5250 3700
+Wire Wire Line
+	6350 4500 6450 4500
+Wire Wire Line
+	6450 4500 6450 3700
+Wire Wire Line
+	6450 3700 7150 3700
+Text GLabel 8300 4500 2    50   Output ~ 0
+Serial_data_from_shift_registers
+Wire Wire Line
+	8250 4500 8300 4500
 $EndSCHEMATC

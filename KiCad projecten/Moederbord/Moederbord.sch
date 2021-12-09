@@ -13,173 +13,12 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text Notes 10100 2700 0    50   ~ 0
-Voeding in\nRFID-lezer
-Text Notes 10100 1600 0    50   ~ 0
-Vbatt monitor\n+12V0 in
+Text Notes 9300 900  0    50   ~ 0
+Vbatt monitor\n12 V in
 Text Notes 7050 6450 0    50   ~ 0
 TODO\nMoet RFID-lezer aan- en uitgeschakeld kunnen worden via FET om energie te sparen?\nMoet de LED-voeding aan- en uitgeschakeld kunnen worden via FET om energie te sparen?\nMoet de audio-versterker aan- en uitgeschakeld kunnen worden via FET om energie te sparen?\nMoeten de shift-registers aan- en uitgeschakeld kunnen worden via FET om energie te sparen?\nMoeten de data- in- en uitgangen beschermd worden? ESD? Serieweerstand?\nSpanningen duidelijk maken; wellicht level shifters nodig\nStromen duidelijk maken\nVermogens duidelijk maken
-Text Notes 10100 2950 0    50   ~ 0
-LED-ringen1\nLED-ringen2
-Text Notes 10100 3200 0    50   ~ 0
-LED-displays1\nLED-displays2
-Text Notes 10100 3450 0    50   ~ 0
-Menu-toets\nDAC
-Text Notes 10100 1850 0    50   ~ 0
-Versterker\nNC
-Text Notes 10550 1250 0    50   ~ 0
-12 V
-Text Notes 10100 4250 0    50   ~ 0
-Voeding in\nRFID-lezer
-Text Notes 10100 4500 0    50   ~ 0
-LED-ringen1\nLED-ringen2
-Text Notes 10100 4750 0    50   ~ 0
-LED-displays1\nLED-displays2
-Text Notes 10100 5000 0    50   ~ 0
-Menu-toets\nDAC
-Wire Wire Line
-	10850 2600 10900 2600
-Wire Wire Line
-	10900 2600 10900 2700
-Wire Wire Line
-	10900 3450 10850 3450
-Wire Wire Line
-	10850 3350 10900 3350
-Connection ~ 10900 3350
-Wire Wire Line
-	10900 3350 10900 3450
-Wire Wire Line
-	10850 3200 10900 3200
-Connection ~ 10900 3200
-Wire Wire Line
-	10900 3200 10900 3350
-Wire Wire Line
-	10850 3100 10900 3100
-Connection ~ 10900 3100
-Wire Wire Line
-	10900 3100 10900 3200
-Wire Wire Line
-	10850 2950 10900 2950
-Connection ~ 10900 2950
-Wire Wire Line
-	10900 2950 10900 3100
-Wire Wire Line
-	10850 2850 10900 2850
-Connection ~ 10900 2850
-Wire Wire Line
-	10900 2850 10900 2950
-Wire Wire Line
-	10850 2700 10900 2700
-Connection ~ 10900 2700
-Wire Wire Line
-	10900 2700 10900 2850
-Wire Wire Line
-	10850 4150 10900 4150
-Wire Wire Line
-	10900 4150 10900 4250
-Wire Wire Line
-	10900 5000 10850 5000
-Wire Wire Line
-	10850 4900 10900 4900
-Connection ~ 10900 4900
-Wire Wire Line
-	10900 4900 10900 5000
-Wire Wire Line
-	10850 4750 10900 4750
-Connection ~ 10900 4750
-Wire Wire Line
-	10900 4750 10900 4900
-Wire Wire Line
-	10850 4650 10900 4650
-Connection ~ 10900 4650
-Wire Wire Line
-	10900 4650 10900 4750
-Wire Wire Line
-	10850 4500 10900 4500
-Connection ~ 10900 4500
-Wire Wire Line
-	10900 4500 10900 4650
-Wire Wire Line
-	10850 4400 10900 4400
-Connection ~ 10900 4400
-Wire Wire Line
-	10900 4400 10900 4500
-Wire Wire Line
-	10850 4250 10900 4250
-Connection ~ 10900 4250
-Wire Wire Line
-	10900 4250 10900 4400
-NoConn ~ 10850 1850
-$Comp
-L power:+5V #PWR02
-U 1 1 61948323
-P 10900 2550
-F 0 "#PWR02" H 10900 2400 50  0001 C CNN
-F 1 "+5V" H 10915 2723 50  0000 C CNN
-F 2 "" H 10900 2550 50  0001 C CNN
-F 3 "" H 10900 2550 50  0001 C CNN
-	1    10900 2550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	10900 2550 10900 2600
-Connection ~ 10900 2600
-$Comp
-L power:GND #PWR03
-U 1 1 6194B75F
-P 10900 5050
-F 0 "#PWR03" H 10900 4800 50  0001 C CNN
-F 1 "GND" H 10905 4877 50  0000 C CNN
-F 2 "" H 10900 5050 50  0001 C CNN
-F 3 "" H 10900 5050 50  0001 C CNN
-	1    10900 5050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	10900 5050 10900 5000
-Connection ~ 10900 5000
-Wire Wire Line
-	10850 1600 10900 1600
-Wire Wire Line
-	10900 1600 10900 1750
-Wire Wire Line
-	10900 1750 10850 1750
-$Comp
-L power:+12V #PWR01
-U 1 1 61951D67
-P 11000 1600
-F 0 "#PWR01" H 11000 1450 50  0001 C CNN
-F 1 "+12V" H 11015 1773 50  0000 C CNN
-F 2 "" H 11000 1600 50  0001 C CNN
-F 3 "" H 11000 1600 50  0001 C CNN
-	1    11000 1600
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	11000 1600 10900 1600
-Connection ~ 10900 1600
-$Comp
-L Connector:Conn_01x15_Female J7
-U 1 1 6195DB00
-P 2750 4000
-F 0 "J7" H 2778 4026 50  0000 L CNN
-F 1 "Conn_01x15_Female" H 2778 3935 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x15_Pitch2.54mm" H 2750 4000 50  0001 C CNN
-F 3 "~" H 2750 4000 50  0001 C CNN
-	1    2750 4000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x15_Female J8
-U 1 1 6195F2A8
-P 3650 4000
-F 0 "J8" H 3678 4026 50  0000 L CNN
-F 1 "Conn_01x15_Female" H 3678 3935 50  0000 L CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x15_Pitch2.54mm" H 3650 4000 50  0001 C CNN
-F 3 "~" H 3650 4000 50  0001 C CNN
-	1    3650 4000
-	1    0    0    -1  
-$EndComp
+Text Notes 9300 1200 0    50   ~ 0
+12 V uit naar versterker\n\n
 $Sheet
 S 2650 1900 500  150 
 U 61AEA73C
@@ -192,49 +31,160 @@ U 61C61687
 F0 "Shift registers" 50
 F1 "Shift_registers.sch" 50
 $EndSheet
-Text Notes 6200 3050 0    50   ~ 0
-RFID reader
-Text Notes 7850 3150 0    50   ~ 0
-microSD card reader
-Text Notes 6950 850  0    50   ~ 0
-I2S DAC
-$Comp
-L Connector:Conn_01x08_Female J?
-U 1 1 61A79F62
-P 6550 3650
-F 0 "J?" H 6400 4200 50  0000 L CNN
-F 1 "Conn_01x08_Female" H 6100 4100 50  0000 L CNN
-F 2 "" H 6550 3650 50  0001 C CNN
-F 3 "~" H 6550 3650 50  0001 C CNN
-	1    6550 3650
-	1    0    0    -1  
-$EndComp
-Text Notes 6650 4100 0    63   ~ 0
-SDA\nSCK\nMOSI\nMISO\nIRQ\nGND\nRST\n3.3V
+Text Notes 6200 3150 0    50   ~ 0
+RFID reader\nOnly used pins\nBoard will be mounted on another location
+Text Notes 6600 900  0    50   ~ 0
+I2S DAC\nAll pins\nBoard will be mounted on motherboard
 Text Notes 7150 1750 0    63   ~ 0
 BCK\nDATA\nLRCK\nGND\nGND\nVCC
 $Comp
-L Connector:Conn_01x06_Female J?
+L Connector:Conn_01x06_Female J1
 U 1 1 61A7BB18
 P 7050 1400
-F 0 "J?" H 7000 1850 50  0000 L CNN
-F 1 "Conn_01x06_Female" H 6750 1750 50  0000 L CNN
-F 2 "" H 7050 1400 50  0001 C CNN
+F 0 "J1" H 7000 1850 50  0000 L CNN
+F 1 "I2S_DAC" H 6750 1750 50  0000 L CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x06_Pitch2.54mm" H 7050 1400 50  0001 C CNN
 F 3 "~" H 7050 1400 50  0001 C CNN
 	1    7050 1400
 	1    0    0    -1  
 $EndComp
+Text Notes 6650 3900 0    63   ~ 0
+SDA==CS <-- can not be removed???\nSCK==SCLK\nMOSI\nMISO\nGND\n3.3V
 $Comp
-L Connector:Conn_01x08_Female J?
-U 1 1 61A7DBA6
-P 8350 3850
-F 0 "J?" H 8200 4400 50  0000 L CNN
-F 1 "Conn_01x08_Female" H 7900 4300 50  0000 L CNN
-F 2 "" H 8350 3850 50  0001 C CNN
-F 3 "~" H 8350 3850 50  0001 C CNN
-	1    8350 3850
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 61BABD68
+P 9100 1400
+F 0 "J?" H 9180 1392 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 9180 1301 50  0000 L CNN
+F 2 "" H 9100 1400 50  0001 C CNN
+F 3 "~" H 9100 1400 50  0001 C CNN
+	1    9100 1400
 	1    0    0    -1  
 $EndComp
-Text Notes 8400 4300 0    63   ~ 0
-GND\nNC\nCS\nMOSI\nCLK\nMISO\nNC\nVCC
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 61BACBDF
+P 9100 1100
+F 0 "J?" H 9180 1092 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 9180 1001 50  0000 L CNN
+F 2 "" H 9100 1100 50  0001 C CNN
+F 3 "~" H 9100 1100 50  0001 C CNN
+	1    9100 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 61BACFCC
+P 9100 800
+F 0 "J?" H 9180 792 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 9180 701 50  0000 L CNN
+F 2 "" H 9100 800 50  0001 C CNN
+F 3 "~" H 9100 800 50  0001 C CNN
+	1    9100 800 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x06_Female J?
+U 1 1 61BAE503
+P 6550 3550
+F 0 "J?" H 6578 3526 50  0000 L CNN
+F 1 "Conn_01x06_Female" H 6578 3435 50  0000 L CNN
+F 2 "" H 6550 3550 50  0001 C CNN
+F 3 "~" H 6550 3550 50  0001 C CNN
+	1    6550 3550
+	1    0    0    -1  
+$EndComp
+Text Notes 3750 4450 0    63   ~ 0
+3V	RFID	3V3\n36	Shift	DIN\n37	Menu	DIN\n38		\n39		\n32	DOUT	I2S DAC\n33	BCLK	I2S DAC\n25	LRCLK	I2S DAC\n26	LED rings	DOUT\n27	LED display	DOUT\nG		GND\n5V		5V0\n
+$Comp
+L Connector:Conn_01x12_Female J?
+U 1 1 61BAFAD7
+P 3700 3800
+F 0 "J?" H 3728 3776 50  0000 L CNN
+F 1 "Conn_01x12_Female" H 3728 3685 50  0000 L CNN
+F 2 "" H 3700 3800 50  0001 C CNN
+F 3 "~" H 3700 3800 50  0001 C CNN
+	1    3700 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x12_Female J?
+U 1 1 61BB04FD
+P 2850 3800
+F 0 "J?" H 2878 3776 50  0000 L CNN
+F 1 "Conn_01x12_Female" H 2878 3685 50  0000 L CNN
+F 2 "" H 2850 3800 50  0001 C CNN
+F 3 "~" H 2850 3800 50  0001 C CNN
+	1    2850 3800
+	1    0    0    -1  
+$EndComp
+Text Notes 2550 4450 2    63   ~ 0
+GND		G\nGND		G\nCLK	Shift	21\nSH/LDn	Shift	22\n		17\nCS???	RFID	2\nMOSI	RFID	15\nMISO	RFID	13\nSCLK	RFID	12\nGND		G\nGND		G\n3V3		3V\n
+Text Notes 9300 1500 0    50   ~ 0
+5 V LED display\nGND
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 61BB27A0
+P 9100 1700
+F 0 "J?" H 9180 1692 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 9180 1601 50  0000 L CNN
+F 2 "" H 9100 1700 50  0001 C CNN
+F 3 "~" H 9100 1700 50  0001 C CNN
+	1    9100 1700
+	1    0    0    -1  
+$EndComp
+Text Notes 9300 1800 0    50   ~ 0
+5 V LED display\nGND
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 61BB2F15
+P 9100 2000
+F 0 "J?" H 9180 1992 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 9180 1901 50  0000 L CNN
+F 2 "" H 9100 2000 50  0001 C CNN
+F 3 "~" H 9100 2000 50  0001 C CNN
+	1    9100 2000
+	1    0    0    -1  
+$EndComp
+Text Notes 9300 2100 0    50   ~ 0
+5 V LED display\nGND
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 61BB3526
+P 9100 2300
+F 0 "J?" H 9180 2292 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 9180 2201 50  0000 L CNN
+F 2 "" H 9100 2300 50  0001 C CNN
+F 3 "~" H 9100 2300 50  0001 C CNN
+	1    9100 2300
+	1    0    0    -1  
+$EndComp
+Text Notes 9300 2400 0    50   ~ 0
+5 V LED display\nGND
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 61BB3B23
+P 9100 2600
+F 0 "J?" H 9180 2592 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 9180 2501 50  0000 L CNN
+F 2 "" H 9100 2600 50  0001 C CNN
+F 3 "~" H 9100 2600 50  0001 C CNN
+	1    9100 2600
+	1    0    0    -1  
+$EndComp
+Text Notes 9300 2700 0    50   ~ 0
+5 V LED display\nGND
+$Comp
+L Connector:Screw_Terminal_01x02 J?
+U 1 1 61BB429E
+P 9100 2900
+F 0 "J?" H 9180 2892 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 9180 2801 50  0000 L CNN
+F 2 "" H 9100 2900 50  0001 C CNN
+F 3 "~" H 9100 2900 50  0001 C CNN
+	1    9100 2900
+	1    0    0    -1  
+$EndComp
+Text Notes 9300 3000 0    50   ~ 0
+5 V LED display\nGND
 $EndSCHEMATC
