@@ -5,34 +5,28 @@
 
 //// Pins
 // DAC
-#define PIN_DAC_BCLK     15
-#define PIN_DAC_LRCLK    12
-#define PIN_DAC_DATA      2
-
-// micro SD card
-#define PIN_SDCARD_HSPI_SCLK   25
-#define PIN_SDCARD_HSPI_MISO   26
-#define PIN_SDCARD_HSPI_MOSI   27
-#define PIN_SDCARD_HSPI_CS     32
+#define PIN_DAC_BCLK     33 // was 15
+#define PIN_DAC_LRCLK    25 // was 12
+#define PIN_DAC_DATA     32 // was  2
 
 // TFT display (fixed, do not change)
-#define PIN_TFT_CS        5
+#define PIN_TFT_CS         5
 #define PIN_TFT_RST       -1 // Or set to -1 and connect to Arduino RESET pin
 #define PIN_TFT_DC        16
-#define PIN_TFT_BACKLIGHT 4 // Display backlight pin
-#define PIN_TFT_MOSI      19  // Data out
-#define PIN_TFT_SCLK      18  // Clock out
+#define PIN_TFT_BACKLIGHT  4 // Display backlight pin
+#define PIN_TFT_MOSI      19 // Data out
+#define PIN_TFT_SCLK      18 // Clock out
 
 // LEDs
-#define PIN_LED_DISPLAY 26
-#define PIN_LED_RINGS 27
+#define PIN_LED_DISPLAY 27
+#define PIN_LED_RINGS   26
 
 // RFID reader
-#define PIN_RFID_RESET UINT8_MAX // not connected
-#define PIN_RFID_CS 27
-#define PIN_RFID_SCK 26
-#define PIN_RFID_MISO 33
-#define PIN_RFID_MOSI 25
+#define PIN_RFID_RESET  UINT8_MAX // not connected
+#define PIN_RFID_CS      2 // was 27
+#define PIN_RFID_SCK    12 // was 26
+#define PIN_RFID_MISO   13 // was 33
+#define PIN_RFID_MOSI   15 // was 25
 
 // Test buttons on controller board
 #define PIN_TEST_BUTTON_LEFT 0
@@ -65,13 +59,9 @@ AudioGeneratorMP3 *mp3;
 AudioFileSourcePROGMEM *file;
 AudioOutputI2S *out;
 
-// Display
+// TFT display
 SPIClass* spi = &SPI;
 Adafruit_ST7789 tft = Adafruit_ST7789(PIN_TFT_CS, PIN_TFT_DC, PIN_TFT_MOSI, PIN_TFT_SCLK, PIN_TFT_RST); // TODO: remove last argument, because default is already -1
-
-// SD card
-SPIClass spiSD(HSPI);
-File root;
 
 // LED display
 Adafruit_NeoMatrix LED_display = Adafruit_NeoMatrix(32, 8, PIN_LED_DISPLAY,
@@ -143,19 +133,11 @@ void setup()
   out->SetPinout(PIN_DAC_BCLK, PIN_DAC_LRCLK, PIN_DAC_DATA);
   mp3 = new AudioGeneratorMP3();
 
-  // Display
+  // TFT display
   tft.init(135, 240);
   tft.setRotation(1);
   pinMode(PIN_TFT_BACKLIGHT, OUTPUT);
   digitalWrite(PIN_TFT_BACKLIGHT, HIGH); // Backlight on
-
-  // SD card
-  spiSD.begin(PIN_SDCARD_HSPI_SCLK, PIN_SDCARD_HSPI_MISO, PIN_SDCARD_HSPI_MOSI, PIN_SDCARD_HSPI_CS);
-  if (!SD.begin(PIN_SDCARD_HSPI_CS, spiSD))
-  {
-    Serial.println("SD card initialization failed!"); // TODO add diagnostics (to LEDs / speaker?)
-  }
-  Serial.println("SD card initialization done.");
 
   // LED display
   LED_display.begin();
@@ -164,10 +146,10 @@ void setup()
   LED_display.setTextColor(LED_display.Color(0, 0, 255));
   LED_display.show(); // Initialize all pixels to 'off'
 
-  // LED rings
-  LED_rings.begin();
-  LED_rings.setBrightness(LED_RINGS_BRIGHTNESS);
-  LED_rings.show(); // Initialize all pixels to 'off'
+  // // LED rings
+  // LED_rings.begin();
+  // LED_rings.setBrightness(LED_RINGS_BRIGHTNESS);
+  // LED_rings.show(); // Initialize all pixels to 'off'
 
   // RFID reader
 	SPI.begin(PIN_RFID_SCK, PIN_RFID_MISO, PIN_RFID_MOSI, PIN_RFID_CS);
@@ -180,20 +162,17 @@ void setup()
 
 
   //// Debug/test only, TODO: remove this
-  // LED display
-  LED_display.fillScreen(0);
-  LED_display.setCursor(0, 0);
-  LED_display.print(F("Regenboogpiano"));
-  LED_display.show();
-  // LED rings
-  for(uint16_t i=0; i<LED_rings.numPixels(); i++)
-  {
-    LED_rings.setPixelColor(i, i * 256 * 256);
-  }
-  LED_rings.show();
-  // SD card
-  root = SD.open("/");
-  printDirectory(root, 0);
+  // // LED display
+  // LED_display.fillScreen(0);
+  // LED_display.setCursor(0, 0);
+  // LED_display.print(F("Regenboogpiano"));
+  // LED_display.show();
+  // // LED rings
+  // for(uint16_t i=0; i<LED_rings.numPixels(); i++)
+  // {
+  //   LED_rings.setPixelColor(i, i * 256 * 256);
+  // }
+  // LED_rings.show();
   // TFT display
   tft.fillScreen(ST77XX_BLACK);
   tft.setCursor(0, 0);
@@ -258,18 +237,20 @@ void loop()
   }
 
 
-
-  // RFID reader
-	if (mfrc522.PICC_IsNewCardPresent())
+  if ((millis() % 100) == 0)
   {
-    // Select one of the cards
-    if (mfrc522.PICC_ReadCardSerial())
+    // RFID reader
+    if (mfrc522.PICC_IsNewCardPresent())
     {
-      Serial.print(F("Card UID:"));
-    	// mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
-      dump_byte_array(mfrc522.uid.uidByte, mfrc522.uid.size);
-      Serial.println(F(""));
-      mfrc522.PICC_HaltA();
+      // Select one of the cards
+      if (mfrc522.PICC_ReadCardSerial())
+      {
+        Serial.print(F("Card UID:"));
+        // mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
+        dump_byte_array(mfrc522.uid.uidByte, mfrc522.uid.size);
+        Serial.println(F(""));
+        mfrc522.PICC_HaltA();
+      }
     }
-	}
+  }
 }
