@@ -2,60 +2,55 @@ digraph
 {
 	rankdir = LR
 
-	subgraph cluster_piano {
+	subgraph cluster_piano
+	{
 		label = "Binnen in piano"
 
-	subgraph cluster_pcb {
-		label = "Zelfgemaakte printplaat"
-		shift_register_1
-		shift_register_2
-		shift_register_3
-		controller
-		microSD_kaartlezer [color = grey; fontcolor = grey]
-		microSD_kaart [color = grey; fontcolor = grey]
-		DAC
-	}
+		subgraph cluster_pcb
+		{
+			label = "Zelfgemaakte printplaat"
+			shift_register_1
+			shift_register_2
+			shift_register_3
+			controller
+			DAC
+		}
 
-	aanraak_toets_1_8 -> shift_register_1
-	aanraak_toets_9_16 -> shift_register_2
-	aanraak_toets_17_24 -> shift_register_3
+		aanraak_toets_1_8 -> shift_register_1
+		aanraak_toets_9_16 -> shift_register_2
+		aanraak_toets_17_24 -> shift_register_3
 
-	aanraak_menu -> controller
+		aanraak_menu -> controller
 
-	shift_register_1 -> shift_register_2
-	shift_register_2 -> shift_register_3
-	shift_register_3 -> controller
+		shift_register_1 -> shift_register_2
+		shift_register_2 -> shift_register_3
+		shift_register_3 -> controller
 
-	RFID_lezer -> controller
+		RFID_lezer -> controller
 
-	controller -> LED_display_8x32_1
-	LED_display_8x32_2 [label = "..."]
-	LED_display_8x32_1 -> LED_display_8x32_2
-	LED_display_8x32_2 -> LED_display_8x32_4
-	LED_display_8x32_5 [color = grey; fontcolor = grey]
-	LED_display_8x32_4 -> LED_display_8x32_5 [color = grey]
+		controller -> LED_display_8x32_1
+		LED_display_8x32_2 [label = "..."]
+		LED_display_8x32_1 -> LED_display_8x32_2
+		LED_display_8x32_2 -> LED_display_8x32_4
 
-	controller -> LED_ring_1
-	LED_ring_1 -> LED_ring_2
-	LED_ring_2 -> LED_ring_3
-	LED_ring_3 [label = "..."]
-	LED_ring_3 -> LED_ring_25
+		controller -> LED_ring_1
+		LED_ring_1 -> LED_ring_2
+		LED_ring_2 -> LED_ring_3
+		LED_ring_3 [label = "..."]
+		LED_ring_3 -> LED_ring_25
 
-	controller -> DAC
-	DAC -> versterker
-	versterker -> luidspreker
+		controller -> DAC
+		DAC -> versterker
+		versterker -> luidspreker
 
-	accu_controller [color = grey; fontcolor = grey]
-	loodaccu_12v [color = grey; fontcolor = grey]
+		accu_controller [color = grey; fontcolor = grey]
+		loodaccu_12v [color = grey; fontcolor = grey]
 
-	accu_controller -> loodaccu_12v [style = dashed; color = grey]
-	loodaccu_12v -> accu_controller [style = dashed; color = grey]
-	accu_controller -> omvormer_12v_naar_5v [style = dashed; color = grey]
-	accu_controller -> versterker [style = dashed; color = grey]
-	omvormer_12v_naar_5v -> controller [style = dashed]
-
-	microSD_kaartlezer -> controller [color = grey]
-	microSD_kaart -> microSD_kaartlezer [color = grey]
+		accu_controller -> loodaccu_12v [style = dashed; color = grey]
+		loodaccu_12v -> accu_controller [style = dashed; color = grey]
+		accu_controller -> omvormer_12v_naar_5v [style = dashed; color = grey]
+		accu_controller -> versterker [style = dashed; color = grey]
+		omvormer_12v_naar_5v -> controller [style = dashed]
 	}
 	omvormer_230v_naar_12v -> omvormer_12v_naar_5v [style = dashed]
 	omvormer_230v_naar_12v -> versterker [style = dashed]
