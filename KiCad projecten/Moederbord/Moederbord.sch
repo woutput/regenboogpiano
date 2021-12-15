@@ -31,17 +31,17 @@ Text Notes 8650 2850 0    50   ~ 0
 RFID reader\nOnly used pins\nBoard will be mounted\n on another location
 Text Notes 8900 1100 0    50   ~ 0
 I2S DAC\nAll pins\nBoard will be mounted\n on motherboard
-Text Notes 8900 1900 0    63   ~ 0
+Text Notes 9000 1900 0    63   ~ 0
 BCK\nDATA\nLRCK\nGND\nGND\nVCC
 $Comp
 L Connector:Conn_01x06_Female J4
 U 1 1 61A7BB18
-P 8800 1550
-F 0 "J4" H 8750 2000 50  0000 L CNN
-F 1 "I2S_DAC" H 8500 1900 50  0000 L CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x06_Pitch2.54mm" H 8800 1550 50  0001 C CNN
-F 3 "~" H 8800 1550 50  0001 C CNN
-	1    8800 1550
+P 8900 1550
+F 0 "J4" H 8850 2000 50  0000 L CNN
+F 1 "I2S_DAC" H 8600 1900 50  0000 L CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x06_Pitch2.54mm" H 8900 1550 50  0001 C CNN
+F 3 "~" H 8900 1550 50  0001 C CNN
+	1    8900 1550
 	1    0    0    -1  
 $EndComp
 Text Notes 8900 3600 0    63   ~ 0
@@ -52,7 +52,7 @@ U 1 1 61BACFCC
 P 8850 4500
 F 0 "J17" H 8930 4492 50  0000 L CNN
 F 1 "Screw_Terminal_01x02" H 8930 4401 50  0000 L CNN
-F 2 "Connectors_Terminal_Blocks:TerminalBlock_bornier-2_P5.08mm" H 8850 4500 50  0001 C CNN
+F 2 "Moederbord:TerminalBlock_2_P5.08mm" H 8850 4500 50  0001 C CNN
 F 3 "~" H 8850 4500 50  0001 C CNN
 	1    8850 4500
 	1    0    0    -1  
@@ -96,83 +96,17 @@ Wire Wire Line
 Text Notes 7900 2750 0    50   ~ 0
 Wire connections\nas backup
 Wire Wire Line
-	8400 1350 8600 1350
+	8500 1350 8700 1350
 Wire Wire Line
-	8600 1450 8400 1450
+	8700 1450 8500 1450
 Wire Wire Line
-	8400 1550 8600 1550
+	8500 1550 8700 1550
 Wire Wire Line
-	8600 1650 8400 1650
+	8700 1650 8500 1650
 Wire Wire Line
-	8400 1750 8600 1750
+	8500 1750 8700 1750
 Wire Wire Line
-	8600 1850 8400 1850
-$Comp
-L Connector_Generic:Conn_02x01 J1
-U 1 1 61BB8D1F
-P 8100 1350
-F 0 "J1" H 8150 1567 50  0000 C CNN
-F 1 "Conn_02x01" H 8150 1476 50  0000 C CNN
-F 2 "Wire_Connections_Bridges:WireConnection_1.00mmDrill" H 8100 1350 50  0001 C CNN
-F 3 "~" H 8100 1350 50  0001 C CNN
-	1    8100 1350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_02x01 J2
-U 1 1 61BB8D25
-P 8100 1450
-F 0 "J2" H 8150 1667 50  0000 C CNN
-F 1 "Conn_02x01" H 8150 1576 50  0000 C CNN
-F 2 "Wire_Connections_Bridges:WireConnection_1.00mmDrill" H 8100 1450 50  0001 C CNN
-F 3 "~" H 8100 1450 50  0001 C CNN
-	1    8100 1450
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_02x01 J3
-U 1 1 61BB8D2B
-P 8100 1550
-F 0 "J3" H 8150 1767 50  0000 C CNN
-F 1 "Conn_02x01" H 8150 1676 50  0000 C CNN
-F 2 "Wire_Connections_Bridges:WireConnection_1.00mmDrill" H 8100 1550 50  0001 C CNN
-F 3 "~" H 8100 1550 50  0001 C CNN
-	1    8100 1550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_02x01 J5
-U 1 1 61BB8D31
-P 8100 1650
-F 0 "J5" H 8150 1867 50  0000 C CNN
-F 1 "Conn_02x01" H 8150 1776 50  0000 C CNN
-F 2 "Wire_Connections_Bridges:WireConnection_1.00mmDrill" H 8100 1650 50  0001 C CNN
-F 3 "~" H 8100 1650 50  0001 C CNN
-	1    8100 1650
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_02x01 J6
-U 1 1 61BB8D37
-P 8100 1750
-F 0 "J6" H 8150 1967 50  0000 C CNN
-F 1 "Conn_02x01" H 8150 1876 50  0000 C CNN
-F 2 "Wire_Connections_Bridges:WireConnection_1.00mmDrill" H 8100 1750 50  0001 C CNN
-F 3 "~" H 8100 1750 50  0001 C CNN
-	1    8100 1750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_02x01 J7
-U 1 1 61BB8D3D
-P 8100 1850
-F 0 "J7" H 8150 2067 50  0000 C CNN
-F 1 "Conn_02x01" H 8150 1976 50  0000 C CNN
-F 2 "Wire_Connections_Bridges:WireConnection_1.00mmDrill" H 8100 1850 50  0001 C CNN
-F 3 "~" H 8100 1850 50  0001 C CNN
-	1    8100 1850
-	1    0    0    -1  
-$EndComp
+	8700 1850 8500 1850
 Text Notes 7900 1050 0    50   ~ 0
 Wire connections\nas backup
 Text Notes 3450 3300 0    50   ~ 0
@@ -491,15 +425,15 @@ Vbatt monitor\nNC
 $Comp
 L Connector:Screw_Terminal_01x02 J68
 U 1 1 61C9FECA
-P 5050 1650
-F 0 "J68" H 5130 1642 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 5130 1551 50  0000 L CNN
-F 2 "Connectors_Terminal_Blocks:TerminalBlock_bornier-2_P5.08mm" H 5050 1650 50  0001 C CNN
-F 3 "~" H 5050 1650 50  0001 C CNN
-	1    5050 1650
+P 5150 1650
+F 0 "J68" H 5230 1642 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 5230 1551 50  0000 L CNN
+F 2 "Moederbord:TerminalBlock_2_P5.08mm" H 5150 1650 50  0001 C CNN
+F 3 "~" H 5150 1650 50  0001 C CNN
+	1    5150 1650
 	1    0    0    -1  
 $EndComp
-Text Notes 5200 1750 0    50   ~ 0
+Text Notes 5300 1750 0    50   ~ 0
 5 V in\nGND
 $Comp
 L power:+5V #PWR0106
@@ -531,39 +465,17 @@ Wire Wire Line
 	4200 1850 4200 1750
 Wire Wire Line
 	4200 1750 4300 1750
-$Comp
-L Connector_Generic:Conn_02x01 J67
-U 1 1 61CAC637
-P 4500 1650
-F 0 "J67" H 4550 1867 50  0000 C CNN
-F 1 "Conn_02x01" H 4550 1776 50  0000 C CNN
-F 2 "Wire_Connections_Bridges:WireConnection_1.00mmDrill" H 4500 1650 50  0001 C CNN
-F 3 "~" H 4500 1650 50  0001 C CNN
-	1    4500 1650
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_02x01 J69
-U 1 1 61CACEE0
-P 4500 1750
-F 0 "J69" H 4550 1967 50  0000 C CNN
-F 1 "Conn_02x01" H 4550 1876 50  0000 C CNN
-F 2 "Wire_Connections_Bridges:WireConnection_1.00mmDrill" H 4500 1750 50  0001 C CNN
-F 3 "~" H 4500 1750 50  0001 C CNN
-	1    4500 1750
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
-	4800 1650 4850 1650
+	4900 1650 4950 1650
 Wire Wire Line
-	4850 1750 4800 1750
+	4950 1750 4900 1750
 $Comp
 L Device:Jumper JP1
 U 1 1 61D06C13
 P 8100 3050
 F 0 "JP1" H 8100 3314 50  0000 C CNN
 F 1 "Jumper" H 8100 3223 50  0000 C CNN
-F 2 "" H 8100 3050 50  0001 C CNN
+F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 8100 3050 50  0001 C CNN
 F 3 "~" H 8100 3050 50  0001 C CNN
 	1    8100 3050
 	1    0    0    -1  
@@ -574,7 +486,7 @@ U 1 1 61D09B8E
 P 8100 3150
 F 0 "JP2" H 8100 3414 50  0000 C CNN
 F 1 "Jumper" H 8100 3323 50  0000 C CNN
-F 2 "" H 8100 3150 50  0001 C CNN
+F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 8100 3150 50  0001 C CNN
 F 3 "~" H 8100 3150 50  0001 C CNN
 	1    8100 3150
 	1    0    0    -1  
@@ -585,7 +497,7 @@ U 1 1 61D09D7A
 P 8100 3250
 F 0 "JP3" H 8100 3514 50  0000 C CNN
 F 1 "Jumper" H 8100 3423 50  0000 C CNN
-F 2 "" H 8100 3250 50  0001 C CNN
+F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 8100 3250 50  0001 C CNN
 F 3 "~" H 8100 3250 50  0001 C CNN
 	1    8100 3250
 	1    0    0    -1  
@@ -596,7 +508,7 @@ U 1 1 61D09F21
 P 8100 3350
 F 0 "JP4" H 8100 3614 50  0000 C CNN
 F 1 "Jumper" H 8100 3523 50  0000 C CNN
-F 2 "" H 8100 3350 50  0001 C CNN
+F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 8100 3350 50  0001 C CNN
 F 3 "~" H 8100 3350 50  0001 C CNN
 	1    8100 3350
 	1    0    0    -1  
@@ -607,7 +519,7 @@ U 1 1 61D0A277
 P 8100 3450
 F 0 "JP5" H 8100 3714 50  0000 C CNN
 F 1 "Jumper" H 8100 3623 50  0000 C CNN
-F 2 "" H 8100 3450 50  0001 C CNN
+F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 8100 3450 50  0001 C CNN
 F 3 "~" H 8100 3450 50  0001 C CNN
 	1    8100 3450
 	1    0    0    -1  
@@ -618,9 +530,97 @@ U 1 1 61D0A422
 P 8100 3550
 F 0 "JP6" H 8100 3814 50  0000 C CNN
 F 1 "Jumper" H 8100 3723 50  0000 C CNN
-F 2 "" H 8100 3550 50  0001 C CNN
+F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 8100 3550 50  0001 C CNN
 F 3 "~" H 8100 3550 50  0001 C CNN
 	1    8100 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Jumper JP7
+U 1 1 61BAFBBD
+P 8200 1350
+F 0 "JP7" H 8200 1614 50  0000 C CNN
+F 1 "Jumper" H 8200 1523 50  0000 C CNN
+F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 8200 1350 50  0001 C CNN
+F 3 "~" H 8200 1350 50  0001 C CNN
+	1    8200 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Jumper JP8
+U 1 1 61BAFBC3
+P 8200 1450
+F 0 "JP8" H 8200 1714 50  0000 C CNN
+F 1 "Jumper" H 8200 1623 50  0000 C CNN
+F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 8200 1450 50  0001 C CNN
+F 3 "~" H 8200 1450 50  0001 C CNN
+	1    8200 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Jumper JP9
+U 1 1 61BAFBC9
+P 8200 1550
+F 0 "JP9" H 8200 1814 50  0000 C CNN
+F 1 "Jumper" H 8200 1723 50  0000 C CNN
+F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 8200 1550 50  0001 C CNN
+F 3 "~" H 8200 1550 50  0001 C CNN
+	1    8200 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Jumper JP11
+U 1 1 61BAFBCF
+P 8200 1650
+F 0 "JP11" H 8200 1914 50  0000 C CNN
+F 1 "Jumper" H 8200 1823 50  0000 C CNN
+F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 8200 1650 50  0001 C CNN
+F 3 "~" H 8200 1650 50  0001 C CNN
+	1    8200 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Jumper JP13
+U 1 1 61BAFBD5
+P 8200 1750
+F 0 "JP13" H 8200 2014 50  0000 C CNN
+F 1 "Jumper" H 8200 1923 50  0000 C CNN
+F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 8200 1750 50  0001 C CNN
+F 3 "~" H 8200 1750 50  0001 C CNN
+	1    8200 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Jumper JP14
+U 1 1 61BAFBDB
+P 8200 1850
+F 0 "JP14" H 8200 2114 50  0000 C CNN
+F 1 "Jumper" H 8200 2023 50  0000 C CNN
+F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 8200 1850 50  0001 C CNN
+F 3 "~" H 8200 1850 50  0001 C CNN
+	1    8200 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Jumper JP10
+U 1 1 61BC1A28
+P 4600 1650
+F 0 "JP10" H 4600 1914 50  0000 C CNN
+F 1 "Jumper" H 4600 1823 50  0000 C CNN
+F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 4600 1650 50  0001 C CNN
+F 3 "~" H 4600 1650 50  0001 C CNN
+	1    4600 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Jumper JP12
+U 1 1 61BC1A2E
+P 4600 1750
+F 0 "JP12" H 4600 2014 50  0000 C CNN
+F 1 "Jumper" H 4600 1923 50  0000 C CNN
+F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 4600 1750 50  0001 C CNN
+F 3 "~" H 4600 1750 50  0001 C CNN
+	1    4600 1750
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
