@@ -32,7 +32,7 @@ RFID reader\nOnly used pins\nBoard will be mounted\n on another location
 Text Notes 8900 1100 0    50   ~ 0
 I2S DAC\nAll pins\nBoard will be mounted\n on motherboard
 Text Notes 9000 1900 0    63   ~ 0
-BCK\nDATA\nLRCK\nGND\nGND\nVCC
+BCK\nDATA\nLRCK\nGND\nGND\nVCC = 5V
 $Comp
 L Connector:Conn_01x06_Female J4
 U 1 1 61A7BB18
@@ -180,30 +180,10 @@ F 3 "" H 7150 1950 50  0001 C CNN
 	1    7150 1950
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:+3V3 #PWR01
-U 1 1 61C0A413
-P 7050 1650
-F 0 "#PWR01" H 7050 1500 50  0001 C CNN
-F 1 "+3V3" H 7065 1823 50  0000 C CNN
-F 2 "" H 7050 1650 50  0001 C CNN
-F 3 "" H 7050 1650 50  0001 C CNN
-	1    7050 1650
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7150 1750 7150 1950
 Wire Wire Line
-	7050 1650 7050 1850
-Wire Wire Line
-	7050 1850 7900 1850
-Wire Wire Line
 	7150 1750 7900 1750
-Wire Wire Line
-	7150 1650 7150 1750
-Wire Wire Line
-	7150 1650 7900 1650
-Connection ~ 7150 1750
 Text Notes 2100 4650 2    63   ~ 0
 GND		G\nGND		G\nCLK	Shift	21\nSH/LDn1	Shift	22\nSH/LDn2	Shift	17\nSH/LDn3	Shift	2\nCS	RFID	15\nMOSI	RFID	13\nSCLK	RFID	12\nGND		G\nGND		G\n3V3		3V
 Text GLabel 3100 3700 0    50   Output ~ 0
@@ -623,4 +603,24 @@ F 3 "~" H 4600 1750 50  0001 C CNN
 	1    4600 1750
 	1    0    0    -1  
 $EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 61BD35D5
+P 7000 1800
+F 0 "#PWR?" H 7000 1650 50  0001 C CNN
+F 1 "+5V" H 7015 1973 50  0000 C CNN
+F 2 "" H 7000 1800 50  0001 C CNN
+F 3 "" H 7000 1800 50  0001 C CNN
+	1    7000 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7150 1650 7900 1650
+Wire Wire Line
+	7000 1800 7000 1850
+Wire Wire Line
+	7000 1850 7900 1850
+Wire Wire Line
+	7150 1650 7150 1750
+Connection ~ 7150 1750
 $EndSCHEMATC
