@@ -1,0 +1,27 @@
+# http://www.webgraphviz.com/
+digraph G
+{
+  "Stand-by" -> "Aan" [label = "RFID tag lezen"]
+  "Aan" -> "Stand-by" [label = "Na 10 minuten geen toets ingedrukt"]
+
+  subgraph cluster_aan
+  {
+    label = "Aan"
+    "Zelf muziek maken" -> "Uit je hoofd" [label = "Menuknop"]
+    "Uit je hoofd" -> "Ik leer kleuren" [label = "Menuknop"]
+    "Ik leer kleuren" -> "Altijd goed" [label = "Menuknop"]
+    "Altijd goed" -> "Dierenverrassing" [label = "Menuknop"]
+    "Dierenverrassing" -> "Zelf muziek maken"[label = "Menuknop"]
+  }
+
+  subgraph cluster_zelf_muziek_maken
+  {
+    label = "Zelf muziek maken"
+    "Zet tekst 'Zelf muziek maken' op het scherm" -> "Maak scherm leeg" [label = "Na 5 seconden"]
+    "Maak scherm leeg" -> "Wachten op toets"
+    "Wachten op toets" -> "Stop eventuele MP3\nStart MP3 bij toets X" [label = "Toets X"]
+    "Stop eventuele MP3\nStart MP3 bij toets X" -> "MP3 afspelen"
+    "MP3 afspelen" -> "Wachten op toets" [label = "MP3 is afgelopen"]
+    "MP3 afspelen" -> "Stop eventuele MP3\nStart MP3 bij toets X" [label = "Toets X"]
+  }
+}
