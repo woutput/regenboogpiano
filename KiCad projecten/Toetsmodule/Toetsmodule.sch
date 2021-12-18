@@ -123,7 +123,6 @@ F 3 "" H 4700 3200 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4700 3200 4700 3250
-Connection ~ 4700 3250
 $Comp
 L power:GND #PWR0102
 U 1 1 619DD830
@@ -137,8 +136,6 @@ F 3 "" H 4700 5650 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4700 3700 4600 3700
-Wire Wire Line
-	4700 3250 4700 3700
 Wire Wire Line
 	5850 3500 4600 3500
 Wire Wire Line
@@ -159,4 +156,26 @@ Wire Wire Line
 	3050 5150 3050 3800
 Wire Wire Line
 	3050 5150 3050 5600
+Wire Wire Line
+	4700 3700 4700 4200
+Wire Wire Line
+	4700 5250 4300 5250
+$Comp
+L power:+3V3 #PWR?
+U 1 1 61BDB54A
+P 4500 4150
+F 0 "#PWR?" H 4500 4000 50  0001 C CNN
+F 1 "+3V3" H 4515 4323 50  0000 C CNN
+F 2 "" H 4500 4150 50  0001 C CNN
+F 3 "" H 4500 4150 50  0001 C CNN
+	1    4500 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4500 4150 4500 4200
+Wire Wire Line
+	4500 4200 4700 4200
+Connection ~ 4700 4200
+Wire Wire Line
+	4700 4200 4700 5250
 $EndSCHEMATC

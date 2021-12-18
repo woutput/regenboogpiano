@@ -1,38 +1,54 @@
 //// Important constants
-#define LED_BRIGHTNESS 50 // 0...255
+#define LED_BRIGHTNESS 25 // 0...255
 #define LED_DISPLAY_BRIGHTNESS LED_BRIGHTNESS // 0...255
 #define LED_RINGS_BRIGHTNESS LED_BRIGHTNESS // 0...255
 
 //// Pins
 // DAC
-#define PIN_DAC_BCLK     33 // was 15
-#define PIN_DAC_LRCLK    25 // was 12
-#define PIN_DAC_DATA     32 // was  2
+#define PIN_DAC_DATA     32
+#define PIN_DAC_BCLK     33
+#define PIN_DAC_LRCLK    25
 
 // TFT display (fixed, do not change)
 #define PIN_TFT_CS         5
-#define PIN_TFT_RST       -1 // Or set to -1 and connect to Arduino RESET pin
+#define PIN_TFT_RST       -1
 #define PIN_TFT_DC        16
-#define PIN_TFT_BACKLIGHT  4 // Display backlight pin
-#define PIN_TFT_MOSI      19 // Data out
-#define PIN_TFT_SCLK      18 // Clock out
+#define PIN_TFT_BACKLIGHT  4
+#define PIN_TFT_MOSI      19
+#define PIN_TFT_SCLK      18
 
 // LEDs
-#define PIN_LED_DISPLAY 27
 #define PIN_LED_RINGS   26
+#define PIN_LED_DISPLAY 27
 
 // RFID reader
 #define PIN_RFID_RESET  UINT8_MAX // not connected
-#define PIN_RFID_CS      2 // was 27
-#define PIN_RFID_SCK    12 // was 26
-#define PIN_RFID_MISO   13 // was 33
-#define PIN_RFID_MOSI   15 // was 25
+#define PIN_RFID_CS     15
+#define PIN_RFID_SCK    12
+#define PIN_RFID_MISO   38
+#define PIN_RFID_MOSI   13
+
+// Shift registers
+#define PIN_SHIFT_CLK   21
+#define PIN_SHIFT_SHLD1 22
+#define PIN_SHIFT_SHLD2 17
+#define PIN_SHIFT_SHLD3  2
+#define PIN_SHIFT_DATA  36
 
 // Test buttons on controller board
 #define PIN_TEST_BUTTON_LEFT 0
 #define PIN_TEST_BUTTON_RIGHT 35
 
+//// Less important constants
+// TODO: minimize this
+// #define SHIFT_REGISTERS_SMALL_DELAY__MS 0
+// TODO: change from 1 (test) to 3 (real)
+#define NUMBER_OF_SHIFT_REGISTERS 1
+#define NUMBER_OF_SHIFTS (NUMBER_OF_SHIFT_REGISTERS * 8)
 
+// TODO: change from 1 (test) to 25 (real)
+#define NUMBER_OF_LED_RINGS 1
+#define NUMBER_OF_LEDS_PER_LED_RING 12
 
 //// Include libraries
 #include <Arduino.h>
@@ -70,10 +86,13 @@ Adafruit_NeoMatrix LED_display = Adafruit_NeoMatrix(32, 8, PIN_LED_DISPLAY,
   NEO_GRB            + NEO_KHZ800);
 
 // LED rings
-Adafruit_NeoPixel LED_rings = Adafruit_NeoPixel(32 * 8, PIN_LED_RINGS, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel LED_rings = Adafruit_NeoPixel(NUMBER_OF_LEDS_PER_LED_RING * NUMBER_OF_LED_RINGS, PIN_LED_RINGS, NEO_GRB + NEO_KHZ800);
 
 // RFID reader
 MFRC522 mfrc522(PIN_RFID_CS, PIN_RFID_RESET);  // Create MFRC522 instance
+
+// Shift registers
+int touch_sensor_state[NUMBER_OF_SHIFTS]; // TODO change to boolean when possible
 
 
 
@@ -122,16 +141,23 @@ void setup()
   // WiFi
   WiFi.mode(WIFI_OFF); // TODO turn on WiFi later for firmware updates
 
-  // Pins
+  // Set pin modes
+  // Test buttons
   pinMode(PIN_TEST_BUTTON_LEFT, INPUT_PULLUP);
   pinMode(PIN_TEST_BUTTON_RIGHT, INPUT_PULLUP);
+  // Shift registers
+  pinMode(PIN_SHIFT_CLK, OUTPUT);
+  pinMode(PIN_SHIFT_SHLD1, OUTPUT);
+  pinMode(PIN_SHIFT_SHLD2, OUTPUT);
+  pinMode(PIN_SHIFT_SHLD3, OUTPUT);
+  pinMode(PIN_SHIFT_DATA, INPUT);
 
-  // Audio
-  audioLogger = &Serial;
-  file = new AudioFileSourcePROGMEM(left_h, sizeof(left_h));
-  out = new AudioOutputI2S();
-  out->SetPinout(PIN_DAC_BCLK, PIN_DAC_LRCLK, PIN_DAC_DATA);
-  mp3 = new AudioGeneratorMP3();
+  // // Audio
+  // audioLogger = &Serial;
+  // file = new AudioFileSourcePROGMEM(left_h, sizeof(left_h));
+  // out = new AudioOutputI2S();
+  // out->SetPinout(PIN_DAC_BCLK, PIN_DAC_LRCLK, PIN_DAC_DATA);
+  // mp3 = new AudioGeneratorMP3();
 
   // TFT display
   tft.init(135, 240);
@@ -139,23 +165,23 @@ void setup()
   pinMode(PIN_TFT_BACKLIGHT, OUTPUT);
   digitalWrite(PIN_TFT_BACKLIGHT, HIGH); // Backlight on
 
-  // LED display
-  LED_display.begin();
-  LED_display.setTextWrap(false);
-  LED_display.setBrightness(LED_DISPLAY_BRIGHTNESS);
-  LED_display.setTextColor(LED_display.Color(0, 0, 255));
-  LED_display.show(); // Initialize all pixels to 'off'
+  // // LED display
+  // LED_display.begin();
+  // LED_display.setTextWrap(false);
+  // LED_display.setBrightness(LED_DISPLAY_BRIGHTNESS);
+  // LED_display.setTextColor(LED_display.Color(0, 0, 255));
+  // LED_display.show(); // Initialize all pixels to 'off'
 
-  // // LED rings
-  // LED_rings.begin();
-  // LED_rings.setBrightness(LED_RINGS_BRIGHTNESS);
-  // LED_rings.show(); // Initialize all pixels to 'off'
+  // LED rings
+  LED_rings.begin();
+  LED_rings.setBrightness(LED_RINGS_BRIGHTNESS);
+  LED_rings.show(); // Initialize all pixels to 'off'
 
-  // RFID reader
-	SPI.begin(PIN_RFID_SCK, PIN_RFID_MISO, PIN_RFID_MOSI, PIN_RFID_CS);
-	mfrc522.PCD_Init();
-	delay(4); // Optional delay. Some board do need more time after init to be ready, see Readme
-  mfrc522.PCD_SetAntennaGain(mfrc522.RxGain_max);
+  // // RFID reader
+	// SPI.begin(PIN_RFID_SCK, PIN_RFID_MISO, PIN_RFID_MOSI, PIN_RFID_CS);
+	// mfrc522.PCD_Init();
+	// delay(4); // Optional delay. Some board do need more time after init to be ready, see Readme
+  // mfrc522.PCD_SetAntennaGain(mfrc522.RxGain_max);
 
   Serial.println("End of setup");
 
@@ -167,12 +193,12 @@ void setup()
   // LED_display.setCursor(0, 0);
   // LED_display.print(F("Regenboogpiano"));
   // LED_display.show();
-  // // LED rings
-  // for(uint16_t i=0; i<LED_rings.numPixels(); i++)
-  // {
-  //   LED_rings.setPixelColor(i, i * 256 * 256);
-  // }
-  // LED_rings.show();
+  // LED rings
+  for(uint16_t i = 0; i < LED_rings.numPixels(); i++)
+  {
+    LED_rings.setPixelColor(i, i * 21);
+  }
+  LED_rings.show();
   // TFT display
   tft.fillScreen(ST77XX_BLACK);
   tft.setCursor(0, 0);
@@ -205,52 +231,102 @@ void setup()
   tft.print("n");
   tft.setTextColor(ST77XX_MAGENTA);
   tft.print("o");
-  // RFID reader
-	mfrc522.PCD_DumpVersionToSerial(); // Show details of PCD - MFRC522 Card Reader details
+  // // RFID reader
+	// mfrc522.PCD_DumpVersionToSerial(); // Show details of PCD - MFRC522 Card Reader details
 }
 
-
+// LED ring rainbow demo
+uint16_t step = 0;
+bool already_done = false;
 
 //// Loop
 void loop()
 {
-  // Audio
-  if (digitalRead(PIN_TEST_BUTTON_RIGHT) == LOW)
-  {
-    if (mp3->isRunning())
-      mp3->stop();
-    file->open(right_h, sizeof(right_h));
-    mp3->begin(file, out);
-  }
+  // // Audio
+  // if (digitalRead(PIN_TEST_BUTTON_RIGHT) == LOW)
+  // {
+  //   if (mp3->isRunning())
+  //     mp3->stop();
+  //   file->open(right_h, sizeof(right_h));
+  //   mp3->begin(file, out);
+  // }
 
-  if (digitalRead(PIN_TEST_BUTTON_LEFT) == LOW)
-  {
-    if (mp3->isRunning())
-      mp3->stop();
-    file->open(left_h, sizeof(left_h));
-    mp3->begin(file, out);
-  }
+  // if (digitalRead(PIN_TEST_BUTTON_LEFT) == LOW)
+  // {
+  //   if (mp3->isRunning())
+  //     mp3->stop();
+  //   file->open(left_h, sizeof(left_h));
+  //   mp3->begin(file, out);
+  // }
 
-  if (mp3->isRunning())
-  {
-    if (!mp3->loop()) mp3->stop();
-  }
+  // if (mp3->isRunning())
+  // {
+  //   if (!mp3->loop()) mp3->stop();
+  // }
 
 
-  if ((millis() % 100) == 0)
-  {
-    // RFID reader
-    if (mfrc522.PICC_IsNewCardPresent())
-    {
-      // Select one of the cards
-      if (mfrc522.PICC_ReadCardSerial())
-      {
-        Serial.print(F("Card UID:"));
-        // mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
-        dump_byte_array(mfrc522.uid.uidByte, mfrc522.uid.size);
-        Serial.println(F(""));
-        mfrc522.PICC_HaltA();
-      }
-    }
-  }
+  //   // RFID reader
+  // if ((millis() % 100) == 0)
+  // {
+  //   if (mfrc522.PICC_IsNewCardPresent())
+  //   {
+  //     // Select one of the cards
+  //     if (mfrc522.PICC_ReadCardSerial())
+  //     {
+  //       Serial.print(F("Card UID:"));
+  //       // mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
+  //       dump_byte_array(mfrc522.uid.uidByte, mfrc522.uid.size);
+  //       Serial.println(F(""));
+  //       mfrc522.PICC_HaltA();
+  //     }
+  //   }
+  // }
+
+
+  // // Shift registers
+  // // Load inputs to shift registers
+  // digitalWrite(PIN_SHIFT_CLK, LOW);
+  // // delay(SHIFT_REGISTERS_SMALL_DELAY__MS);
+  // digitalWrite(PIN_SHIFT_SHLD1, LOW);
+  // digitalWrite(PIN_SHIFT_SHLD2, LOW);
+  // digitalWrite(PIN_SHIFT_SHLD3, LOW);
+  // // delay(SHIFT_REGISTERS_SMALL_DELAY__MS);
+  // digitalWrite(PIN_SHIFT_CLK, HIGH);
+  // // delay(SHIFT_REGISTERS_SMALL_DELAY__MS);
+  // digitalWrite(PIN_SHIFT_CLK, LOW);
+  // digitalWrite(PIN_SHIFT_SHLD1, HIGH);
+  // digitalWrite(PIN_SHIFT_SHLD2, HIGH);
+  // digitalWrite(PIN_SHIFT_SHLD3, HIGH);
+  // // delay(SHIFT_REGISTERS_SMALL_DELAY__MS);
+  // // Now shift out data
+  // for (uint8_t shifts = 0; shifts < NUMBER_OF_SHIFTS; shifts++)
+  // {
+  //   digitalWrite(PIN_SHIFT_CLK, HIGH);
+  //   // delay(SHIFT_REGISTERS_SMALL_DELAY__MS);
+  //   touch_sensor_state[shifts] = digitalRead(PIN_SHIFT_DATA);
+  //   Serial.print(touch_sensor_state[shifts]);
+  //   digitalWrite(PIN_SHIFT_CLK, LOW);
+  //   // delay(SHIFT_REGISTERS_SMALL_DELAY__MS);
+  // }
+  // Serial.println("");
+
+  // LED ring rainbow demo
+  // if ((millis() % 10) == 0)
+  // {
+  //   if (already_done == false)
+  //   {
+      step = step + 10;
+      // if (step == UINT16_MAX)
+      // {
+      //   step = 0;
+      // }
+      LED_rings.rainbow(step);
+      LED_rings.show();
+      already_done = true;
+//     }
+//   }
+//   else
+//   {
+//     already_done = false;
+//   }
 }

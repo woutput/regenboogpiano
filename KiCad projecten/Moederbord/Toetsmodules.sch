@@ -26,7 +26,6 @@ F 3 "~" H 2900 2400 50  0001 C CNN
 	1    2900 2400
 	1    0    0    -1  
 $EndComp
-NoConn ~ 3100 2700
 $Comp
 L Connector:Conn_01x06_Male J?
 U 1 1 61AF2ADC
@@ -40,7 +39,6 @@ F 3 "~" H 3850 2400 50  0001 C CNN
 	1    3850 2400
 	1    0    0    -1  
 $EndComp
-NoConn ~ 4050 2700
 Wire Wire Line
 	3200 2500 3100 2500
 Wire Wire Line
@@ -118,7 +116,6 @@ F 3 "~" H 4800 2400 50  0001 C CNN
 	1    4800 2400
 	1    0    0    -1  
 $EndComp
-NoConn ~ 5000 2700
 $Comp
 L Connector:Conn_01x06_Male J?
 U 1 1 61AF2B0A
@@ -132,7 +129,6 @@ F 3 "~" H 5750 2400 50  0001 C CNN
 	1    5750 2400
 	1    0    0    -1  
 $EndComp
-NoConn ~ 5950 2700
 Wire Wire Line
 	5100 2500 5000 2500
 Wire Wire Line
@@ -210,7 +206,6 @@ F 3 "~" H 6700 2400 50  0001 C CNN
 	1    6700 2400
 	1    0    0    -1  
 $EndComp
-NoConn ~ 6900 2700
 $Comp
 L Connector:Conn_01x06_Male J?
 U 1 1 61AF81CC
@@ -224,7 +219,6 @@ F 3 "~" H 7650 2400 50  0001 C CNN
 	1    7650 2400
 	1    0    0    -1  
 $EndComp
-NoConn ~ 7850 2700
 Wire Wire Line
 	7000 2500 6900 2500
 Wire Wire Line
@@ -302,7 +296,6 @@ F 3 "~" H 8600 2400 50  0001 C CNN
 	1    8600 2400
 	1    0    0    -1  
 $EndComp
-NoConn ~ 8800 2700
 $Comp
 L Connector:Conn_01x06_Male J?
 U 1 1 61AF81FA
@@ -316,7 +309,6 @@ F 3 "~" H 9550 2400 50  0001 C CNN
 	1    9550 2400
 	1    0    0    -1  
 $EndComp
-NoConn ~ 9750 2700
 Wire Wire Line
 	8900 2500 8800 2500
 Wire Wire Line
@@ -394,7 +386,6 @@ F 3 "~" H 2900 3800 50  0001 C CNN
 	1    2900 3800
 	1    0    0    -1  
 $EndComp
-NoConn ~ 3100 4100
 $Comp
 L Connector:Conn_01x06_Male J?
 U 1 1 61B0CBFC
@@ -1130,7 +1121,6 @@ F 3 "~" H 1950 2400 50  0001 C CNN
 	1    1950 2400
 	1    0    0    -1  
 $EndComp
-NoConn ~ 2150 2700
 Wire Wire Line
 	2250 2500 2150 2500
 Wire Wire Line
@@ -1376,4 +1366,159 @@ Text GLabel 9850 5300 2    50   Output ~ 0
 Touch24
 Wire Wire Line
 	1750 2300 2150 2300
+$Comp
+L power:+3V3 #PWR?
+U 1 1 61BE6B33
+P 2000 2950
+F 0 "#PWR?" H 2000 2800 50  0001 C CNN
+F 1 "+3V3" H 2015 3123 50  0000 C CNN
+F 2 "" H 2000 2950 50  0001 C CNN
+F 3 "" H 2000 2950 50  0001 C CNN
+	1    2000 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2000 2950 2000 3000
+Wire Wire Line
+	2000 3000 2150 3000
+Wire Wire Line
+	2150 3000 2150 2700
+$Comp
+L power:+3V3 #PWR?
+U 1 1 61BF17A8
+P 2950 2950
+F 0 "#PWR?" H 2950 2800 50  0001 C CNN
+F 1 "+3V3" H 2965 3123 50  0000 C CNN
+F 2 "" H 2950 2950 50  0001 C CNN
+F 3 "" H 2950 2950 50  0001 C CNN
+	1    2950 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 2950 2950 3000
+Wire Wire Line
+	2950 3000 3100 3000
+Wire Wire Line
+	3100 3000 3100 2700
+$Comp
+L power:+3V3 #PWR?
+U 1 1 61BFB12D
+P 3900 2950
+F 0 "#PWR?" H 3900 2800 50  0001 C CNN
+F 1 "+3V3" H 3915 3123 50  0000 C CNN
+F 2 "" H 3900 2950 50  0001 C CNN
+F 3 "" H 3900 2950 50  0001 C CNN
+	1    3900 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3900 2950 3900 3000
+Wire Wire Line
+	3900 3000 4050 3000
+Wire Wire Line
+	4050 3000 4050 2700
+$Comp
+L power:+3V3 #PWR?
+U 1 1 61C0557A
+P 4850 2950
+F 0 "#PWR?" H 4850 2800 50  0001 C CNN
+F 1 "+3V3" H 4865 3123 50  0000 C CNN
+F 2 "" H 4850 2950 50  0001 C CNN
+F 3 "" H 4850 2950 50  0001 C CNN
+	1    4850 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4850 2950 4850 3000
+Wire Wire Line
+	4850 3000 5000 3000
+Wire Wire Line
+	5000 3000 5000 2700
+$Comp
+L power:+3V3 #PWR?
+U 1 1 61C0FE0D
+P 6750 2950
+F 0 "#PWR?" H 6750 2800 50  0001 C CNN
+F 1 "+3V3" H 6765 3123 50  0000 C CNN
+F 2 "" H 6750 2950 50  0001 C CNN
+F 3 "" H 6750 2950 50  0001 C CNN
+	1    6750 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6750 2950 6750 3000
+Wire Wire Line
+	6750 3000 6900 3000
+Wire Wire Line
+	6900 3000 6900 2700
+$Comp
+L power:+3V3 #PWR?
+U 1 1 61C1A261
+P 5800 2950
+F 0 "#PWR?" H 5800 2800 50  0001 C CNN
+F 1 "+3V3" H 5815 3123 50  0000 C CNN
+F 2 "" H 5800 2950 50  0001 C CNN
+F 3 "" H 5800 2950 50  0001 C CNN
+	1    5800 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 2950 5800 3000
+Wire Wire Line
+	5800 3000 5950 3000
+Wire Wire Line
+	5950 3000 5950 2700
+$Comp
+L power:+3V3 #PWR?
+U 1 1 61C24B17
+P 7700 2950
+F 0 "#PWR?" H 7700 2800 50  0001 C CNN
+F 1 "+3V3" H 7715 3123 50  0000 C CNN
+F 2 "" H 7700 2950 50  0001 C CNN
+F 3 "" H 7700 2950 50  0001 C CNN
+	1    7700 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7700 2950 7700 3000
+Wire Wire Line
+	7700 3000 7850 3000
+Wire Wire Line
+	7850 3000 7850 2700
+$Comp
+L power:+3V3 #PWR?
+U 1 1 61C2F7F7
+P 8650 2950
+F 0 "#PWR?" H 8650 2800 50  0001 C CNN
+F 1 "+3V3" H 8665 3123 50  0000 C CNN
+F 2 "" H 8650 2950 50  0001 C CNN
+F 3 "" H 8650 2950 50  0001 C CNN
+	1    8650 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8650 2950 8650 3000
+Wire Wire Line
+	8650 3000 8800 3000
+Wire Wire Line
+	8800 3000 8800 2700
+$Comp
+L power:+3V3 #PWR?
+U 1 1 61C3A5DB
+P 9600 2950
+F 0 "#PWR?" H 9600 2800 50  0001 C CNN
+F 1 "+3V3" H 9615 3123 50  0000 C CNN
+F 2 "" H 9600 2950 50  0001 C CNN
+F 3 "" H 9600 2950 50  0001 C CNN
+	1    9600 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9600 2950 9600 3000
+Wire Wire Line
+	9600 3000 9750 3000
+Wire Wire Line
+	9750 3000 9750 2700
+Text Notes 1600 4400 0    50   ~ 0
+TODO: NC --> +3V3
 $EndSCHEMATC
