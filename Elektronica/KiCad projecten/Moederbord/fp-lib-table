@@ -1,3 +1,3 @@
 (fp_lib_table
-  (lib (name Moederbord)(type KiCad)(uri "C:/Data/Synced to Github/Regenboogpiano/KiCad projecten/Moederbord/Moederbord.pretty")(options "")(descr ""))
+  (lib (name Moederbord)(type KiCad)(uri "C:/Data/Synced to Github/Regenboogpiano/Elektronica/KiCad projecten/Moederbord/Moederbord.pretty")(options "")(descr ""))
 )

@@ -105,10 +105,10 @@ Shift_data
 Wire Wire Line
 	8650 5100 8700 5100
 $Comp
-L power:GND #PWR061
+L power:GND #PWR099
 U 1 1 61BCA21C
 P 7200 4050
-F 0 "#PWR061" H 7200 3800 50  0001 C CNN
+F 0 "#PWR099" H 7200 3800 50  0001 C CNN
 F 1 "GND" H 7205 3877 50  0000 C CNN
 F 2 "" H 7200 4050 50  0001 C CNN
 F 3 "" H 7200 4050 50  0001 C CNN
@@ -118,10 +118,10 @@ $EndComp
 Wire Wire Line
 	7200 4050 7200 4000
 $Comp
-L power:GND #PWR059
+L power:GND #PWR097
 U 1 1 61BCB609
 P 5300 3250
-F 0 "#PWR059" H 5300 3000 50  0001 C CNN
+F 0 "#PWR097" H 5300 3000 50  0001 C CNN
 F 1 "GND" H 5305 3077 50  0000 C CNN
 F 2 "" H 5300 3250 50  0001 C CNN
 F 3 "" H 5300 3250 50  0001 C CNN
@@ -133,10 +133,10 @@ Wire Wire Line
 Wire Wire Line
 	5300 3200 5650 3200
 $Comp
-L power:GND #PWR057
+L power:GND #PWR093
 U 1 1 61BCC001
 P 3400 2450
-F 0 "#PWR057" H 3400 2200 50  0001 C CNN
+F 0 "#PWR093" H 3400 2200 50  0001 C CNN
 F 1 "GND" H 3405 2277 50  0000 C CNN
 F 2 "" H 3400 2450 50  0001 C CNN
 F 3 "" H 3400 2450 50  0001 C CNN
@@ -154,10 +154,10 @@ Shift_CLK
 Text GLabel 7300 3750 1    50   Input ~ 0
 Shift_CLK
 $Comp
-L power:+3V3 #PWR060
+L power:+3V3 #PWR098
 U 1 1 61BCF956
 P 7550 3650
-F 0 "#PWR060" H 7550 3500 50  0001 C CNN
+F 0 "#PWR098" H 7550 3500 50  0001 C CNN
 F 1 "+3V3" H 7565 3823 50  0000 C CNN
 F 2 "" H 7550 3650 50  0001 C CNN
 F 3 "" H 7550 3650 50  0001 C CNN
@@ -171,10 +171,10 @@ Wire Wire Line
 Wire Wire Line
 	7200 4000 7550 4000
 $Comp
-L power:+3V3 #PWR058
+L power:+3V3 #PWR094
 U 1 1 61BD20D4
 P 5650 2850
-F 0 "#PWR058" H 5650 2700 50  0001 C CNN
+F 0 "#PWR094" H 5650 2700 50  0001 C CNN
 F 1 "+3V3" H 5665 3023 50  0000 C CNN
 F 2 "" H 5650 2850 50  0001 C CNN
 F 3 "" H 5650 2850 50  0001 C CNN
@@ -186,10 +186,10 @@ Wire Wire Line
 Wire Wire Line
 	5650 2950 5750 2950
 $Comp
-L power:+3V3 #PWR056
+L power:+3V3 #PWR090
 U 1 1 61BD329C
 P 3750 2050
-F 0 "#PWR056" H 3750 1900 50  0001 C CNN
+F 0 "#PWR090" H 3750 1900 50  0001 C CNN
 F 1 "+3V3" H 3765 2223 50  0000 C CNN
 F 2 "" H 3750 2050 50  0001 C CNN
 F 3 "" H 3750 2050 50  0001 C CNN
@@ -234,101 +234,101 @@ Wire Wire Line
 	4850 3500 5650 3500
 Wire Wire Line
 	6750 4300 7550 4300
-Text GLabel 3050 2800 0    50   Input ~ 0
+Text GLabel 3150 2800 0    50   Input ~ 0
 Touch1
 Wire Wire Line
-	3050 2800 3100 2800
-Text GLabel 3050 2900 0    50   Input ~ 0
+	3150 2800 3200 2800
+Text GLabel 3150 2900 0    50   Input ~ 0
 Touch2
 Wire Wire Line
-	3050 2900 3100 2900
-Text GLabel 3050 3000 0    50   Input ~ 0
+	3150 2900 3200 2900
+Text GLabel 3150 3000 0    50   Input ~ 0
 Touch3
 Wire Wire Line
-	3050 3000 3100 3000
-Text GLabel 3050 3100 0    50   Input ~ 0
+	3150 3000 3200 3000
+Text GLabel 3150 3100 0    50   Input ~ 0
 Touch4
 Wire Wire Line
-	3050 3100 3100 3100
-Text GLabel 3050 3200 0    50   Input ~ 0
+	3150 3100 3200 3100
+Text GLabel 3150 3200 0    50   Input ~ 0
 Touch5
 Wire Wire Line
-	3050 3200 3100 3200
-Text GLabel 3050 3300 0    50   Input ~ 0
+	3150 3200 3200 3200
+Text GLabel 3150 3300 0    50   Input ~ 0
 Touch6
 Wire Wire Line
-	3050 3300 3100 3300
-Text GLabel 3050 3400 0    50   Input ~ 0
+	3150 3300 3200 3300
+Text GLabel 3150 3400 0    50   Input ~ 0
 Touch7
 Wire Wire Line
-	3050 3400 3100 3400
-Text GLabel 3050 3500 0    50   Input ~ 0
+	3150 3400 3200 3400
+Text GLabel 3150 3500 0    50   Input ~ 0
 Touch8
 Wire Wire Line
-	3050 3500 3100 3500
-Text GLabel 4950 3600 0    50   Input ~ 0
+	3150 3500 3200 3500
+Text GLabel 5050 3600 0    50   Input ~ 0
 Touch9
 Wire Wire Line
-	4950 3600 5000 3600
-Text GLabel 4950 3700 0    50   Input ~ 0
+	5050 3600 5100 3600
+Text GLabel 5050 3700 0    50   Input ~ 0
 Touch10
 Wire Wire Line
-	4950 3700 5000 3700
-Text GLabel 4950 3800 0    50   Input ~ 0
+	5050 3700 5100 3700
+Text GLabel 5050 3800 0    50   Input ~ 0
 Touch11
 Wire Wire Line
-	4950 3800 5000 3800
-Text GLabel 4950 3900 0    50   Input ~ 0
+	5050 3800 5100 3800
+Text GLabel 5050 3900 0    50   Input ~ 0
 Touch12
 Wire Wire Line
-	4950 3900 5000 3900
-Text GLabel 4950 4000 0    50   Input ~ 0
+	5050 3900 5100 3900
+Text GLabel 5050 4000 0    50   Input ~ 0
 Touch13
 Wire Wire Line
-	4950 4000 5000 4000
-Text GLabel 4950 4100 0    50   Input ~ 0
+	5050 4000 5100 4000
+Text GLabel 5050 4100 0    50   Input ~ 0
 Touch14
 Wire Wire Line
-	4950 4100 5000 4100
-Text GLabel 4950 4200 0    50   Input ~ 0
+	5050 4100 5100 4100
+Text GLabel 5050 4200 0    50   Input ~ 0
 Touch15
 Wire Wire Line
-	4950 4200 5000 4200
-Text GLabel 4950 4300 0    50   Input ~ 0
+	5050 4200 5100 4200
+Text GLabel 5050 4300 0    50   Input ~ 0
 Touch16
 Wire Wire Line
-	4950 4300 5000 4300
-Text GLabel 6850 4400 0    50   Input ~ 0
+	5050 4300 5100 4300
+Text GLabel 6950 4400 0    50   Input ~ 0
 Touch17
 Wire Wire Line
-	6850 4400 6900 4400
-Text GLabel 6850 4500 0    50   Input ~ 0
+	6950 4400 7000 4400
+Text GLabel 6950 4500 0    50   Input ~ 0
 Touch18
 Wire Wire Line
-	6850 4500 6900 4500
-Text GLabel 6850 4600 0    50   Input ~ 0
+	6950 4500 7000 4500
+Text GLabel 6950 4600 0    50   Input ~ 0
 Touch19
 Wire Wire Line
-	6850 4600 6900 4600
-Text GLabel 6850 4700 0    50   Input ~ 0
+	6950 4600 7000 4600
+Text GLabel 6950 4700 0    50   Input ~ 0
 Touch20
 Wire Wire Line
-	6850 4700 6900 4700
-Text GLabel 6850 4800 0    50   Input ~ 0
+	6950 4700 7000 4700
+Text GLabel 6950 4800 0    50   Input ~ 0
 Touch21
 Wire Wire Line
-	6850 4800 6900 4800
-Text GLabel 6850 4900 0    50   Input ~ 0
+	6950 4800 7000 4800
+Text GLabel 6950 4900 0    50   Input ~ 0
 Touch22
 Wire Wire Line
-	6850 4900 6900 4900
-Text GLabel 6850 5000 0    50   Input ~ 0
+	6950 4900 7000 4900
+Text GLabel 6950 5000 0    50   Input ~ 0
 Touch23
 Wire Wire Line
-	6850 5000 6900 5000
+	6950 5000 7000 5000
 Wire Wire Line
-	6850 5100 6900 5100
-Text GLabel 6850 5100 0    50   Input ~ 0
+	6950 5100 7000 5100
+Text GLabel 6950 5100 0    50   Input ~ 0
 Touch24
 Wire Wire Line
 	3750 2700 3650 2700
@@ -338,315 +338,219 @@ Connection ~ 3650 2400
 Wire Wire Line
 	3650 2400 3750 2400
 $Comp
-L Device:Jumper JP?
-U 1 1 61BD9B4E
-P 3400 2800
-AR Path="/61BD9B4E" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BD9B4E" Ref="JP15"  Part="1" 
-F 0 "JP15" H 3400 3064 50  0000 C CNN
-F 1 "Jumper" H 3400 2973 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 3400 2800 50  0001 C CNN
-F 3 "~" H 3400 2800 50  0001 C CNN
-	1    3400 2800
+L power:GND #PWR089
+U 1 1 61D59D77
+P 4100 1550
+F 0 "#PWR089" H 4100 1300 50  0001 C CNN
+F 1 "GND" H 4105 1377 50  0000 C CNN
+F 2 "" H 4100 1550 50  0001 C CNN
+F 3 "" H 4100 1550 50  0001 C CNN
+	1    4100 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4100 1550 4100 1500
+Wire Wire Line
+	4100 1500 4200 1500
+$Comp
+L power:+3V3 #PWR088
+U 1 1 61D5D041
+P 4700 1450
+F 0 "#PWR088" H 4700 1300 50  0001 C CNN
+F 1 "+3V3" H 4715 1623 50  0000 C CNN
+F 2 "" H 4700 1450 50  0001 C CNN
+F 3 "" H 4700 1450 50  0001 C CNN
+	1    4700 1450
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Jumper JP?
-U 1 1 61BD9B54
-P 3400 2900
-AR Path="/61BD9B54" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BD9B54" Ref="JP16"  Part="1" 
-F 0 "JP16" H 3400 3164 50  0000 C CNN
-F 1 "Jumper" H 3400 3073 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 3400 2900 50  0001 C CNN
-F 3 "~" H 3400 2900 50  0001 C CNN
-	1    3400 2900
+L Device:C C4
+U 1 1 61D69981
+P 4400 1500
+F 0 "C4" V 4148 1500 50  0000 C CNN
+F 1 "100 uF" V 4239 1500 50  0000 C CNN
+F 2 "Capacitors_SMD:C_1210_HandSoldering" H 4438 1350 50  0001 C CNN
+F 3 "~" H 4400 1500 50  0001 C CNN
+	1    4400 1500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4500 1750 4500 2050
+Wire Wire Line
+	4200 1500 4200 1750
+Wire Wire Line
+	4350 2050 4350 1750
+Connection ~ 4200 1500
+Wire Wire Line
+	4200 1500 4250 1500
+Wire Wire Line
+	4200 1750 4350 1750
+Wire Wire Line
+	4650 1750 4650 1500
+Wire Wire Line
+	4550 1500 4650 1500
+Wire Wire Line
+	4500 1750 4650 1750
+Wire Wire Line
+	4650 1500 4700 1500
+Wire Wire Line
+	4700 1500 4700 1450
+Connection ~ 4650 1500
+$Comp
+L power:+3V3 #PWR091
+U 1 1 61D9C032
+P 6600 2250
+F 0 "#PWR091" H 6600 2100 50  0001 C CNN
+F 1 "+3V3" H 6615 2423 50  0000 C CNN
+F 2 "" H 6600 2250 50  0001 C CNN
+F 3 "" H 6600 2250 50  0001 C CNN
+	1    6600 2250
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Jumper JP?
-U 1 1 61BDC88F
-P 3400 3000
-AR Path="/61BDC88F" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BDC88F" Ref="JP17"  Part="1" 
-F 0 "JP17" H 3400 3264 50  0000 C CNN
-F 1 "Jumper" H 3400 3173 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 3400 3000 50  0001 C CNN
-F 3 "~" H 3400 3000 50  0001 C CNN
-	1    3400 3000
+L Device:C C5
+U 1 1 61D9C038
+P 6300 2300
+F 0 "C5" V 6048 2300 50  0000 C CNN
+F 1 "100 uF" V 6139 2300 50  0000 C CNN
+F 2 "Capacitors_SMD:C_1210_HandSoldering" H 6338 2150 50  0001 C CNN
+F 3 "~" H 6300 2300 50  0001 C CNN
+	1    6300 2300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6400 2550 6400 2850
+Wire Wire Line
+	6100 2300 6100 2550
+Wire Wire Line
+	6250 2850 6250 2550
+Wire Wire Line
+	6100 2300 6150 2300
+Wire Wire Line
+	6550 2550 6550 2300
+Wire Wire Line
+	6450 2300 6550 2300
+Wire Wire Line
+	6400 2550 6550 2550
+Wire Wire Line
+	6550 2300 6600 2300
+Wire Wire Line
+	6600 2300 6600 2250
+Connection ~ 6550 2300
+$Comp
+L power:GND #PWR096
+U 1 1 61DA068A
+P 7900 3150
+F 0 "#PWR096" H 7900 2900 50  0001 C CNN
+F 1 "GND" H 7905 2977 50  0000 C CNN
+F 2 "" H 7900 3150 50  0001 C CNN
+F 3 "" H 7900 3150 50  0001 C CNN
+	1    7900 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7900 3150 7900 3100
+Wire Wire Line
+	7900 3100 8000 3100
+$Comp
+L power:+3V3 #PWR095
+U 1 1 61DA0692
+P 8500 3050
+F 0 "#PWR095" H 8500 2900 50  0001 C CNN
+F 1 "+3V3" H 8515 3223 50  0000 C CNN
+F 2 "" H 8500 3050 50  0001 C CNN
+F 3 "" H 8500 3050 50  0001 C CNN
+	1    8500 3050
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Jumper JP?
-U 1 1 61BDC895
+L Device:C C6
+U 1 1 61DA0698
+P 8200 3100
+F 0 "C6" V 7948 3100 50  0000 C CNN
+F 1 "100 uF" V 8039 3100 50  0000 C CNN
+F 2 "Capacitors_SMD:C_1210_HandSoldering" H 8238 2950 50  0001 C CNN
+F 3 "~" H 8200 3100 50  0001 C CNN
+	1    8200 3100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8300 3350 8300 3650
+Wire Wire Line
+	8000 3100 8000 3350
+Wire Wire Line
+	8150 3650 8150 3350
+Connection ~ 8000 3100
+Wire Wire Line
+	8000 3100 8050 3100
+Wire Wire Line
+	8000 3350 8150 3350
+Wire Wire Line
+	8450 3350 8450 3100
+Wire Wire Line
+	8350 3100 8450 3100
+Wire Wire Line
+	8300 3350 8450 3350
+Wire Wire Line
+	8450 3100 8500 3100
+Wire Wire Line
+	8500 3100 8500 3050
+Connection ~ 8450 3100
+Text Notes 7850 2800 0    50   ~ 0
+Place close to chip
+Text Notes 5950 2000 0    50   ~ 0
+Place close to chip
+Text Notes 4050 1200 0    50   ~ 0
+Place close to chip
+Connection ~ 6100 2300
+Wire Wire Line
+	6100 2550 6250 2550
+Wire Wire Line
+	6000 2300 6100 2300
+Wire Wire Line
+	6000 2350 6000 2300
+$Comp
+L power:GND #PWR092
+U 1 1 61D9C02A
+P 6000 2350
+F 0 "#PWR092" H 6000 2100 50  0001 C CNN
+F 1 "GND" H 6005 2177 50  0000 C CNN
+F 2 "" H 6000 2350 50  0001 C CNN
+F 3 "" H 6000 2350 50  0001 C CNN
+	1    6000 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_02x08_Odd_Even J35
+U 1 1 61C67DB1
 P 3400 3100
-AR Path="/61BDC895" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BDC895" Ref="JP18"  Part="1" 
-F 0 "JP18" H 3400 3364 50  0000 C CNN
-F 1 "Jumper" H 3400 3273 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 3400 3100 50  0001 C CNN
+F 0 "J35" H 3450 2600 50  0000 C CNN
+F 1 "Conn_02x08_Odd_Even" H 3450 3526 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x08_Pitch2.54mm" H 3400 3100 50  0001 C CNN
 F 3 "~" H 3400 3100 50  0001 C CNN
 	1    3400 3100
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Jumper JP?
-U 1 1 61BDF39E
-P 3400 3200
-AR Path="/61BDF39E" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BDF39E" Ref="JP19"  Part="1" 
-F 0 "JP19" H 3400 3464 50  0000 C CNN
-F 1 "Jumper" H 3400 3373 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 3400 3200 50  0001 C CNN
-F 3 "~" H 3400 3200 50  0001 C CNN
-	1    3400 3200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BDF3A4
-P 3400 3300
-AR Path="/61BDF3A4" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BDF3A4" Ref="JP20"  Part="1" 
-F 0 "JP20" H 3400 3564 50  0000 C CNN
-F 1 "Jumper" H 3400 3473 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 3400 3300 50  0001 C CNN
-F 3 "~" H 3400 3300 50  0001 C CNN
-	1    3400 3300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BE21EF
-P 3400 3400
-AR Path="/61BE21EF" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BE21EF" Ref="JP21"  Part="1" 
-F 0 "JP21" H 3400 3664 50  0000 C CNN
-F 1 "Jumper" H 3400 3573 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 3400 3400 50  0001 C CNN
-F 3 "~" H 3400 3400 50  0001 C CNN
-	1    3400 3400
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BE21F5
-P 3400 3500
-AR Path="/61BE21F5" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BE21F5" Ref="JP22"  Part="1" 
-F 0 "JP22" H 3400 3764 50  0000 C CNN
-F 1 "Jumper" H 3400 3673 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 3400 3500 50  0001 C CNN
-F 3 "~" H 3400 3500 50  0001 C CNN
-	1    3400 3500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BE75C2
-P 5300 3600
-AR Path="/61BE75C2" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BE75C2" Ref="JP23"  Part="1" 
-F 0 "JP23" H 5300 3864 50  0000 C CNN
-F 1 "Jumper" H 5300 3773 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 5300 3600 50  0001 C CNN
-F 3 "~" H 5300 3600 50  0001 C CNN
-	1    5300 3600
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BE75C8
-P 5300 3700
-AR Path="/61BE75C8" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BE75C8" Ref="JP24"  Part="1" 
-F 0 "JP24" H 5300 3964 50  0000 C CNN
-F 1 "Jumper" H 5300 3873 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 5300 3700 50  0001 C CNN
-F 3 "~" H 5300 3700 50  0001 C CNN
-	1    5300 3700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BE75CE
-P 5300 3800
-AR Path="/61BE75CE" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BE75CE" Ref="JP25"  Part="1" 
-F 0 "JP25" H 5300 4064 50  0000 C CNN
-F 1 "Jumper" H 5300 3973 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 5300 3800 50  0001 C CNN
-F 3 "~" H 5300 3800 50  0001 C CNN
-	1    5300 3800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BE75D4
+L Connector_Generic:Conn_02x08_Odd_Even J36
+U 1 1 61C69B97
 P 5300 3900
-AR Path="/61BE75D4" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BE75D4" Ref="JP26"  Part="1" 
-F 0 "JP26" H 5300 4164 50  0000 C CNN
-F 1 "Jumper" H 5300 4073 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 5300 3900 50  0001 C CNN
+F 0 "J36" H 5350 3400 50  0000 C CNN
+F 1 "Conn_02x08_Odd_Even" H 5350 4326 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x08_Pitch2.54mm" H 5300 3900 50  0001 C CNN
 F 3 "~" H 5300 3900 50  0001 C CNN
 	1    5300 3900
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:Jumper JP?
-U 1 1 61BE75DA
-P 5300 4000
-AR Path="/61BE75DA" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BE75DA" Ref="JP27"  Part="1" 
-F 0 "JP27" H 5300 4264 50  0000 C CNN
-F 1 "Jumper" H 5300 4173 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 5300 4000 50  0001 C CNN
-F 3 "~" H 5300 4000 50  0001 C CNN
-	1    5300 4000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BE75E0
-P 5300 4100
-AR Path="/61BE75E0" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BE75E0" Ref="JP28"  Part="1" 
-F 0 "JP28" H 5300 4364 50  0000 C CNN
-F 1 "Jumper" H 5300 4273 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 5300 4100 50  0001 C CNN
-F 3 "~" H 5300 4100 50  0001 C CNN
-	1    5300 4100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BE75E6
-P 5300 4200
-AR Path="/61BE75E6" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BE75E6" Ref="JP29"  Part="1" 
-F 0 "JP29" H 5300 4464 50  0000 C CNN
-F 1 "Jumper" H 5300 4373 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 5300 4200 50  0001 C CNN
-F 3 "~" H 5300 4200 50  0001 C CNN
-	1    5300 4200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BE75EC
-P 5300 4300
-AR Path="/61BE75EC" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BE75EC" Ref="JP30"  Part="1" 
-F 0 "JP30" H 5300 4564 50  0000 C CNN
-F 1 "Jumper" H 5300 4473 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 5300 4300 50  0001 C CNN
-F 3 "~" H 5300 4300 50  0001 C CNN
-	1    5300 4300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BEBFA5
-P 7200 4400
-AR Path="/61BEBFA5" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BEBFA5" Ref="JP31"  Part="1" 
-F 0 "JP31" H 7200 4664 50  0000 C CNN
-F 1 "Jumper" H 7200 4573 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 7200 4400 50  0001 C CNN
-F 3 "~" H 7200 4400 50  0001 C CNN
-	1    7200 4400
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BEBFAB
-P 7200 4500
-AR Path="/61BEBFAB" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BEBFAB" Ref="JP32"  Part="1" 
-F 0 "JP32" H 7200 4764 50  0000 C CNN
-F 1 "Jumper" H 7200 4673 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 7200 4500 50  0001 C CNN
-F 3 "~" H 7200 4500 50  0001 C CNN
-	1    7200 4500
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BEBFB1
-P 7200 4600
-AR Path="/61BEBFB1" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BEBFB1" Ref="JP33"  Part="1" 
-F 0 "JP33" H 7200 4864 50  0000 C CNN
-F 1 "Jumper" H 7200 4773 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 7200 4600 50  0001 C CNN
-F 3 "~" H 7200 4600 50  0001 C CNN
-	1    7200 4600
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BEBFB7
+L Connector_Generic:Conn_02x08_Odd_Even J37
+U 1 1 61C6AC3A
 P 7200 4700
-AR Path="/61BEBFB7" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BEBFB7" Ref="JP34"  Part="1" 
-F 0 "JP34" H 7200 4964 50  0000 C CNN
-F 1 "Jumper" H 7200 4873 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 7200 4700 50  0001 C CNN
+F 0 "J37" H 7250 4200 50  0000 C CNN
+F 1 "Conn_02x08_Odd_Even" H 7250 5126 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x08_Pitch2.54mm" H 7200 4700 50  0001 C CNN
 F 3 "~" H 7200 4700 50  0001 C CNN
 	1    7200 4700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BEBFBD
-P 7200 4800
-AR Path="/61BEBFBD" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BEBFBD" Ref="JP35"  Part="1" 
-F 0 "JP35" H 7200 5064 50  0000 C CNN
-F 1 "Jumper" H 7200 4973 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 7200 4800 50  0001 C CNN
-F 3 "~" H 7200 4800 50  0001 C CNN
-	1    7200 4800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BEBFC3
-P 7200 4900
-AR Path="/61BEBFC3" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BEBFC3" Ref="JP36"  Part="1" 
-F 0 "JP36" H 7200 5164 50  0000 C CNN
-F 1 "Jumper" H 7200 5073 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 7200 4900 50  0001 C CNN
-F 3 "~" H 7200 4900 50  0001 C CNN
-	1    7200 4900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BEBFC9
-P 7200 5000
-AR Path="/61BEBFC9" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BEBFC9" Ref="JP37"  Part="1" 
-F 0 "JP37" H 7200 5264 50  0000 C CNN
-F 1 "Jumper" H 7200 5173 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 7200 5000 50  0001 C CNN
-F 3 "~" H 7200 5000 50  0001 C CNN
-	1    7200 5000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 61BEBFCF
-P 7200 5100
-AR Path="/61BEBFCF" Ref="JP?"  Part="1" 
-AR Path="/61C61687/61BEBFCF" Ref="JP38"  Part="1" 
-F 0 "JP38" H 7200 5364 50  0000 C CNN
-F 1 "Jumper" H 7200 5273 50  0000 C CNN
-F 2 "Moederbord:Jumper_1x2_Pitch2.54mm" H 7200 5100 50  0001 C CNN
-F 3 "~" H 7200 5100 50  0001 C CNN
-	1    7200 5100
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
