@@ -1,5 +1,5 @@
 //// Important constants
-#define LED_BRIGHTNESS 25 // 0...255
+#define LED_BRIGHTNESS 12 // 0...255
 #define LED_DISPLAY_BRIGHTNESS LED_BRIGHTNESS // 0...255
 #define LED_RINGS_BRIGHTNESS LED_BRIGHTNESS // 0...255
 
