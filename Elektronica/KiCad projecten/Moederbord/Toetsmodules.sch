@@ -86,12 +86,12 @@ F 3 "" H 2200 2050 50  0001 C CNN
 	1    2200 2050
 	1    0    0    -1  
 $EndComp
-Text Notes 700  2750 0    63   ~ 0
-1: LEDout\n2: Touch_out\n3: 5V\n4: 3V3\n5: LEDin\n6: GND\n
+Text Notes 7800 1550 0    63   ~ 0
+1: LEDout (5 V)\n2: Touch_out (3.3 V)\n3: 5V\n4: 3V3\n5: LEDin (5 V)\n6: GND\n
 Text GLabel 1750 2600 0    50   Input ~ 0
 LED_rings_data
-Text Notes 1700 1850 0    50   ~ 0
-Menu is first in line\nto allow quick updates\nto menu button only\n(for example for\nrainbow animation)
+Text Notes 1850 1750 0    50   ~ 0
+Menu is first in line\nto allow quick updates\nto menu button only\n(for example for\nrainbow animation)\nTo be tested to see if this really works,\notherwise: no harm done
 Text GLabel 2250 2300 2    50   Output ~ 0
 Touch_menu
 Text GLabel 3200 2300 2    50   Output ~ 0
@@ -1708,7 +1708,7 @@ Wire Wire Line
 Wire Wire Line
 	9800 5350 9750 5350
 NoConn ~ 9750 5150
-Text Notes 10250 5150 0    50   ~ 0
+Text Notes 10000 5100 0    50   ~ 0
 End of LED string
 Wire Wire Line
 	10400 3100 2400 3100

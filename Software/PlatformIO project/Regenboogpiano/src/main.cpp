@@ -68,10 +68,10 @@
 
 
 
-// // Audio
-// AudioGeneratorMP3 *mp3;
-// AudioFileSourcePROGMEM *file;
-// AudioOutputI2S *out;
+// Audio
+AudioGeneratorMP3 *mp3;
+AudioFileSourcePROGMEM *file;
+AudioOutputI2S *out;
 
 // TFT display
 SPIClass* spi = &SPI;
@@ -137,26 +137,26 @@ void setup()
 	while (!Serial); // wait for serial port to connect. Needed for native USB port only
   Serial.println("Begin of setup");
 
-//   // WiFi
-//   WiFi.mode(WIFI_OFF); // TODO turn on WiFi later for firmware updates
+  // WiFi
+  WiFi.mode(WIFI_OFF); // TODO turn on WiFi later for firmware updates
 
-//   // Set pin modes
-//   // Test buttons
-//   pinMode(PIN_TEST_BUTTON_LEFT, INPUT_PULLUP);
-//   pinMode(PIN_TEST_BUTTON_RIGHT, INPUT_PULLUP);
-//   // Shift registers
-//   pinMode(PIN_SHIFT_CLK, OUTPUT);
-//   pinMode(PIN_SHIFT_SHLD1, OUTPUT);
-//   pinMode(PIN_SHIFT_SHLD2, OUTPUT);
-//   pinMode(PIN_SHIFT_SHLD3, OUTPUT);
-//   pinMode(PIN_SHIFT_DATA, INPUT);
+  // Set pin modes
+  // Test buttons
+  pinMode(PIN_TEST_BUTTON_LEFT, INPUT_PULLUP);
+  pinMode(PIN_TEST_BUTTON_RIGHT, INPUT_PULLUP);
+  // Shift registers
+  pinMode(PIN_SHIFT_CLK, OUTPUT);
+  pinMode(PIN_SHIFT_SHLD1, OUTPUT);
+  pinMode(PIN_SHIFT_SHLD2, OUTPUT);
+  pinMode(PIN_SHIFT_SHLD3, OUTPUT);
+  pinMode(PIN_SHIFT_DATA, INPUT);
 
-//   // // Audio
-//   // audioLogger = &Serial;
-//   // file = new AudioFileSourcePROGMEM(left_h, sizeof(left_h));
-//   // out = new AudioOutputI2S();
-//   // out->SetPinout(PIN_DAC_BCLK, PIN_DAC_LRCLK, PIN_DAC_DATA);
-//   // mp3 = new AudioGeneratorMP3();
+  // Audio
+  audioLogger = &Serial;
+  file = new AudioFileSourcePROGMEM(left_h, sizeof(left_h));
+  out = new AudioOutputI2S();
+  out->SetPinout(PIN_DAC_BCLK, PIN_DAC_LRCLK, PIN_DAC_DATA);
+  mp3 = new AudioGeneratorMP3();
 
   // TFT display
   tft.init(135, 240);
@@ -261,67 +261,67 @@ uint16_t step = 0;
 //// Loop
 void loop()
 {
-//   // // Audio
-//   // if (digitalRead(PIN_TEST_BUTTON_RIGHT) == LOW)
-//   // {
-//   //   if (mp3->isRunning())
-//   //     mp3->stop();
-//   //   file->open(right_h, sizeof(right_h));
-//   //   mp3->begin(file, out);
-//   // }
+  // Audio
+  if (digitalRead(PIN_TEST_BUTTON_RIGHT) == LOW)
+  {
+    if (mp3->isRunning())
+      mp3->stop();
+    file->open(right_h, sizeof(right_h));
+    mp3->begin(file, out);
+  }
 
-//   // if (digitalRead(PIN_TEST_BUTTON_LEFT) == LOW)
-//   // {
-//   //   if (mp3->isRunning())
-//   //     mp3->stop();
-//   //   file->open(left_h, sizeof(left_h));
-//   //   mp3->begin(file, out);
-//   // }
+  if (digitalRead(PIN_TEST_BUTTON_LEFT) == LOW)
+  {
+    if (mp3->isRunning())
+      mp3->stop();
+    file->open(left_h, sizeof(left_h));
+    mp3->begin(file, out);
+  }
 
-//   // if (mp3->isRunning())
-//   // {
-//   //   if (!mp3->loop()) mp3->stop();
-//   // }
-
-
-//   //   // RFID reader
-//   // if ((millis() % 100) == 0)
-//   // {
-//   //   if (mfrc522.PICC_IsNewCardPresent())
-//   //   {
-//   //     // Select one of the cards
-//   //     if (mfrc522.PICC_ReadCardSerial())
-//   //     {
-//   //       Serial.print(F("Card UID:"));
-//   //       // mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
-//   //       dump_byte_array(mfrc522.uid.uidByte, mfrc522.uid.size);
-//   //       Serial.println(F(""));
-//   //       mfrc522.PICC_HaltA();
-//   //     }
-//   //   }
-//   // }
+  if (mp3->isRunning())
+  {
+    if (!mp3->loop()) mp3->stop();
+  }
 
 
-//   // // Shift registers
-//   // // Load inputs to shift registers
-//   // digitalWrite(PIN_SHIFT_CLK, LOW);
-//   // digitalWrite(PIN_SHIFT_SHLD1, LOW);
-//   // digitalWrite(PIN_SHIFT_SHLD2, LOW);
-//   // digitalWrite(PIN_SHIFT_SHLD3, LOW);
-//   // digitalWrite(PIN_SHIFT_CLK, HIGH);
-//   // digitalWrite(PIN_SHIFT_CLK, LOW);
-//   // digitalWrite(PIN_SHIFT_SHLD1, HIGH);
-//   // digitalWrite(PIN_SHIFT_SHLD2, HIGH);
-//   // digitalWrite(PIN_SHIFT_SHLD3, HIGH);
-//   // // Now shift out data
-//   // for (uint8_t shifts = 0; shifts < NUMBER_OF_SHIFTS; shifts++)
-//   // {
-//   //   digitalWrite(PIN_SHIFT_CLK, HIGH);
-//   //   touch_sensor_state[shifts] = digitalRead(PIN_SHIFT_DATA);
-//   //   Serial.print(touch_sensor_state[shifts]);
-//   //   digitalWrite(PIN_SHIFT_CLK, LOW);
-//   // }
-//   // Serial.println("");
+//   // RFID reader
+// if ((millis() % 100) == 0)
+// {
+//   if (mfrc522.PICC_IsNewCardPresent())
+//   {
+//     // Select one of the cards
+//     if (mfrc522.PICC_ReadCardSerial())
+//     {
+//       Serial.print(F("Card UID:"));
+//       // mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
+//       dump_byte_array(mfrc522.uid.uidByte, mfrc522.uid.size);
+//       Serial.println(F(""));
+//       mfrc522.PICC_HaltA();
+//     }
+//   }
+}
+
+
+// // Shift registers
+// // Load inputs to shift registers
+// digitalWrite(PIN_SHIFT_CLK, LOW);
+// digitalWrite(PIN_SHIFT_SHLD1, LOW);
+// digitalWrite(PIN_SHIFT_SHLD2, LOW);
+// digitalWrite(PIN_SHIFT_SHLD3, LOW);
+// digitalWrite(PIN_SHIFT_CLK, HIGH);
+// digitalWrite(PIN_SHIFT_CLK, LOW);
+// digitalWrite(PIN_SHIFT_SHLD1, HIGH);
+// digitalWrite(PIN_SHIFT_SHLD2, HIGH);
+// digitalWrite(PIN_SHIFT_SHLD3, HIGH);
+// // Now shift out data
+// for (uint8_t shifts = 0; shifts < NUMBER_OF_SHIFTS; shifts++)
+// {
+//   digitalWrite(PIN_SHIFT_CLK, HIGH);
+//   touch_sensor_state[shifts] = digitalRead(PIN_SHIFT_DATA);
+//   Serial.print(touch_sensor_state[shifts]);
+//   digitalWrite(PIN_SHIFT_CLK, LOW);
+// }
+// Serial.println("");
 
 //   // LED ring rainbow demo
 //   step = step + 50;
@@ -329,10 +329,10 @@ void loop()
 //   LED_rings.show();
 
   // TODO: remove this
-  step = step + 1024;
-  LED_display.rainbow(step);
-  LED_display.show();
-}
+//   step = step + 1024;
+//   LED_display.rainbow(step);
+//   LED_display.show();
+// }
 
 
 

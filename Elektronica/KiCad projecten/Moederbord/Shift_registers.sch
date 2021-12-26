@@ -53,38 +53,6 @@ F 3 "" H 8100 4300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3750 2800 3700 2800
-Wire Wire Line
-	3750 2900 3700 2900
-Wire Wire Line
-	3750 3000 3700 3000
-Wire Wire Line
-	3750 3100 3700 3100
-Wire Wire Line
-	3750 3200 3700 3200
-Wire Wire Line
-	3750 3300 3700 3300
-Wire Wire Line
-	3750 3400 3700 3400
-Wire Wire Line
-	3750 3500 3700 3500
-Wire Wire Line
-	5650 3600 5600 3600
-Wire Wire Line
-	5650 3700 5600 3700
-Wire Wire Line
-	5650 3800 5600 3800
-Wire Wire Line
-	5650 3900 5600 3900
-Wire Wire Line
-	5650 4000 5600 4000
-Wire Wire Line
-	5650 4100 5600 4100
-Wire Wire Line
-	5650 4200 5600 4200
-Wire Wire Line
-	5650 4300 5600 4300
-Wire Wire Line
 	7550 4400 7500 4400
 Wire Wire Line
 	7550 4500 7500 4500
@@ -521,30 +489,8 @@ F 3 "" H 6000 2350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x08_Odd_Even J35
-U 1 1 61C67DB1
-P 3400 3100
-F 0 "J35" H 3450 2600 50  0000 C CNN
-F 1 "Conn_02x08_Odd_Even" H 3450 3526 50  0001 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x08_Pitch2.54mm" H 3400 3100 50  0001 C CNN
-F 3 "~" H 3400 3100 50  0001 C CNN
-	1    3400 3100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_02x08_Odd_Even J36
-U 1 1 61C69B97
-P 5300 3900
-F 0 "J36" H 5350 3400 50  0000 C CNN
-F 1 "Conn_02x08_Odd_Even" H 5350 4326 50  0001 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x08_Pitch2.54mm" H 5300 3900 50  0001 C CNN
-F 3 "~" H 5300 3900 50  0001 C CNN
-	1    5300 3900
-	1    0    0    -1  
-$EndComp
-$Comp
 L Connector_Generic:Conn_02x08_Odd_Even J37
-U 1 1 61C6AC3A
+U 1 1 61C67DB1
 P 7200 4700
 F 0 "J37" H 7250 4200 50  0000 C CNN
 F 1 "Conn_02x08_Odd_Even" H 7250 5126 50  0001 C CNN
@@ -553,4 +499,110 @@ F 3 "~" H 7200 4700 50  0001 C CNN
 	1    7200 4700
 	1    0    0    -1  
 $EndComp
+Text Label 7500 4400 0    50   ~ 0
+T17
+Text Label 7500 4500 0    50   ~ 0
+T18
+Text Label 7500 4600 0    50   ~ 0
+T19
+Text Label 7500 4700 0    50   ~ 0
+T20
+Text Label 7500 4800 0    50   ~ 0
+T21
+Text Label 7500 4900 0    50   ~ 0
+T22
+Text Label 7500 5000 0    50   ~ 0
+T23
+Text Label 7500 5100 0    50   ~ 0
+T24
+Wire Wire Line
+	3750 2800 3700 2800
+Wire Wire Line
+	3750 2900 3700 2900
+Wire Wire Line
+	3750 3000 3700 3000
+Wire Wire Line
+	3750 3100 3700 3100
+Wire Wire Line
+	3750 3200 3700 3200
+Wire Wire Line
+	3750 3300 3700 3300
+Wire Wire Line
+	3750 3400 3700 3400
+Wire Wire Line
+	3750 3500 3700 3500
+$Comp
+L Connector_Generic:Conn_02x08_Odd_Even J35
+U 1 1 61CA8A1E
+P 3400 3100
+F 0 "J35" H 3450 2600 50  0000 C CNN
+F 1 "Conn_02x08_Odd_Even" H 3450 3526 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x08_Pitch2.54mm" H 3400 3100 50  0001 C CNN
+F 3 "~" H 3400 3100 50  0001 C CNN
+	1    3400 3100
+	1    0    0    -1  
+$EndComp
+Text Label 3700 2800 0    50   ~ 0
+T1
+Text Label 3700 2900 0    50   ~ 0
+T2
+Text Label 3700 3000 0    50   ~ 0
+T3
+Text Label 3700 3100 0    50   ~ 0
+T4
+Text Label 3700 3200 0    50   ~ 0
+T5
+Text Label 3700 3300 0    50   ~ 0
+T6
+Text Label 3700 3400 0    50   ~ 0
+T7
+Text Label 3700 3500 0    50   ~ 0
+T8
+Wire Wire Line
+	5650 3600 5600 3600
+Wire Wire Line
+	5650 3700 5600 3700
+Wire Wire Line
+	5650 3800 5600 3800
+Wire Wire Line
+	5650 3900 5600 3900
+Wire Wire Line
+	5650 4000 5600 4000
+Wire Wire Line
+	5650 4100 5600 4100
+Wire Wire Line
+	5650 4200 5600 4200
+Wire Wire Line
+	5650 4300 5600 4300
+$Comp
+L Connector_Generic:Conn_02x08_Odd_Even J36
+U 1 1 61CADBD9
+P 5300 3900
+F 0 "J36" H 5350 3400 50  0000 C CNN
+F 1 "Conn_02x08_Odd_Even" H 5350 4326 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x08_Pitch2.54mm" H 5300 3900 50  0001 C CNN
+F 3 "~" H 5300 3900 50  0001 C CNN
+	1    5300 3900
+	1    0    0    -1  
+$EndComp
+Text Label 5600 3600 0    50   ~ 0
+T9
+Text Label 5600 3700 0    50   ~ 0
+T10
+Text Label 5600 3800 0    50   ~ 0
+T11
+Text Label 5600 3900 0    50   ~ 0
+T12
+Text Label 5600 4000 0    50   ~ 0
+T13
+Text Label 5600 4100 0    50   ~ 0
+T14
+Text Label 5600 4200 0    50   ~ 0
+T15
+Text Label 5600 4300 0    50   ~ 0
+T16
+Text Label 4850 3500 0    50   ~ 0
+s1_s2
+Text Label 6750 4300 0    50   ~ 0
+s2_s3
 $EndSCHEMATC
