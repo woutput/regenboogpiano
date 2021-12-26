@@ -87,7 +87,7 @@ F 3 "" H 2200 2050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Notes 7800 1550 0    63   ~ 0
-1: LEDout (5 V)\n2: Touch_out (3.3 V)\n3: 5V\n4: 3V3\n5: LEDin (5 V)\n6: GND\n
+1: LED out (5 V)\n2: Touch out (3.3 V)\n3: 5V\n4: 3V3\n5: LED in (5 V)\n6: GND\n
 Text GLabel 1750 2600 0    50   Input ~ 0
 LED_rings_data
 Text Notes 1850 1750 0    50   ~ 0
@@ -1726,4 +1726,52 @@ Wire Wire Line
 	10400 3700 10400 4600
 Wire Wire Line
 	10400 2200 10400 3100
+Text Label 2400 2200 0    50   ~ 0
+LEDm_LED1
+Text Label 3350 2200 0    50   ~ 0
+LED1_LED2
+Text Label 4300 2200 0    50   ~ 0
+LED2_LED3
+Text Label 5250 2200 0    50   ~ 0
+LED3_LED4
+Text Label 6200 2200 0    50   ~ 0
+LED4_LED5
+Text Label 7150 2200 0    50   ~ 0
+LED5_LED6
+Text Label 8100 2200 0    50   ~ 0
+LED6_LED7
+Text Label 9050 2200 0    50   ~ 0
+LED7_LED8
+Text Label 10000 2200 0    50   ~ 0
+LED8_LED9
+Text Label 3300 3700 0    50   ~ 0
+LED9_LED10
+Text Label 4200 3700 0    50   ~ 0
+LED10_LED11
+Text Label 5150 3700 0    50   ~ 0
+LED11_LED12
+Text Label 6100 3700 0    50   ~ 0
+LED12_LED13
+Text Label 7050 3700 0    50   ~ 0
+LED13_LED14
+Text Label 8000 3700 0    50   ~ 0
+LED14_LED15
+Text Label 8950 3700 0    50   ~ 0
+LED15_LED16
+Text Label 9900 3700 0    50   ~ 0
+LED16_LED17
+Text Label 3250 5150 0    50   ~ 0
+LED17_LED18
+Text Label 4200 5150 0    50   ~ 0
+LED18_LED19
+Text Label 5150 5150 0    50   ~ 0
+LED19_LED20
+Text Label 6100 5150 0    50   ~ 0
+LED20_LED21
+Text Label 7050 5150 0    50   ~ 0
+LED21_LED22
+Text Label 8000 5150 0    50   ~ 0
+LED22_LED23
+Text Label 8950 5150 0    50   ~ 0
+LED23_LED24
 $EndSCHEMATC

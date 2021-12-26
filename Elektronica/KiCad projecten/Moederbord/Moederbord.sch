@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 Text Notes 850  7500 0    50   ~ 0
-TODO\nMoet RFID-lezer aan- en uitgeschakeld kunnen worden via FET om energie te sparen?\nMoet de LED-voeding aan- en uitgeschakeld kunnen worden via FET om energie te sparen? Nee, te hoge stroom om eenvoudig te schakelen\nMoet de audio-versterker aan- en uitgeschakeld kunnen worden via FET om energie te sparen? Nee, te hoge stroom om eenvoudig te schakelen\nMoeten de shift-registers aan- en uitgeschakeld kunnen worden via FET om energie te sparen? Nee, Iq in uA\nMoeten de data- in- en uitgangen beschermd worden? ESD? Serieweerstand?\nSpanningen duidelijk maken; wellicht level shifters nodig\nStromen duidelijk maken\nVermogens duidelijk maken\n\n12 V en 5 V voeding gaan niet via dit bord, want\n- weinig toegevoegde waarde\n- hoge stroom, dus lastig\n- te hoge stroom om ff met een FET te schakelen\n\nWS2812b heeft minimaal 0.7 * VDD (5 V) = 3.5 V nodig voor VIH.\nIn tests werkt dit toch met de (max 3.3 V) signalen die uit de controller komen.\nLevel shifter toevoegen voor LED ringen en LED display? Nee, maar wel mogelijkheid voorzien via pin headers
+TODO\nMoet RFID-lezer aan- en uitgeschakeld kunnen worden via FET om energie te sparen?\nMoet de LED-voeding aan- en uitgeschakeld kunnen worden via FET om energie te sparen? Nee, te hoge stroom om eenvoudig te schakelen\nMoet de audio-versterker aan- en uitgeschakeld kunnen worden via FET om energie te sparen? Nee, te hoge stroom om eenvoudig te schakelen\nMoeten de shift-registers aan- en uitgeschakeld kunnen worden via FET om energie te sparen? Nee, Iq in uA\nMoeten de data- in- en uitgangen beschermd worden? ESD? Serieweerstand?\nSpanningen duidelijk maken; wellicht level shifters nodig\nStromen duidelijk maken\nVermogens duidelijk maken\n\n12 V en 5 V voeding gaan niet via dit bord, want\n- weinig toegevoegde waarde\n- hoge stroom, dus lastig\n- te hoge stroom om ff met een FET te schakelen\n\nWS2812b heeft minimaal 0.7 * VDD (5 V) = 3.5 V nodig voor VIH.\nIn tests werkt dit toch met de (max 3.3 V) signalen die uit de controller komen.\nLevel shifter toevoegen voor LED ringen en LED display? Nee, maar wel mogelijkheid voorzien via pin headers\n\nLEDs losknippen van sensor boards, want die worden gevoed door 3V3\n\n3V3 komt van T-display on-board DC/DC-converter AP2112 die 600 mA kan leveren
 $Sheet
 S 2950 1150 500  150 
 U 61AEA73C
@@ -368,15 +368,15 @@ Text Notes 10300 3800 0    63   ~ 0
 $Comp
 L Connector:Screw_Terminal_01x02 J4
 U 1 1 61C9FECA
-P 7700 1250
-F 0 "J4" H 7650 1400 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 7780 1151 50  0001 L CNN
-F 2 "Moederbord:TerminalBlock_2_P5.08mm" H 7700 1250 50  0001 C CNN
-F 3 "~" H 7700 1250 50  0001 C CNN
-	1    7700 1250
+P 7850 1250
+F 0 "J4" H 7800 1400 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 7930 1151 50  0001 L CNN
+F 2 "Moederbord:TerminalBlock_2_P5.08mm" H 7850 1250 50  0001 C CNN
+F 3 "~" H 7850 1250 50  0001 C CNN
+	1    7850 1250
 	1    0    0    -1  
 $EndComp
-Text Notes 7850 1350 0    50   ~ 0
+Text Notes 8000 1350 0    50   ~ 0
 5 V in\nGND
 $Comp
 L power:+5V #PWR01
@@ -389,8 +389,6 @@ F 3 "" H 6500 1000 50  0001 C CNN
 	1    6500 1000
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6500 1000 6500 1100
 $Comp
 L power:GND #PWR04
 U 1 1 61CA3128
@@ -402,12 +400,6 @@ F 3 "" H 6500 1600 50  0001 C CNN
 	1    6500 1600
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6500 1600 6500 1500
-Wire Wire Line
-	7450 1250 7500 1250
-Wire Wire Line
-	7500 1350 7450 1350
 $Comp
 L power:+5V #PWR02
 U 1 1 61BD35D5
@@ -441,12 +433,12 @@ Wire Wire Line
 $Comp
 L Connector_Generic:Conn_02x02_Top_Bottom J3
 U 1 1 61D403C7
-P 7150 1250
-F 0 "J3" H 7200 1375 50  0000 C CNN
-F 1 "Conn_02x02_Top_Bottom" H 7200 1376 50  0001 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x02_Pitch2.54mm" H 7150 1250 50  0001 C CNN
-F 3 "~" H 7150 1250 50  0001 C CNN
-	1    7150 1250
+P 6750 1250
+F 0 "J3" H 6800 1375 50  0000 C CNN
+F 1 "Conn_02x02_Top_Bottom" H 6800 1376 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x02_Pitch2.54mm" H 6750 1250 50  0001 C CNN
+F 3 "~" H 6750 1250 50  0001 C CNN
+	1    6750 1250
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -478,32 +470,14 @@ Place close to uC
 $Comp
 L Device:C C1
 U 1 1 61DB3498
-P 6500 1300
-F 0 "C1" H 6385 1254 50  0000 R CNN
-F 1 "100 uF" H 6385 1345 50  0000 R CNN
-F 2 "Capacitors_SMD:C_1210_HandSoldering" H 6538 1150 50  0001 C CNN
-F 3 "~" H 6500 1300 50  0001 C CNN
-	1    6500 1300
+P 7200 1300
+F 0 "C1" H 7085 1254 50  0000 R CNN
+F 1 "100 uF" H 7085 1345 50  0000 R CNN
+F 2 "Capacitors_SMD:C_1210_HandSoldering" H 7238 1150 50  0001 C CNN
+F 3 "~" H 7200 1300 50  0001 C CNN
+	1    7200 1300
 	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	6950 1250 6900 1250
-Wire Wire Line
-	6900 1250 6900 1100
-Wire Wire Line
-	6900 1100 6500 1100
-Wire Wire Line
-	6500 1100 6500 1150
-Wire Wire Line
-	6950 1350 6900 1350
-Wire Wire Line
-	6900 1350 6900 1500
-Wire Wire Line
-	6900 1500 6500 1500
-Wire Wire Line
-	6500 1500 6500 1450
-Connection ~ 6500 1100
-Connection ~ 6500 1500
 Text Notes 5900 1300 0    50   ~ 0
 Place close to\nconnector
 $Comp
@@ -820,4 +794,38 @@ Wire Notes Line
 	8350 2050 8350 4750
 Wire Notes Line
 	8350 4750 2000 4750
+Wire Wire Line
+	6500 1250 6550 1250
+Wire Wire Line
+	6500 1350 6550 1350
+Wire Wire Line
+	6500 1000 6500 1250
+Wire Wire Line
+	6500 1350 6500 1600
+Wire Wire Line
+	7050 1250 7050 1100
+Wire Wire Line
+	7050 1100 7200 1100
+Wire Wire Line
+	7650 1100 7650 1250
+Wire Wire Line
+	7050 1350 7050 1500
+Wire Wire Line
+	7050 1500 7200 1500
+Wire Wire Line
+	7650 1500 7650 1350
+Wire Wire Line
+	7200 1150 7200 1100
+Connection ~ 7200 1100
+Wire Wire Line
+	7200 1100 7650 1100
+Wire Wire Line
+	7200 1450 7200 1500
+Connection ~ 7200 1500
+Wire Wire Line
+	7200 1500 7650 1500
+Text Label 7250 1100 0    50   ~ 0
+Conn_5V
+Text Label 7250 1500 0    50   ~ 0
+Conn_GND
 $EndSCHEMATC
