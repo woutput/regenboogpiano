@@ -27,17 +27,17 @@ U 61C61687
 F0 "Shift registers" 50
 F1 "Shift_registers.sch" 50
 $EndSheet
-Text Notes 10450 1600 0    63   ~ 0
+Text Notes 10450 1650 0    63   ~ 0
 BCK\nDATA\nLRCK\nGND\nGND\nVCC 5 V
 $Comp
 L Connector:Conn_01x06_Female J2
 U 1 1 61A7BB18
-P 10250 1250
-F 0 "J2" H 10200 1550 50  0000 L CNN
-F 1 "I2S_DAC" H 9950 1600 50  0001 L CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x06_Pitch2.54mm" H 10250 1250 50  0001 C CNN
-F 3 "~" H 10250 1250 50  0001 C CNN
-	1    10250 1250
+P 10250 1300
+F 0 "J2" H 10200 1600 50  0000 L CNN
+F 1 "I2S_DAC" H 10100 1700 50  0000 L CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x06_Pitch2.54mm" H 10250 1300 50  0001 C CNN
+F 3 "~" H 10250 1300 50  0001 C CNN
+	1    10250 1300
 	1    0    0    -1  
 $EndComp
 Text Notes 10400 2950 0    63   ~ 0
@@ -46,8 +46,8 @@ $Comp
 L Connector:Screw_Terminal_01x02 J9
 U 1 1 61BACFCC
 P 10200 3650
-F 0 "J9" H 10150 3800 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 9800 3800 50  0001 L CNN
+F 0 "J9" H 10200 3750 50  0000 C CNN
+F 1 "Batmon_LEDdisp" H 9900 3850 50  0000 C CNN
 F 2 "Moederbord:TerminalBlock_2_P5.08mm" H 10200 3650 50  0001 C CNN
 F 3 "~" H 10200 3650 50  0001 C CNN
 	1    10200 3650
@@ -57,8 +57,8 @@ $Comp
 L Connector:Conn_01x06_Female J6
 U 1 1 61BAE503
 P 10300 2600
-F 0 "J6" H 10250 2900 50  0000 L CNN
-F 1 "Conn_01x06_Female" H 10328 2485 50  0001 L CNN
+F 0 "J6" H 10300 2900 50  0000 C CNN
+F 1 "RFID" H 10300 3000 50  0000 C CNN
 F 2 "Moederbord:IDC_Header_Straight_6pins" H 10300 2600 50  0001 C CNN
 F 3 "~" H 10300 2600 50  0001 C CNN
 	1    10300 2600
@@ -90,17 +90,17 @@ Wire Wire Line
 Wire Wire Line
 	10100 2900 9900 2900
 Wire Wire Line
-	9950 1050 10050 1050
+	9950 1100 10050 1100
 Wire Wire Line
-	10050 1150 9950 1150
+	10050 1200 9950 1200
 Wire Wire Line
-	9950 1250 10050 1250
+	9950 1300 10050 1300
 Wire Wire Line
-	10050 1350 9950 1350
+	10050 1400 9950 1400
 Wire Wire Line
-	9950 1450 10050 1450
+	9950 1500 10050 1500
 Wire Wire Line
-	10050 1550 9950 1550
+	10050 1600 9950 1600
 Text Notes 7750 2150 0    50   ~ 0
 Main controller
 Text GLabel 9200 2400 0    50   Input ~ 0
@@ -137,45 +137,39 @@ Wire Wire Line
 	8650 2800 8650 3000
 Wire Wire Line
 	8550 2700 8550 2900
-Text GLabel 9350 1050 0    50   Input ~ 0
+Text GLabel 9350 1100 0    50   Input ~ 0
 DAC_BCK
 Wire Wire Line
-	9350 1050 9450 1050
-Text GLabel 9350 1150 0    50   Input ~ 0
+	9350 1100 9450 1100
+Text GLabel 9350 1200 0    50   Input ~ 0
 DAC_DATA
 Wire Wire Line
-	9350 1150 9450 1150
-Text GLabel 9350 1250 0    50   Input ~ 0
+	9350 1200 9450 1200
+Text GLabel 9350 1300 0    50   Input ~ 0
 DAC_LRCK
 Wire Wire Line
-	9350 1250 9450 1250
+	9350 1300 9450 1300
 $Comp
 L power:GND #PWR03
 U 1 1 61C0A40D
-P 8800 1650
-F 0 "#PWR03" H 8800 1400 50  0001 C CNN
-F 1 "GND" H 8805 1477 50  0000 C CNN
-F 2 "" H 8800 1650 50  0001 C CNN
-F 3 "" H 8800 1650 50  0001 C CNN
-	1    8800 1650
+P 8800 1700
+F 0 "#PWR03" H 8800 1450 50  0001 C CNN
+F 1 "GND" H 8805 1527 50  0000 C CNN
+F 2 "" H 8800 1700 50  0001 C CNN
+F 3 "" H 8800 1700 50  0001 C CNN
+	1    8800 1700
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8800 1450 8800 1650
+	8800 1500 8800 1700
 Wire Wire Line
-	8800 1450 9450 1450
-Text Notes 2950 4100 2    63   ~ 0
-GND		G\nGND		G\nCLK	Shift	21\nSH/LDn1	Shift	22\nSH/LDn2	Shift	17\nSH/LDn3	Shift	2\nCS	RFID	15\nMOSI	RFID	13\nSCLK	RFID	12\nGND		G\nGND		G\n3V3		3V
+	8800 1500 9450 1500
 Text GLabel 3950 3150 0    50   Output ~ 0
 Shift_CLK
 Wire Wire Line
 	3950 3150 4000 3150
 Text GLabel 3950 3250 0    50   Output ~ 0
-Shift_SH_LDn1
-Text GLabel 3950 3350 0    50   Output ~ 0
-Shift_SH_LDn2
-Text GLabel 3950 3450 0    50   Output ~ 0
-Shift_SH_LDn3
+Shift_SH_LDn
 Wire Wire Line
 	3950 3450 4000 3450
 Wire Wire Line
@@ -368,58 +362,58 @@ Text Notes 10300 3800 0    63   ~ 0
 $Comp
 L Connector:Screw_Terminal_01x02 J4
 U 1 1 61C9FECA
-P 7850 1250
-F 0 "J4" H 7800 1400 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 7930 1151 50  0001 L CNN
-F 2 "Moederbord:TerminalBlock_2_P5.08mm" H 7850 1250 50  0001 C CNN
-F 3 "~" H 7850 1250 50  0001 C CNN
-	1    7850 1250
+P 7900 1300
+F 0 "J4" H 7900 1400 50  0000 C CNN
+F 1 "5Vin" H 7900 1500 50  0000 C CNN
+F 2 "Moederbord:TerminalBlock_2_P5.08mm" H 7900 1300 50  0001 C CNN
+F 3 "~" H 7900 1300 50  0001 C CNN
+	1    7900 1300
 	1    0    0    -1  
 $EndComp
-Text Notes 8000 1350 0    50   ~ 0
+Text Notes 8050 1400 0    50   ~ 0
 5 V in\nGND
 $Comp
 L power:+5V #PWR01
 U 1 1 61CA0A54
-P 6500 1000
-F 0 "#PWR01" H 6500 850 50  0001 C CNN
-F 1 "+5V" H 6515 1173 50  0000 C CNN
-F 2 "" H 6500 1000 50  0001 C CNN
-F 3 "" H 6500 1000 50  0001 C CNN
-	1    6500 1000
+P 6950 1050
+F 0 "#PWR01" H 6950 900 50  0001 C CNN
+F 1 "+5V" H 6965 1223 50  0000 C CNN
+F 2 "" H 6950 1050 50  0001 C CNN
+F 3 "" H 6950 1050 50  0001 C CNN
+	1    6950 1050
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR04
 U 1 1 61CA3128
-P 6500 1600
-F 0 "#PWR04" H 6500 1350 50  0001 C CNN
-F 1 "GND" H 6505 1427 50  0000 C CNN
-F 2 "" H 6500 1600 50  0001 C CNN
-F 3 "" H 6500 1600 50  0001 C CNN
-	1    6500 1600
+P 6950 1650
+F 0 "#PWR04" H 6950 1400 50  0001 C CNN
+F 1 "GND" H 6955 1477 50  0000 C CNN
+F 2 "" H 6950 1650 50  0001 C CNN
+F 3 "" H 6950 1650 50  0001 C CNN
+	1    6950 1650
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR02
 U 1 1 61BD35D5
-P 8650 1500
-F 0 "#PWR02" H 8650 1350 50  0001 C CNN
-F 1 "+5V" H 8665 1673 50  0000 C CNN
-F 2 "" H 8650 1500 50  0001 C CNN
-F 3 "" H 8650 1500 50  0001 C CNN
-	1    8650 1500
+P 8650 1550
+F 0 "#PWR02" H 8650 1400 50  0001 C CNN
+F 1 "+5V" H 8665 1723 50  0000 C CNN
+F 2 "" H 8650 1550 50  0001 C CNN
+F 3 "" H 8650 1550 50  0001 C CNN
+	1    8650 1550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8800 1350 9450 1350
+	8800 1400 9450 1400
 Wire Wire Line
-	8650 1500 8650 1550
+	8650 1550 8650 1600
 Wire Wire Line
-	8650 1550 9450 1550
+	8650 1600 9450 1600
 Wire Wire Line
-	8800 1350 8800 1450
-Connection ~ 8800 1450
+	8800 1400 8800 1500
+Connection ~ 8800 1500
 Text Notes 4950 3150 0    50   ~ 0
 TTGO\ntext\nside
 Text Notes 4900 4100 0    50   ~ 0
@@ -430,17 +424,6 @@ Text GLabel 9950 3750 0    50   Input ~ 0
 LED_display_data
 Wire Wire Line
 	9950 3750 10000 3750
-$Comp
-L Connector_Generic:Conn_02x02_Top_Bottom J3
-U 1 1 61D403C7
-P 6750 1250
-F 0 "J3" H 6800 1375 50  0000 C CNN
-F 1 "Conn_02x02_Top_Bottom" H 6800 1376 50  0001 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x02_Pitch2.54mm" H 6750 1250 50  0001 C CNN
-F 3 "~" H 6750 1250 50  0001 C CNN
-	1    6750 1250
-	1    0    0    -1  
-$EndComp
 $Comp
 L Device:C C2
 U 1 1 61DA6136
@@ -470,22 +453,22 @@ Place close to uC
 $Comp
 L Device:C C1
 U 1 1 61DB3498
-P 7200 1300
-F 0 "C1" H 7085 1254 50  0000 R CNN
-F 1 "100 uF" H 7085 1345 50  0000 R CNN
-F 2 "Capacitors_SMD:C_1210_HandSoldering" H 7238 1150 50  0001 C CNN
-F 3 "~" H 7200 1300 50  0001 C CNN
-	1    7200 1300
+P 7250 1350
+F 0 "C1" H 7135 1304 50  0000 R CNN
+F 1 "100 uF" H 7135 1395 50  0000 R CNN
+F 2 "Capacitors_SMD:C_1210_HandSoldering" H 7288 1200 50  0001 C CNN
+F 3 "~" H 7250 1350 50  0001 C CNN
+	1    7250 1350
 	-1   0    0    1   
 $EndComp
-Text Notes 5900 1300 0    50   ~ 0
+Text Notes 7200 1750 0    50   ~ 0
 Place close to\nconnector
 $Comp
 L Connector_Generic:Conn_01x03 J38
 U 1 1 61CDCF6B
 P 10450 5750
-F 0 "J38" H 10530 5792 50  0000 L CNN
-F 1 "Conn_01x03" H 10530 5701 50  0000 L CNN
+F 0 "J38" H 10450 5950 50  0000 C CNN
+F 1 "AddPower" H 10450 6050 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 10450 5750 50  0001 C CNN
 F 3 "~" H 10450 5750 50  0001 C CNN
 	1    10450 5750
@@ -538,8 +521,8 @@ $Comp
 L Connector_Generic:Conn_01x03 J39
 U 1 1 61CEC9B5
 P 9450 5750
-F 0 "J39" H 9530 5792 50  0000 L CNN
-F 1 "Conn_01x03" H 9530 5701 50  0000 L CNN
+F 0 "J39" H 9450 5950 50  0000 C CNN
+F 1 "AddPower" H 9450 6050 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 9450 5750 50  0001 C CNN
 F 3 "~" H 9450 5750 50  0001 C CNN
 	1    9450 5750
@@ -591,12 +574,12 @@ Wire Wire Line
 $Comp
 L Connector_Generic:Conn_02x06_Odd_Even J1
 U 1 1 61D087E1
-P 9650 1250
-F 0 "J1" H 9700 1667 50  0000 C CNN
-F 1 "Conn_02x06_Odd_Even" H 9700 1576 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x06_Pitch2.54mm" H 9650 1250 50  0001 C CNN
-F 3 "~" H 9650 1250 50  0001 C CNN
-	1    9650 1250
+P 9650 1300
+F 0 "J1" H 9700 1600 50  0000 C CNN
+F 1 "I2S_DAC" H 9700 1700 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x06_Pitch2.54mm" H 9650 1300 50  0001 C CNN
+F 3 "~" H 9650 1300 50  0001 C CNN
+	1    9650 1300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -615,8 +598,8 @@ $Comp
 L Connector_Generic:Conn_02x06_Odd_Even J5
 U 1 1 61D0F6BE
 P 9700 2600
-F 0 "J5" H 9750 3017 50  0000 C CNN
-F 1 "Conn_02x06_Odd_Even" H 9750 2926 50  0000 C CNN
+F 0 "J5" H 9750 2900 50  0000 C CNN
+F 1 "RFID" H 9750 3000 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_2x06_Pitch2.54mm" H 9700 2600 50  0001 C CNN
 F 3 "~" H 9700 2600 50  0001 C CNN
 	1    9700 2600
@@ -627,7 +610,7 @@ L Connector_Generic:Conn_02x12_Odd_Even J40
 U 1 1 61D37F03
 P 4200 3450
 F 0 "J40" H 4250 4167 50  0000 C CNN
-F 1 "Conn_02x12_Odd_Even" H 4250 4076 50  0000 C CNN
+F 1 "uCleft" H 4250 4076 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_2x12_Pitch2.54mm" H 4200 3450 50  0001 C CNN
 F 3 "~" H 4200 3450 50  0001 C CNN
 	1    4200 3450
@@ -638,7 +621,7 @@ L Connector_Generic:Conn_02x12_Odd_Even J41
 U 1 1 61D3EB3D
 P 5800 3450
 F 0 "J41" H 5850 4167 50  0000 C CNN
-F 1 "Conn_02x12_Odd_Even" H 5850 4076 50  0000 C CNN
+F 1 "uCright" H 5850 4076 50  0000 C CNN
 F 2 "Pin_Headers:Pin_Header_Straight_2x12_Pitch2.54mm" H 5800 3450 50  0001 C CNN
 F 3 "~" H 5800 3450 50  0001 C CNN
 	1    5800 3450
@@ -655,14 +638,12 @@ Wire Wire Line
 Wire Wire Line
 	3250 3950 4000 3950
 Wire Notes Line
-	8300 1900 5850 1900
+	8350 1950 6800 1950
 Wire Notes Line
-	5850 1900 5850 650 
+	6800 700  8350 700 
 Wire Notes Line
-	5850 650  8300 650 
-Wire Notes Line
-	8300 650  8300 1900
-Text Notes 7150 750  0    50   ~ 0
+	8350 700  8350 1950
+Text Notes 7200 800  0    50   ~ 0
 5 V power supply connection
 Wire Wire Line
 	6100 2950 7100 2950
@@ -747,14 +728,14 @@ Wire Wire Line
 Wire Wire Line
 	4550 4450 4900 4450
 Wire Notes Line
-	8400 1950 8400 650 
+	8450 1950 8450 700 
 Wire Notes Line
-	8400 650  11050 650 
+	8450 700  11050 700 
 Wire Notes Line
-	11050 650  11050 1950
+	11050 700  11050 1950
 Wire Notes Line
-	11050 1950 8400 1950
-Text Notes 10700 750  0    50   ~ 0
+	11050 1950 8450 1950
+Text Notes 10700 800  0    50   ~ 0
 I2S DAC
 Wire Notes Line
 	8450 3250 8450 2050
@@ -795,37 +776,34 @@ Wire Notes Line
 Wire Notes Line
 	8350 4750 2000 4750
 Wire Wire Line
-	6500 1250 6550 1250
+	6950 1050 6950 1150
 Wire Wire Line
-	6500 1350 6550 1350
+	7700 1150 7700 1300
 Wire Wire Line
-	6500 1000 6500 1250
+	7700 1550 7700 1400
 Wire Wire Line
-	6500 1350 6500 1600
+	7250 1200 7250 1150
+Connection ~ 7250 1150
 Wire Wire Line
-	7050 1250 7050 1100
+	7250 1150 7700 1150
 Wire Wire Line
-	7050 1100 7200 1100
+	7250 1500 7250 1550
+Connection ~ 7250 1550
 Wire Wire Line
-	7650 1100 7650 1250
+	7250 1550 7700 1550
+Text Notes 2950 4100 2    63   ~ 0
+GND		G\nGND		G\nCLK	Shift	21\nSH/LDn	Shift	22\nDIN	T25	17\nNC	NC	2\nCS	RFID	15\nMOSI	RFID	13\nSCLK	RFID	12\nGND		G\nGND		G\n3V3		3V
+Text GLabel 3950 3350 0    50   Input ~ 0
+Touch25
+NoConn ~ 3950 3450
 Wire Wire Line
-	7050 1350 7050 1500
+	6950 1550 6950 1650
 Wire Wire Line
-	7050 1500 7200 1500
+	6950 1150 7250 1150
 Wire Wire Line
-	7650 1500 7650 1350
-Wire Wire Line
-	7200 1150 7200 1100
-Connection ~ 7200 1100
-Wire Wire Line
-	7200 1100 7650 1100
-Wire Wire Line
-	7200 1450 7200 1500
-Connection ~ 7200 1500
-Wire Wire Line
-	7200 1500 7650 1500
-Text Label 7250 1100 0    50   ~ 0
-Conn_5V
-Text Label 7250 1500 0    50   ~ 0
-Conn_GND
+	6950 1550 7250 1550
+Wire Notes Line
+	6800 1950 6800 700 
+Text Label 9350 3650 0    50   ~ 0
+Vbat12V
 $EndSCHEMATC

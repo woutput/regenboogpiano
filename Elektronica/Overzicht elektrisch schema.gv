@@ -20,6 +20,7 @@ digraph
 		aanraak_toets_9_16 -> shift_register_2
 		aanraak_toets_17_24 -> shift_register_3
 
+		aanraak_toets_25 -> controller
 		aanraak_menu -> controller
 
 		shift_register_1 -> shift_register_2
@@ -37,11 +38,12 @@ digraph
 		LED_ring_1 -> LED_ring_2
 		LED_ring_2 -> LED_ring_3
 		LED_ring_3 [label = "..."]
-		LED_ring_3 -> LED_ring_25
+		LED_ring_3 -> LED_ring_26
 
 		controller -> DAC
 		DAC -> versterker
-		versterker -> luidspreker
+		versterker -> luidspreker_links
+		versterker -> luidspreker_rechts
 
 		accu_controller [color = grey; fontcolor = grey]
 		loodaccu_12v [color = grey; fontcolor = grey]
