@@ -14,7 +14,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 Text Notes 850  7500 0    50   ~ 0
-TODO\nMoet RFID-lezer aan- en uitgeschakeld kunnen worden via FET om energie te sparen?\nMoet de LED-voeding aan- en uitgeschakeld kunnen worden via FET om energie te sparen? Nee, te hoge stroom om eenvoudig te schakelen\nMoet de audio-versterker aan- en uitgeschakeld kunnen worden via FET om energie te sparen? Nee, te hoge stroom om eenvoudig te schakelen\nMoeten de shift-registers aan- en uitgeschakeld kunnen worden via FET om energie te sparen? Nee, Iq in uA\nMoeten de data- in- en uitgangen beschermd worden? ESD? Serieweerstand?\nSpanningen duidelijk maken; wellicht level shifters nodig\nStromen duidelijk maken\nVermogens duidelijk maken\n\n12 V en 5 V voeding gaan niet via dit bord, want\n- weinig toegevoegde waarde\n- hoge stroom, dus lastig\n- te hoge stroom om ff met een FET te schakelen\n\nWS2812b heeft minimaal 0.7 * VDD (5 V) = 3.5 V nodig voor VIH.\nIn tests werkt dit toch met de (max 3.3 V) signalen die uit de controller komen.\nLevel shifter toevoegen voor LED ringen en LED display? Nee, maar wel mogelijkheid voorzien via pin headers\n\nLEDs losknippen van sensor boards, want die worden gevoed door 3V3\n\n3V3 komt van T-display on-board DC/DC-converter AP2112 die 600 mA kan leveren
+TODO\nTest alle toegewezen pinnen\nSpanningen duidelijk maken; wellicht level shifters nodig\nStromen duidelijk maken\nVermogens duidelijk maken\n\nMoet RFID-lezer aan- en uitgeschakeld kunnen worden via FET om energie te sparen? Nee, verbruik zal wel meevallen. Kan eventueel later nog via NC-pin.\n\nMoet DAC aan- en uitgeschakeld kunnen worden via FET om energie te sparen? Nee, verbruik zal wel meevallen. Kan eventueel later nog via NC-pin.\n\nMoeten de data- in- en uitgangen beschermd worden tegen ESD? Nee, zal wel meevallen. Kan eventueel later nog via pin headers.\n\nMoet de LED-voeding aan- en uitgeschakeld kunnen worden via FET om energie te sparen? Nee, te hoge stroom om eenvoudig te schakelen\n\nMoet de audio-versterker aan- en uitgeschakeld kunnen worden via FET om energie te sparen? Nee, te hoge stroom om eenvoudig te schakelen\n\nMoeten de shift-registers aan- en uitgeschakeld kunnen worden via FET om energie te sparen? Nee, Iq in uA\n\n12 V en 5 V voeding gaan niet via dit bord, want\n- weinig toegevoegde waarde\n- hoge stroom, dus lastig\n- te hoge stroom om ff met een FET te schakelen\n\nWS2812b heeft minimaal 0.7 * VDD (5 V) = 3.5 V nodig voor VIH.\nIn tests werkt dit toch met de (max 3.3 V) signalen die uit de controller komen.\nLevel shifter toevoegen voor LED ringen en LED display? Nee, maar wel mogelijkheid voorzien via pin headers\n\nLEDs losknippen van sensor boards, want die worden gevoed door 3V3\n\n3V3 komt van T-display on-board DC/DC-converter AP2112 die 600 mA kan leveren
 $Sheet
 S 2950 1150 500  150 
 U 61AEA73C
@@ -338,7 +338,7 @@ L Device:R R2
 U 1 1 61BF20BC
 P 9050 4450
 F 0 "R2" H 9120 4496 50  0000 L CNN
-F 1 "2k7" H 9120 4405 50  0000 L CNN
+F 1 "10k" H 9120 4405 50  0000 L CNN
 F 2 "Wire_Connections_Bridges:WireConnection_1.00mmDrill" V 8980 4450 50  0001 C CNN
 F 3 "~" H 9050 4450 50  0001 C CNN
 	1    9050 4450
@@ -349,7 +349,7 @@ L Device:R R1
 U 1 1 61BF1A16
 P 9050 3950
 F 0 "R1" H 9120 3996 50  0000 L CNN
-F 1 "10k" H 9120 3905 50  0000 L CNN
+F 1 "100k" H 9120 3905 50  0000 L CNN
 F 2 "Wire_Connections_Bridges:WireConnection_1.00mmDrill" V 8980 3950 50  0001 C CNN
 F 3 "~" H 9050 3950 50  0001 C CNN
 	1    9050 3950
@@ -418,8 +418,8 @@ Text Notes 4950 3150 0    50   ~ 0
 TTGO\ntext\nside
 Text Notes 4900 4100 0    50   ~ 0
 USB\nconnector\nside
-Text Notes 9300 4650 0    50   ~ 0
-21.26% of 12 V = 2.55 V\n21.26% of 15 V = 3.19 V\nMaximum input voltage to ADC: 3.3 V\nMaximum input before divider: 15.5 V
+Text Notes 9850 4250 0    50   ~ 0
+Typ: 9.09% of 12 V = 1.09 V\n
 Text GLabel 9950 3750 0    50   Input ~ 0
 LED_display_data
 Wire Wire Line
@@ -806,4 +806,6 @@ Wire Notes Line
 	6800 1950 6800 700 
 Text Label 9350 3650 0    50   ~ 0
 Vbat12V
+Text Notes 3100 3550 0    50   ~ 0
+NC-pin beschikbaar\nvia header
 $EndSCHEMATC

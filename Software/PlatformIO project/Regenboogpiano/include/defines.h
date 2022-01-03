@@ -42,6 +42,6 @@
 #define NUMBER_OF_SHIFT_REGISTERS 1
 #define NUMBER_OF_SHIFTS (NUMBER_OF_SHIFT_REGISTERS * 8)
 
-// TODO: change from 1 (test) to 25 (real)
+// TODO: change from 1 (test) to 26 (real)
 #define NUMBER_OF_LED_RINGS 1
 #define NUMBER_OF_LEDS_PER_LED_RING 12
