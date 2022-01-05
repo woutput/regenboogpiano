@@ -70,8 +70,8 @@ $Comp
 L Connector:Conn_01x12_Female J7
 U 1 1 61BB04FD
 P 4800 3450
-F 0 "J7" H 4750 4100 50  0000 L CNN
-F 1 "Conn_01x12_Female" H 4828 3335 50  0001 L CNN
+F 0 "J7" H 4750 4150 50  0000 L CNN
+F 1 "uCleft" H 4700 4050 50  0000 L CNN
 F 2 "Socket_Strips:Socket_Strip_Straight_1x12_Pitch2.54mm" H 4800 3450 50  0001 C CNN
 F 3 "~" H 4800 3450 50  0001 C CNN
 	1    4800 3450
@@ -227,8 +227,8 @@ $Comp
 L Connector:Conn_01x12_Female J8
 U 1 1 61BAFAD7
 P 5300 3450
-F 0 "J8" H 5250 4100 50  0000 L CNN
-F 1 "Conn_01x12_Female" H 5328 3335 50  0001 L CNN
+F 0 "J8" H 5250 4150 50  0000 L CNN
+F 1 "uCright" H 5150 4050 50  0000 L CNN
 F 2 "Socket_Strips:Socket_Strip_Straight_1x12_Pitch2.54mm" H 5300 3450 50  0001 C CNN
 F 3 "~" H 5300 3450 50  0001 C CNN
 	1    5300 3450
