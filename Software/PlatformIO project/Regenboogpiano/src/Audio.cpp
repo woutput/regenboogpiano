@@ -8,10 +8,10 @@
 #include "left.h"
 #include "right.h"
 
-// Audio
 AudioGeneratorMP3 *mp3;
 AudioFileSourcePROGMEM *file;
 AudioOutputI2S *out;
+bool playing_MP3 = false;
 
 void setup_audio()
 {

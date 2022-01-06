@@ -1,4 +1,4 @@
 #pragma once
 
 void setup_RFID();
-void loop_RFID();
+bool check_for_RFID();
