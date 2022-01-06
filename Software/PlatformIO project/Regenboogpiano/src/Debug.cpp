@@ -2,6 +2,7 @@
 #include <Debug.h>
 #include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
 #include <SPI.h>
+#include <Arduino.h>
 
 // TFT display
 SPIClass* spi = &SPI;
@@ -10,7 +11,7 @@ Adafruit_ST7789 tft = Adafruit_ST7789(PIN_TFT_CS, PIN_TFT_DC, PIN_TFT_MOSI, PIN_
 void setup_debug()
 {
     pinMode(PIN_TFT_BACKLIGHT, OUTPUT);
-    #ifdef DEBUG
+    #if (DEBUG == true)
         // Debug to serial
         Serial.begin(115200);
         while (!Serial); // wait for serial port to connect. Needed for native USB port only
@@ -26,4 +27,16 @@ void setup_debug()
     #else
         digitalWrite(PIN_TFT_BACKLIGHT, LOW); // Backlight on
     #endif
+}
+
+void loop_debug()
+{
+}
+
+void log(const char str[])
+{
+    Serial.println(str);
+    tft.println(str);
+    // TODO log to file (on SPIFFS?) ? And host via WiFi?
+    // TODO store on webserver ouderraadgroteheide.be ?
 }

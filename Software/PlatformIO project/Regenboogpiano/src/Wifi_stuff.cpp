@@ -1,3 +1,4 @@
+#include <defines.h>
 #include <Wifi_stuff.h>
 #include <WiFi.h>
 
@@ -7,7 +8,9 @@ void setup_wifi()
     WiFi.mode(WIFI_OFF); // TODO turn on WiFi later for firmware updates
 }
 
-
+void loop_wifi()
+{
+}
 
 
 

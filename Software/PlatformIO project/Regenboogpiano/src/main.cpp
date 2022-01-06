@@ -7,24 +7,16 @@
 #include <LEDs.h>
 #include <RFID.h>
 
-// TODO: test only
-#include "left.h"
-#include "right.h"
-
 void setup()
 {
     setup_debug();
-    #ifdef DEBUG
-        Serial.println("Begin of setup");
-    #endif
+    log("Begin of setup");
     setup_wifi();
     setup_touch();
     setup_audio();
     setup_LEDs();
     setup_RFID();
-    #ifdef DEBUG
-        Serial.println("End of setup");
-    #endif
+    log("end of setup");
 }
 
 void loop()

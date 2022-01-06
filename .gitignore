@@ -17,9 +17,6 @@ fp-info-cache
 # Autorouter files (exported from Pcbnew)
 *.dsn
 *.ses
-# Exported BOM files
-*.xml
-*.csv
 
 ## Sketchup
 # Backup file

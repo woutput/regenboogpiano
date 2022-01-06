@@ -1,7 +1,12 @@
+#include <defines.h>
 #include <Audio.h>
 #include "AudioFileSourcePROGMEM.h"
 #include "AudioGeneratorMP3.h"
 #include "AudioOutputI2S.h"
+
+// TODO: test only
+#include "left.h"
+#include "right.h"
 
 // Audio
 AudioGeneratorMP3 *mp3;

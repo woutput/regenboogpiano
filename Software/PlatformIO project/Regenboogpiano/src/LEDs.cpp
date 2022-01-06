@@ -20,3 +20,7 @@ void setup_LEDs()
     LED_display.setBrightness(LED_DISPLAY_BRIGHTNESS);
     LED_display.show(); // Initialize all pixels to 'off'
 }
+
+void loop_LEDs()
+{
+}
