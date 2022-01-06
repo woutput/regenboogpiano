@@ -10,13 +10,13 @@
 void setup()
 {
     setup_debug();
-    log("Begin of setup");
+    log_this("Begin of setup");
     setup_wifi();
     setup_touch();
     setup_audio();
     setup_LEDs();
     setup_RFID();
-    log("end of setup");
+    log_this("end of setup");
 }
 
 void loop()
@@ -28,59 +28,6 @@ void loop()
     loop_LEDs();
     loop_RFID();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
