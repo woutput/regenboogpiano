@@ -1,29 +1,15 @@
+// TODO
+// Use multicore?
+
 #include <defines.h>
-#include <Arduino.h>
+#include <Main.h>
 #include <Debug.h>
 #include <Wifi_stuff.h>
 #include <Touch.h>
 #include <Audio.h>
 #include <LEDs.h>
 #include <RFID.h>
-
-enum main_states
-{
-    NO_POWER,
-    de_regenboogpiano_wordt_gestart,
-    gelieve_aan_te_melden,
-    STANDBY,
-    MENU,
-    PIANO,
-    AUTOPLAY,
-    COLORS,
-    ANIMALS,
-    SIMONSAYS
-};
-
-main_states current_main_state = NO_POWER;
-uint32_t current_time_since_POR__ms;
-uint32_t start_timeout;
+#include <State_machine.h>
 
 void setup()
 {
@@ -45,34 +31,7 @@ void loop()
     loop_touch();
     loop_audio();
     loop_LEDs();
-    switch (current_main_state)
-    {
-        case NO_POWER:
-            log_this("De regenboogpiano wordt gestart...");
-            // LEDdisplay_center("De regenboogpiano wordt gestart...");
-            // start_MP3("de-regenboogpiano-wordt-gestart.mp3");
-            current_main_state = de_regenboogpiano_wordt_gestart;
-            break;
-        case de_regenboogpiano_wordt_gestart:
-            if (playing_MP3 == false) // assume it has played
-            {
-                log_this("Gelieve aan te melden");
-                // LEDdisplay_center("Gelieve aan te melden");
-                // start_MP3("gelieve-aan-te-melden.mp3");
-                start_timeout = current_time_since_POR__ms;
-                current_main_state = gelieve_aan_te_melden;
-            }
-            break;
-        case gelieve_aan_te_melden:
-            if (check_for_RFID() == true)
-            {
-            }
-            else if (current_time_since_POR__ms > start_timeout + TIMEOUT_NO_INTERACTION__MS)
-            {
-                current_main_state = STANDBY;
-            }
-            break;
-    }
+    loop_state_machine();
 }
 
 

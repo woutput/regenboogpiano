@@ -3,8 +3,10 @@
 #include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
 
 // TFT display
-SPIClass* spi = &SPI;
-Adafruit_ST7789 tft = Adafruit_ST7789(PIN_TFT_CS, PIN_TFT_DC, PIN_TFT_MOSI, PIN_TFT_SCLK);
+#if (DEBUG == true)
+    SPIClass* spi = &SPI;
+    Adafruit_ST7789 tft = Adafruit_ST7789(PIN_TFT_CS, PIN_TFT_DC, PIN_TFT_MOSI, PIN_TFT_SCLK);
+#endif
 
 void setup_debug()
 {
@@ -33,7 +35,7 @@ void loop_debug()
 {
 }
 
-void log_this(const char st[])
+void log_this(const char * st)
 {
     #if (DEBUG == true)
         int16_t gety;

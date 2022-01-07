@@ -1,12 +1,15 @@
 #include <defines.h>
 #include <LEDs.h>
+#include <Debug.h>
 
-Adafruit_NeoMatrix LED_display = Adafruit_NeoMatrix(32 * 6, 8, PIN_LED_DISPLAY,
-  NEO_MATRIX_TOP     + NEO_MATRIX_LEFT +
-  NEO_MATRIX_COLUMNS + NEO_MATRIX_ZIGZAG,
-  NEO_GRB            + NEO_KHZ800);
+Adafruit_NeoMatrix LED_display = Adafruit_NeoMatrix(LED_DISPLAY_WIDTH__PIX * NUMBER_OF_LED_DISPLAYS, LED_DISPLAY_HEIGHT__PIX, PIN_LED_DISPLAY,
+    NEO_MATRIX_TOP     + NEO_MATRIX_LEFT +
+    NEO_MATRIX_COLUMNS + NEO_MATRIX_ZIGZAG,
+    NEO_GRB            + NEO_KHZ800);
 
 Adafruit_NeoPixel LED_rings = Adafruit_NeoPixel(NUMBER_OF_LEDS_PER_LED_RING * NUMBER_OF_LED_RINGS, PIN_LED_RINGS, NEO_GRB + NEO_KHZ800);
+
+bool busy_scrolling_text = false;
 
 void setup_LEDs()
 {
@@ -23,4 +26,33 @@ void setup_LEDs()
 
 void loop_LEDs()
 {
+    if (busy_scrolling_text == true)
+    {
+        // TODO implement scrolling each #defined timeout scroll step
+        busy_scrolling_text = false;
+    }
+}
+
+void start_LED_display_scroll(const char * text_to_scroll)
+{
+    busy_scrolling_text = true;
+    log_this("Started scrolling text:");
+    log_this(text_to_scroll);
+}
+
+void LED_display_center(const char * text_to_display)
+{
+    // TODO implement
+    log_this("Added centered text on LED display:");
+    log_this(text_to_display);
+}
+
+void clear_LED_display()
+{
+    // TODO implement
+}
+
+void clear_LED_rings()
+{
+    // TODO implement
 }
