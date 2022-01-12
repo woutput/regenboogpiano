@@ -14,6 +14,32 @@ AudioFileSourcePROGMEM *file;
 AudioOutputI2S *out;
 bool busy_playing_MP3 = false;
 
+const char* const note_name[] =               { "C1",
+                                                "C1#",
+                                                "D1",
+                                                "D1#",
+                                                "E1",
+                                                "F1",
+                                                "F1#",
+                                                "G1",
+                                                "G1#",
+                                                "A2",
+                                                "A2#",
+                                                "B2",
+                                                "C2",
+                                                "C2#",
+                                                "D2",
+                                                "D2#",
+                                                "E2",
+                                                "F2",
+                                                "F2#",
+                                                "G2",
+                                                "G2#",
+                                                "A3",
+                                                "A3#",
+                                                "B3",
+                                                "C3"};
+
 const char* const piano_note_MP3_filename[] = { "piano/C1.mp3",
                                                 "piano/C1#.mp3",
                                                 "piano/D1.mp3",

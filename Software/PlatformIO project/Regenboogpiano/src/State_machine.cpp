@@ -70,13 +70,13 @@ void loop_state_machine()
             break;
         case MENU:
             log_this("Welkom");
-            LED_display_center("Welkom");
+            start_LED_display_scroll("Welkom");
             start_MP3("welkom.mp3");
             start_timeout_welkom = current_time_since_POR__ms;
             current_main_state = welkom;
             break;
         case welkom:
-            if ((busy_playing_MP3 == false) && (current_time_since_POR__ms > start_timeout_welkom + TIMEOUT_WELKOM__MS))
+            if ((busy_playing_MP3 == false) && (busy_scrolling_text == false) && (current_time_since_POR__ms > start_timeout_welkom + TIMEOUT_WELKOM__MS))
             {
                 log_this("Kies een spel met de menu-toets");
                 start_LED_display_scroll("Kies een spel met de menu-toets");
@@ -91,7 +91,7 @@ void loop_state_machine()
             }
             else
             {
-                if (busy_scrolling_text == true)
+                if (busy_scrolling_text == false)
                 {
                     // Restart scrolling same text
                     start_LED_display_scroll("Kies een spel met de toets");
@@ -110,7 +110,7 @@ void loop_state_machine()
             current_main_state = PIANO_speel_piano;
             break;
         case PIANO_speel_piano:
-            if ((busy_playing_MP3 == false) && (current_time_since_POR__ms > start_timeout_welkom + TIMEOUT_GAME_START__MS))
+            if ((busy_playing_MP3 == false) && (busy_scrolling_text == false) && (current_time_since_POR__ms > start_timeout_game_start + TIMEOUT_GAME_START__MS))
             {
                 clear_LED_display();
                 clear_LED_rings();
@@ -123,7 +123,34 @@ void loop_state_machine()
                 if (button_rising_edge[i] == true)
                 {
                     start_MP3(piano_note_MP3_filename[i]);
+                    LED_display_center(note_name[i]);
                 }
             }
+            if (button_rising_edge[BUTTON_MENU] == true)
+            {
+                current_main_state = AUTOPLAY;
+            }
+            break;
+        case AUTOPLAY:
+            log_this("Speel een lied");
+            start_LED_display_scroll("Speel een lied");
+            start_MP3("speel-een-lied.mp3");
+            start_timeout_game_start = current_time_since_POR__ms;
+            current_main_state = AUTOPLAY_speel_een_lied;
+            break;
+        case AUTOPLAY_speel_een_lied:
+            if ((busy_playing_MP3 == false) && (busy_scrolling_text == false) && (current_time_since_POR__ms > start_timeout_game_start + TIMEOUT_GAME_START__MS))
+            {
+                log_this("Er wordt een willekeurig nummer gekozen");
+                start_LED_display_scroll("Er wordt een willekeurig nummer gekozen");
+                start_MP3("er-wordt-een-willekeurig-nummer-gekozen.mp3");
+                start_timeout_game_start = current_time_since_POR__ms;
+                current_main_state = AUTOPLAY_er_wordt_een_willekeurig_nummer_gekozen;
+            }
+            break;
+        case AUTOPLAY_er_wordt_een_willekeurig_nummer_gekozen:
+            if ((busy_playing_MP3 == false) && (busy_scrolling_text == false) && (current_time_since_POR__ms > start_timeout_game_start + TIMEOUT_GAME_START__MS))
+            {
+
     }
 }
