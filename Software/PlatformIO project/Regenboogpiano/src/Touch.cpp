@@ -8,7 +8,10 @@
 bool new_touch_sensor_state[NUMBER_OF_TOUCH_SENSORS];
 bool old_touch_sensor_state[NUMBER_OF_TOUCH_SENSORS];
 bool button_rising_edge[NUMBER_OF_TOUCH_SENSORS];
+bool any_button_rising_edge = false;
 uint32_t start_timeout_read_shift_registers = 0;
+int8_t index_of_touched_button = -1; // -1 means: no button touched; including menu button
+int8_t index_of_touched_key = -1; // -1 means: no button touched; excluding menu button
 
 void setup_touch()
 {
@@ -66,11 +69,20 @@ void loop_touch()
         }
 
         // Conclude button_rising_edge from new_touch_sensor_state and old_touch_sensor_state
+        any_button_rising_edge = false;
+        index_of_touched_button = -1;
+        index_of_touched_key = -1;
         for (i = 0; i < NUMBER_OF_TOUCH_SENSORS; i++)
         {
             if ((new_touch_sensor_state[i] == true) && (new_touch_sensor_state[i] == false))
             {
                 button_rising_edge[i] = true;
+                any_button_rising_edge = true;
+                index_of_touched_button = i;
+                if (i != 25)
+                {
+                    index_of_touched_key = i;
+                }
             }
             else
             {

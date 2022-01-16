@@ -56,3 +56,13 @@ void clear_LED_rings()
 {
     // TODO implement
 }
+
+void show_correct_key_using_LED_ring(uint8_t key_number)
+{
+    // TODO implement
+}
+
+void turn_on_LED_ring_in_own_color(uint8_t key_number)
+{
+    // TODO implement
+}

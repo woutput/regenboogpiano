@@ -27,10 +27,14 @@
 #define BUTTON_TOUCH_25 24
 #define BUTTON_MENU 25
 
+#include <stdint.h>
 
 extern bool new_touch_sensor_state[NUMBER_OF_TOUCH_SENSORS];
 extern bool old_touch_sensor_state[NUMBER_OF_TOUCH_SENSORS];
 extern bool button_rising_edge[NUMBER_OF_TOUCH_SENSORS];
+extern bool any_button_rising_edge;
+extern int8_t index_of_touched_button;
+extern int8_t index_of_touched_key;
 
 void setup_touch();
 void loop_touch();

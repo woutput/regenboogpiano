@@ -1,10 +1,12 @@
 #pragma once
 
 //// Important constants
+#define DEBUG true
 #define LED_BRIGHTNESS 12 // 0...255
 #define LED_DISPLAY_BRIGHTNESS LED_BRIGHTNESS // 0...255
 #define LED_RINGS_BRIGHTNESS LED_BRIGHTNESS // 0...255
-#define DEBUG true
+#define MAXIMUM_NUMBER_OF_SONGS 100
+#define MAXIMUM_NUMBER_OF_NOTES_PER_SONG 100
 
 //// Pins
 // DAC
