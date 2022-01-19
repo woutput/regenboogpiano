@@ -171,3 +171,8 @@ char * color_name_MP3_filename(int8_t note_number)
 {
     // TODO implement
 }
+
+char * animal_name_MP3_filename(int8_t note_number)
+{
+    // TODO implement
+}
