@@ -14,7 +14,7 @@ AudioFileSourcePROGMEM *file;
 AudioOutputI2S *out;
 bool busy_playing_MP3 = false;
 
-const char* const note_name_without_octave[] = {"C",
+const char* const note_name_for_display[] =    {"C",
                                                 "C#",
                                                 "D",
                                                 "D#",
@@ -26,21 +26,21 @@ const char* const note_name_without_octave[] = {"C",
                                                 "A",
                                                 "A#",
                                                 "B",
-                                                "C",
-                                                "C#",
-                                                "D",
-                                                "D#",
-                                                "E",
-                                                "F",
-                                                "F#",
-                                                "G",
-                                                "G#",
-                                                "A",
-                                                "A#",
-                                                "B",
-                                                "C"};
+                                                "C'",
+                                                "C'#",
+                                                "D'",
+                                                "D'#",
+                                                "E'",
+                                                "F'",
+                                                "F'#",
+                                                "G'",
+                                                "G'#",
+                                                "A'",
+                                                "A'#",
+                                                "B'",
+                                                "C''"};
 
-const char* const note_name_with_octave[] =   { "C5",
+const char* const note_name_in_RTTTL[] =      { "C5",
                                                 "C5#",
                                                 "D5",
                                                 "D5#",
@@ -147,19 +147,32 @@ void loop_audio()
     //         mp3->begin(file, out);
     //     }
 
-    // if (mp3->isRunning())
-    // {
-    //    if (!mp3->loop()) mp3->stop();
-    // }
+    if (mp3->isRunning())
+    {
+        if (!mp3->loop())
+        {
+            mp3->stop();
+            log_this("MP3 is done playing");
+            busy_playing_MP3 = false;
+        }
+    }
     // TODO implement
-    busy_playing_MP3 = false;
 }
 
 void start_MP3(const char * filename_of_MP3)
 {
     busy_playing_MP3 = true;
-    log_this("Started playing MP3 file:");
+    log_this("Starting MP3 file:");
     log_this(filename_of_MP3);
+
+    // TODO fix this temporary thing:
+    if (mp3->isRunning())
+    {
+        mp3->stop();
+    }
+    file->open(left_h, sizeof(left_h));
+    mp3->begin(file, out);
+    log_this("Started MP3");
 }
 
 char * piano_note_MP3_filename(int8_t note_number)

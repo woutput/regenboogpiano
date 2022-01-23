@@ -18,3 +18,4 @@ void clear_LED_display();
 void clear_LED_rings();
 void show_correct_key_using_LED_ring(uint8_t key_number);
 void turn_on_LED_ring_in_own_color(uint8_t key_number);
+void show_startup_on_LED_rings();

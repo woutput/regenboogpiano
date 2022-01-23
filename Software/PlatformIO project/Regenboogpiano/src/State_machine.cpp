@@ -57,6 +57,7 @@ void loop_state_machine()
             log_this("De regenboogpiano wordt gestart...");
             start_LED_display_scroll("De regenboogpiano wordt gestart...");
             start_MP3("de-regenboogpiano-wordt-gestart.mp3");
+            show_startup_on_LED_rings();
             current_main_state = de_regenboogpiano_wordt_gestart;
             break;
         case de_regenboogpiano_wordt_gestart:
@@ -133,7 +134,7 @@ void loop_state_machine()
             if (index_of_touched_key =! -1)
             {
                 start_MP3(piano_note_MP3_filename(index_of_touched_key));
-                LED_display_center(note_name_without_octave[index_of_touched_key]);
+                LED_display_center(note_name_for_display[index_of_touched_key]);
             }
             if (button_rising_edge[BUTTON_MENU] == true)
             {
@@ -193,7 +194,7 @@ void loop_state_machine()
             }
             break;
         case AUTOPLAY_MP3:
-            LED_display_center(note_name_without_octave[current_note_index_in_current_song]);
+            LED_display_center(note_name_for_display[current_note_index_in_current_song]);
             current_main_state = AUTOPLAY_display;
             break;
         case AUTOPLAY_display:

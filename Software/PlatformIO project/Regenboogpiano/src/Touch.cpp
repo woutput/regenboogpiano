@@ -27,8 +27,6 @@ void setup_touch()
 
 void loop_touch()
 {
-    uint8_t i;
-    // TODO: do this less frequently; maybe once every 100 ms?
     if (current_time_since_POR__ms > start_timeout_read_shift_registers + TIMEOUT_SHIFT_REGISTERS__MS)
     {
         start_timeout_read_shift_registers = current_time_since_POR__ms;
@@ -40,12 +38,15 @@ void loop_touch()
         digitalWrite(PIN_SHIFT_CLK, HIGH);
         digitalWrite(PIN_SHIFT_CLK, LOW);
         digitalWrite(PIN_SHIFT_SHLD, HIGH);
+
+        digitalWrite(PIN_SHIFT_CLK, HIGH);
+        digitalWrite(PIN_SHIFT_CLK, LOW);
         // Now shift out data
         for (uint8_t shifts = 0; shifts < NUMBER_OF_SHIFTS; shifts++)
         {
             digitalWrite(PIN_SHIFT_CLK, HIGH);
-            new_touch_sensor_state[shifts] = digitalRead(PIN_SHIFT_DATA);
-            // Serial.print(touch_sensor_state[shifts]);
+            new_touch_sensor_state[NUMBER_OF_SHIFTS - shifts - 1] = digitalRead(PIN_SHIFT_DATA);
+            // Serial.print(new_touch_sensor_state[shifts]);
             digitalWrite(PIN_SHIFT_CLK, LOW);
         }
         // Serial.println("");
@@ -72,13 +73,16 @@ void loop_touch()
         any_button_rising_edge = false;
         index_of_touched_button = -1;
         index_of_touched_key = -1;
-        for (i = 0; i < NUMBER_OF_TOUCH_SENSORS; i++)
+        // for (uint8_t i = 0; i < 1; i++) // TODO replace 1 by 0<NUMBER_OF_TOUCH_SENSORS
+        for (uint8_t i = 25; i < 26; i++) // TODO replace by 0<NUMBER_OF_TOUCH_SENSORS
         {
-            if ((new_touch_sensor_state[i] == true) && (new_touch_sensor_state[i] == false))
+            if ((old_touch_sensor_state[i] == false) && (new_touch_sensor_state[i] == true))
             {
                 button_rising_edge[i] = true;
                 any_button_rising_edge = true;
                 index_of_touched_button = i;
+                log_this("Pressed button:");
+                log_this(int_to_char_pointer(index_of_touched_button));
                 if (i != 25)
                 {
                     index_of_touched_key = i;
@@ -91,7 +95,7 @@ void loop_touch()
         }
 
         // Copy new_touch_sensor_state to old_touch_sensor_state
-        for (i = 0; i < NUMBER_OF_TOUCH_SENSORS; i++)
+        for (uint8_t i = 0; i < NUMBER_OF_TOUCH_SENSORS; i++)
         {
             old_touch_sensor_state[i] = new_touch_sensor_state[i];
         }

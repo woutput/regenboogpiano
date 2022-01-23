@@ -31,6 +31,8 @@ void loop_LEDs()
         // TODO implement scrolling each #defined timeout scroll step
         busy_scrolling_text = false;
     }
+    LED_rings.rainbow(0, 25);
+    LED_rings.show();
 }
 
 void start_LED_display_scroll(const char * text_to_scroll)
@@ -65,4 +67,8 @@ void show_correct_key_using_LED_ring(uint8_t key_number)
 void turn_on_LED_ring_in_own_color(uint8_t key_number)
 {
     // TODO implement
+}
+
+void show_startup_on_LED_rings()
+{
 }

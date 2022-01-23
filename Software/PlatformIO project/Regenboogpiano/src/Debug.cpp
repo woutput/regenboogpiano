@@ -2,10 +2,12 @@
 #include <Debug.h>
 #include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
 
-// TFT display
 #if (DEBUG == true)
+    // TFT display
     SPIClass* spi = &SPI;
     Adafruit_ST7789 tft = Adafruit_ST7789(PIN_TFT_CS, PIN_TFT_DC, PIN_TFT_MOSI, PIN_TFT_SCLK);
+
+    char debug_buffer[20];
 #endif
 
 void setup_debug()
@@ -58,4 +60,10 @@ void log_this(const char * st)
         // TODO log to file (on SPIFFS?) ? And host via WiFi?
         // TODO push to webserver ouderraadgroteheide.be ?
     #endif
+}
+
+char * int_to_char_pointer(int64_t int_in)
+{
+    sprintf(debug_buffer, "%d", int_in);
+    return debug_buffer;
 }
