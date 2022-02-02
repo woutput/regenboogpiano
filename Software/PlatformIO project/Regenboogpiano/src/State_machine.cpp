@@ -34,7 +34,18 @@ enum main_states
     ANIMALS,
     ANIMALS_raad_het_dier,
     ANIMALS_GAME,
-    SIMONSAYS
+    SIMONSAYS,
+    SIMONSAYS_speel_het_na,
+    SIMONSAYS_er_wordt_een_willekeurig_nummer_gekozen,
+    SIMONSAYS_3,
+    SIMONSAYS_2,
+    SIMONSAYS_1,
+    SIMONSAYS_GAME_luister_goed,
+    SIMONSAYS_GAME_play_example,
+    SIMONSAYS_GAME_speel_het_na,
+    SIMONSAYS_GAME_wacht_op_toets,
+    SIMONSAYS_GAME_afgelopen,
+    SIMONSAYS_een_nieuw_spel_wordt_gestart
 };
 
 main_states current_main_state = NO_POWER;
@@ -42,11 +53,14 @@ uint32_t current_time_since_POR__ms;
 uint32_t start_timeout_no_interaction = 0;
 uint32_t start_timeout_welkom = 0;
 uint32_t start_timeout_game_start = 0;
-uint8_t chosen_song = 0; // data type must to able to store MAXIMUM_NUMBER_OF_SONGS
+uint32_t start_timeout_count_down = 0;
+uint32_t start_timeout_win_lose = 0;
+uint8_t chosen_song = 0; // data type must to able to store MAXIMUM_NUMBER_OF_SONGS // used in AUTOPLAY and SIMONSAYS
 uint8_t total_number_of_songs = 0; // data type must to able to store MAXIMUM_NUMBER_OF_SONGS // TODO Fill this value during firmware/song update
+uint8_t SIMONSAYS_number_of_notes_to_guess_this_round; // data type must to able to store MAXIMUM_NUMBER_OF_NOTES_PER_SONG
 char* song_name[MAXIMUM_NUMBER_OF_SONGS]; // TODO Fill this array during firmware/song update
-uint8_t note_in_song[MAXIMUM_NUMBER_OF_SONGS][MAXIMUM_NUMBER_OF_NOTES_PER_SONG]; // [song_index, note_index] values 0...25 for keys C5 to C7 TODO Fill this array during firmware/song update
-uint8_t current_note_index_in_current_song = 0;
+uint8_t note_in_song[MAXIMUM_NUMBER_OF_SONGS][MAXIMUM_NUMBER_OF_NOTES_PER_SONG]; // [song_index, note_index] values 0...24 for keys C5 to C7 // TODO Fill this array during firmware/song update
+uint8_t current_note_index_in_current_song = 0; // used in AUTOPLAY and SIMONSAYS
 uint8_t number_of_notes_per_song[MAXIMUM_NUMBER_OF_SONGS]; // TODO Fill this array during firmware/song update
 
 void loop_state_machine()
@@ -107,7 +121,7 @@ void loop_state_machine()
                 if (busy_scrolling_text == false)
                 {
                     // Restart scrolling same text
-                    start_LED_display_scroll("Kies een spel met de toets");
+                    start_LED_display_scroll("Kies een spel met de menu-toets");
                 }
                 if (button_rising_edge[BUTTON_MENU] == true)
                 {
@@ -141,6 +155,9 @@ void loop_state_machine()
                 current_main_state = AUTOPLAY;
             }
             break;
+
+
+
         case AUTOPLAY:
             log_this("Speel een lied");
             start_LED_display_scroll("Speel een lied");
@@ -242,6 +259,9 @@ void loop_state_machine()
                 current_main_state = STANDBY;
             }
             break;
+
+
+
         case ANIMALS:
             log_this("Raad het dier");
             start_LED_display_scroll("Raad het dier");
@@ -268,6 +288,170 @@ void loop_state_machine()
             else if (current_time_since_POR__ms > start_timeout_no_interaction + TIMEOUT_NO_INTERACTION__MS)
             {
                 current_main_state = STANDBY;
+            }
+            break;
+
+
+
+        case SIMONSAYS:
+            log_this("Speel het na");
+            start_LED_display_scroll("Speel het na");
+            start_MP3("speel-het-na.mp3");
+            start_timeout_game_start = current_time_since_POR__ms;
+            current_main_state = SIMONSAYS_speel_het_na;
+            break;
+        case SIMONSAYS_speel_het_na:
+            if ((busy_playing_MP3 == false) && (busy_scrolling_text == false) && (current_time_since_POR__ms > start_timeout_game_start + TIMEOUT_GAME_START__MS))
+            {
+                log_this("Er wordt een willekeurig nummer gekozen");
+                start_LED_display_scroll("Er wordt een willekeurig nummer gekozen");
+                start_MP3("er-wordt-een-willekeurig-nummer-gekozen.mp3");
+                start_timeout_game_start = current_time_since_POR__ms;
+                current_main_state = SIMONSAYS_er_wordt_een_willekeurig_nummer_gekozen;
+            }
+            break;
+        case SIMONSAYS_er_wordt_een_willekeurig_nummer_gekozen:
+            if ((busy_playing_MP3 == false) && (busy_scrolling_text == false) && (current_time_since_POR__ms > start_timeout_game_start + TIMEOUT_GAME_START__MS))
+            {
+                log_this("3");
+                LED_display_center("3");
+                start_MP3("03.mp3");
+                start_timeout_count_down = current_time_since_POR__ms;
+                current_main_state = SIMONSAYS_3;
+            }
+            break;
+        case SIMONSAYS_3:
+            if ((busy_playing_MP3 == false) && (busy_scrolling_text == false) && (current_time_since_POR__ms > start_timeout_count_down + TIMEOUT_COUNT_DOWN__MS))
+            {
+                log_this("2");
+                LED_display_center("2");
+                start_MP3("02.mp3");
+                start_timeout_count_down = current_time_since_POR__ms;
+                current_main_state = SIMONSAYS_2;
+            }
+            break;
+        case SIMONSAYS_2:
+            if ((busy_playing_MP3 == false) && (busy_scrolling_text == false) && (current_time_since_POR__ms > start_timeout_count_down + TIMEOUT_COUNT_DOWN__MS))
+            {
+                log_this("1");
+                LED_display_center("1");
+                start_MP3("01.mp3");
+                start_timeout_count_down = current_time_since_POR__ms;
+                current_main_state = SIMONSAYS_1;
+            }
+            break;
+        case SIMONSAYS_1:
+            if ((busy_playing_MP3 == false) && (busy_scrolling_text == false) && (current_time_since_POR__ms > start_timeout_count_down + TIMEOUT_COUNT_DOWN__MS))
+            {
+                log_this("Luister goed");
+                LED_display_center("Luister goed");
+                start_MP3("luister-goed.mp3");
+                start_timeout_count_down = current_time_since_POR__ms;
+                SIMONSAYS_number_of_notes_to_guess_this_round = 3;
+                current_main_state = SIMONSAYS_GAME_luister_goed;
+            }
+            break;
+        case SIMONSAYS_GAME_luister_goed:
+            if ((busy_playing_MP3 == false) && (busy_scrolling_text == false))
+            {
+                current_note_index_in_current_song = 0;
+                chosen_song = uint16_t(random(total_number_of_songs));
+                current_main_state = SIMONSAYS_GAME_play_example;
+            }
+            break;
+        case SIMONSAYS_GAME_play_example:
+            if (busy_playing_MP3 == false)
+            {
+                start_MP3(piano_note_MP3_filename(note_in_song[chosen_song][current_note_index_in_current_song]));
+                show_correct_key_using_LED_ring(note_in_song[chosen_song][current_note_index_in_current_song]);
+                if (current_note_index_in_current_song < SIMONSAYS_number_of_notes_to_guess_this_round)
+                {
+                    current_note_index_in_current_song = current_note_index_in_current_song + 1;
+                }
+                else
+                {
+                    current_main_state = SIMONSAYS_GAME_speel_het_na;
+                }
+            }
+            break;
+        case SIMONSAYS_GAME_speel_het_na:
+            if (busy_playing_MP3 == false)
+            {
+                log_this("Speel het na");
+                LED_display_center("Speel het na");
+                start_MP3("speel-het-na.mp3");
+                current_note_index_in_current_song = 0;
+                start_timeout_no_interaction = current_time_since_POR__ms;
+                current_main_state = SIMONSAYS_GAME_wacht_op_toets;
+            }
+            break;
+        case SIMONSAYS_GAME_wacht_op_toets:
+            if (index_of_touched_key != -1) // && (busy_playing_MP3 == false)) // don't wait for MP3 to finish
+            {
+                if (note_in_song[chosen_song][current_note_index_in_current_song] == index_of_touched_key) // this note is correct
+                {
+                    turn_on_LED_ring_in_own_color(index_of_touched_key);
+                    start_MP3(piano_note_MP3_filename(index_of_touched_key));
+                    start_timeout_no_interaction = current_time_since_POR__ms;
+                    if (current_note_index_in_current_song >= number_of_notes_per_song[chosen_song] - 1)
+                    {
+                        log_this("Proficiat! Je hebt gewonnen");
+                        start_LED_display_scroll("Proficiat! Je hebt gewonnen");
+                        start_MP3("win.mp3");
+                        start_timeout_win_lose = current_time_since_POR__ms;
+                        LED_rings_show_win = true;
+                        current_main_state = SIMONSAYS_GAME_afgelopen;
+                    }
+                    else if (current_note_index_in_current_song >= SIMONSAYS_number_of_notes_to_guess_this_round - 1)
+                    {
+                        // all correct in this round
+                        log_this("Luister goed");
+                        LED_display_center("Luister goed");
+                        start_MP3("luister-goed.mp3");
+                        start_timeout_count_down = current_time_since_POR__ms;
+                        SIMONSAYS_number_of_notes_to_guess_this_round = SIMONSAYS_number_of_notes_to_guess_this_round + 1;
+                        current_main_state = SIMONSAYS_GAME_luister_goed;
+                    }
+                    else
+                    {
+                        current_note_index_in_current_song = current_note_index_in_current_song + 1;
+                    }
+                }
+                else // this note is incorrect
+                {
+                    log_this("Helaas! Je hebt verloren");
+                    start_LED_display_scroll("Helaas! Je hebt verloren");
+                    start_MP3("gameover.mp3");
+                    start_timeout_win_lose = current_time_since_POR__ms;
+                    LED_rings_show_lose = true;
+                    current_main_state = SIMONSAYS_GAME_afgelopen;
+                }
+            }
+            else if (current_time_since_POR__ms > start_timeout_no_interaction + TIMEOUT_NO_INTERACTION__MS)
+            {
+                current_main_state = STANDBY;
+            }
+            break;
+        case SIMONSAYS_GAME_afgelopen:
+            if (current_time_since_POR__ms > start_timeout_win_lose + TIMEOUT_WIN_LOSE__MS)
+            {
+                LED_rings_show_win = false;
+                LED_rings_show_lose = false;
+                clear_LED_rings;
+                log_this("Een nieuw spel wordt gestart");
+                start_LED_display_scroll("Een nieuw spel wordt gestart");
+                start_MP3("een-nieuw-spel-wordt-gestart.mp3");
+                current_main_state = SIMONSAYS_een_nieuw_spel_wordt_gestart;
+            }
+            break;
+        case SIMONSAYS_een_nieuw_spel_wordt_gestart:
+            if ((busy_playing_MP3 == false) && (busy_scrolling_text == false))
+            {
+                log_this("Er wordt een willekeurig nummer gekozen");
+                start_LED_display_scroll("Er wordt een willekeurig nummer gekozen");
+                start_MP3("er-wordt-een-willekeurig-nummer-gekozen.mp3");
+                start_timeout_game_start = current_time_since_POR__ms;
+                current_main_state = SIMONSAYS_er_wordt_een_willekeurig_nummer_gekozen;
             }
             break;
     }

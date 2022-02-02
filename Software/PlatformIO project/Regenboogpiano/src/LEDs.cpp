@@ -10,6 +10,8 @@ Adafruit_NeoMatrix LED_display = Adafruit_NeoMatrix(LED_DISPLAY_WIDTH__PIX * NUM
 Adafruit_NeoPixel LED_rings = Adafruit_NeoPixel(NUMBER_OF_LEDS_PER_LED_RING * NUMBER_OF_LED_RINGS, PIN_LED_RINGS, NEO_GRB + NEO_KHZ800);
 
 bool busy_scrolling_text = false;
+bool LED_rings_show_win = false;
+bool LED_rings_show_lose = false;
 
 void setup_LEDs()
 {

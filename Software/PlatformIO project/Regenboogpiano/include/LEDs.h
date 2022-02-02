@@ -8,6 +8,8 @@
 extern Adafruit_NeoMatrix LED_display;
 extern Adafruit_NeoPixel LED_rings;
 extern bool busy_scrolling_text;
+extern bool LED_rings_show_win;
+extern bool LED_rings_show_lose;
 extern const char* const color_name[NUMBER_OF_NOTES];
 
 void setup_LEDs();

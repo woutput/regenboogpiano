@@ -5,8 +5,8 @@
 #define LED_BRIGHTNESS 12 // 0...255
 #define LED_DISPLAY_BRIGHTNESS LED_BRIGHTNESS // 0...255
 #define LED_RINGS_BRIGHTNESS LED_BRIGHTNESS // 0...255
-#define MAXIMUM_NUMBER_OF_SONGS 100
-#define MAXIMUM_NUMBER_OF_NOTES_PER_SONG 100
+#define MAXIMUM_NUMBER_OF_SONGS 255 // data types (may) need to change if this value changes
+#define MAXIMUM_NUMBER_OF_NOTES_PER_SONG 255 // data types (may) need to change if this value changes
 
 //// Pins
 // DAC
@@ -66,5 +66,7 @@
 #define TFT_SCREEN_HEIGHT   240
 
 #define TIMEOUT_NO_INTERACTION__MS (15 * 60 * 1000)
-#define TIMEOUT_WELKOM__MS 1000
+#define TIMEOUT_WELKOM__MS     1000
 #define TIMEOUT_GAME_START__MS 2000
+#define TIMEOUT_COUNT_DOWN__MS 1000
+#define TIMEOUT_WIN_LOSE__MS   5000
