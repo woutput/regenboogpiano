@@ -66,7 +66,7 @@ const char* const note_name_in_RTTTL[] =      { "C5",
                                                 "B6",
                                                 "C7"};
 
-const char* const color_name[NUMBER_OF_NOTES] = {"rood",
+const char* const color_name[NUMBER_OF_NOTES] = {"rood", // TODO change to new boomwhackers colors
                                                  "zwart",
                                                  "oranje",
                                                  "zwart",
@@ -104,7 +104,7 @@ const char* const animal_name[NUMBER_OF_NOTES] =   {"paard",
                                                     "kip",
                                                     "koe",
                                                     "hond",
-                                                    "X", // TODO
+                                                    "X", // TODO change to new names
                                                     "X",
                                                     "X",
                                                     "X",

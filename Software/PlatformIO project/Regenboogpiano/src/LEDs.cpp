@@ -33,7 +33,7 @@ void loop_LEDs()
         // TODO implement scrolling each #defined timeout scroll step
         busy_scrolling_text = false;
     }
-    LED_rings.rainbow(0, 25);
+    LED_rings.rainbow(0, 26);
     LED_rings.show();
 }
 

@@ -145,7 +145,7 @@ void loop_state_machine()
             }
             break;
         case PIANO_GAME:
-            if (index_of_touched_key =! -1)
+            if (index_of_touched_key != -1)
             {
                 start_MP3(piano_note_MP3_filename(index_of_touched_key));
                 LED_display_center(note_name_for_display[index_of_touched_key]);
@@ -259,7 +259,7 @@ void loop_state_machine()
                 current_main_state = STANDBY;
             }
             break;
-
+// TODO in may states: transition to next game using MENU button
 
 
         case ANIMALS:
@@ -437,7 +437,7 @@ void loop_state_machine()
             {
                 LED_rings_show_win = false;
                 LED_rings_show_lose = false;
-                clear_LED_rings;
+                clear_LED_rings();
                 log_this("Een nieuw spel wordt gestart");
                 start_LED_display_scroll("Een nieuw spel wordt gestart");
                 start_MP3("een-nieuw-spel-wordt-gestart.mp3");
