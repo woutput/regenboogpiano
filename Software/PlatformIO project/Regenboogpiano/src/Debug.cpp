@@ -62,8 +62,8 @@ void log_this(const char * st)
     #endif
 }
 
-char * int_to_char_pointer(int64_t int_in)
+char * int64_to_char_pointer(int64_t int_in)
 {
-    sprintf(debug_buffer, "%d", int_in);
+    sprintf(debug_buffer, "%lld", int_in);
     return debug_buffer;
 }

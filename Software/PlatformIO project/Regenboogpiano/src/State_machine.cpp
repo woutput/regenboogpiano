@@ -1,3 +1,5 @@
+// TODO: create functions for state preparations that occur more than once (to be single source)
+
 #include <Defines.h>
 #include <State_machine.h>
 #include <Debug.h>
@@ -70,7 +72,7 @@ void loop_state_machine()
         case NO_POWER:
             log_this("De regenboogpiano wordt gestart...");
             start_LED_display_scroll("De regenboogpiano wordt gestart...");
-            start_MP3("de-regenboogpiano-wordt-gestart.mp3");
+            start_MP3("/spk/drwg.mp3");
             show_startup_on_LED_rings();
             current_main_state = de_regenboogpiano_wordt_gestart;
             break;
@@ -79,26 +81,28 @@ void loop_state_machine()
             {
                 log_this("Gelieve aan te melden");
                 LED_display_center("Gelieve aan te melden");
-                start_MP3("gelieve-aan-te-melden.mp3");
+                start_MP3("/spk/gatm.mp3");
                 start_timeout_no_interaction = current_time_since_POR__ms;
                 current_main_state = gelieve_aan_te_melden;
             }
             break;
         case gelieve_aan_te_melden:
-            if (check_for_RFID() == true)
+            if (busy_playing_MP3 == false)
             {
-                // TODO implement
-                current_main_state = MENU;
-            }
-            else if (current_time_since_POR__ms > start_timeout_no_interaction + TIMEOUT_NO_INTERACTION__MS)
-            {
-                current_main_state = STANDBY;
+                // if (check_for_RFID() == true) // TODO test only, enable for production
+                {
+                    current_main_state = MENU;
+                }
+                // else if (current_time_since_POR__ms > start_timeout_no_interaction + TIMEOUT_NO_INTERACTION__MS)
+                // {
+                //     current_main_state = STANDBY;
+                // }
             }
             break;
         case MENU:
             log_this("Welkom");
             start_LED_display_scroll("Welkom");
-            start_MP3("welkom.mp3");
+            start_MP3("/spk/welkom.mp3");
             start_timeout_welkom = current_time_since_POR__ms;
             current_main_state = welkom;
             break;
@@ -107,7 +111,7 @@ void loop_state_machine()
             {
                 log_this("Kies een spel met de menu-toets");
                 start_LED_display_scroll("Kies een spel met de menu-toets");
-                start_MP3("kies-een-spel-met-de-menu-toets.mp3");
+                start_MP3("/spk/kesmdmt.mp3");
                 current_main_state = kies_een_spel_met_de_menu_toets;
             }
             break;
@@ -121,7 +125,7 @@ void loop_state_machine()
                 if (busy_scrolling_text == false)
                 {
                     // Restart scrolling same text
-                    start_LED_display_scroll("Kies een spel met de menu-toets");
+                    // start_LED_display_scroll("Kies een spel met de menu-toets"); // TODO test only, enable for production
                 }
                 if (button_rising_edge[BUTTON_MENU] == true)
                 {
@@ -132,7 +136,7 @@ void loop_state_machine()
         case PIANO:
             log_this("Speel piano");
             start_LED_display_scroll("Speel piano");
-            start_MP3("speel-piano.mp3");
+            start_MP3("/spk/sp.mp3");
             start_timeout_game_start = current_time_since_POR__ms;
             current_main_state = PIANO_speel_piano;
             break;
@@ -161,7 +165,7 @@ void loop_state_machine()
         case AUTOPLAY:
             log_this("Speel een lied");
             start_LED_display_scroll("Speel een lied");
-            start_MP3("speel-een-lied.mp3");
+            start_MP3("/spk/sel.mp3");
             start_timeout_game_start = current_time_since_POR__ms;
             current_main_state = AUTOPLAY_speel_een_lied;
             break;
@@ -170,7 +174,7 @@ void loop_state_machine()
             {
                 log_this("Er wordt een willekeurig nummer gekozen");
                 start_LED_display_scroll("Er wordt een willekeurig nummer gekozen");
-                start_MP3("er-wordt-een-willekeurig-nummer-gekozen.mp3");
+                start_MP3("/spk/ewewng.mp3");
                 start_timeout_game_start = current_time_since_POR__ms;
                 current_main_state = AUTOPLAY_er_wordt_een_willekeurig_nummer_gekozen;
             }
@@ -233,7 +237,7 @@ void loop_state_machine()
         case COLORS:
             log_this("Leer de kleuren");
             start_LED_display_scroll("Leer de kleuren");
-            start_MP3("leer-de-kleuren.mp3");
+            start_MP3("/spk/ldk.mp3");
             start_timeout_game_start = current_time_since_POR__ms;
             current_main_state = COLORS_leer_de_kleuren;
             break;
@@ -265,7 +269,7 @@ void loop_state_machine()
         case ANIMALS:
             log_this("Raad het dier");
             start_LED_display_scroll("Raad het dier");
-            start_MP3("raad-het-dier.mp3");
+            start_MP3("/spk/rhd.mp3");
             start_timeout_game_start = current_time_since_POR__ms;
             current_main_state = ANIMALS_raad_het_dier;
             break;
@@ -296,7 +300,7 @@ void loop_state_machine()
         case SIMONSAYS:
             log_this("Speel het na");
             start_LED_display_scroll("Speel het na");
-            start_MP3("speel-het-na.mp3");
+            start_MP3("/spk/shn.mp3");
             start_timeout_game_start = current_time_since_POR__ms;
             current_main_state = SIMONSAYS_speel_het_na;
             break;
@@ -305,7 +309,7 @@ void loop_state_machine()
             {
                 log_this("Er wordt een willekeurig nummer gekozen");
                 start_LED_display_scroll("Er wordt een willekeurig nummer gekozen");
-                start_MP3("er-wordt-een-willekeurig-nummer-gekozen.mp3");
+                start_MP3("/spk/er-wordt-een-willekeurig-nummer-gekozen.mp3");
                 start_timeout_game_start = current_time_since_POR__ms;
                 current_main_state = SIMONSAYS_er_wordt_een_willekeurig_nummer_gekozen;
             }
@@ -315,7 +319,7 @@ void loop_state_machine()
             {
                 log_this("3");
                 LED_display_center("3");
-                start_MP3("03.mp3");
+                start_MP3("/spk/03.mp3");
                 start_timeout_count_down = current_time_since_POR__ms;
                 current_main_state = SIMONSAYS_3;
             }
@@ -325,7 +329,7 @@ void loop_state_machine()
             {
                 log_this("2");
                 LED_display_center("2");
-                start_MP3("02.mp3");
+                start_MP3("/spk/02.mp3");
                 start_timeout_count_down = current_time_since_POR__ms;
                 current_main_state = SIMONSAYS_2;
             }
@@ -335,7 +339,7 @@ void loop_state_machine()
             {
                 log_this("1");
                 LED_display_center("1");
-                start_MP3("01.mp3");
+                start_MP3("/spk/01.mp3");
                 start_timeout_count_down = current_time_since_POR__ms;
                 current_main_state = SIMONSAYS_1;
             }
@@ -345,7 +349,7 @@ void loop_state_machine()
             {
                 log_this("Luister goed");
                 LED_display_center("Luister goed");
-                start_MP3("luister-goed.mp3");
+                start_MP3("/spk/lg.mp3");
                 start_timeout_count_down = current_time_since_POR__ms;
                 SIMONSAYS_number_of_notes_to_guess_this_round = 3;
                 current_main_state = SIMONSAYS_GAME_luister_goed;
@@ -379,7 +383,7 @@ void loop_state_machine()
             {
                 log_this("Speel het na");
                 LED_display_center("Speel het na");
-                start_MP3("speel-het-na.mp3");
+                start_MP3("/spk/shn.mp3");
                 current_note_index_in_current_song = 0;
                 start_timeout_no_interaction = current_time_since_POR__ms;
                 current_main_state = SIMONSAYS_GAME_wacht_op_toets;
@@ -397,7 +401,7 @@ void loop_state_machine()
                     {
                         log_this("Proficiat! Je hebt gewonnen");
                         start_LED_display_scroll("Proficiat! Je hebt gewonnen");
-                        start_MP3("win.mp3");
+                        start_MP3("/spk/win.mp3");
                         start_timeout_win_lose = current_time_since_POR__ms;
                         LED_rings_show_win = true;
                         current_main_state = SIMONSAYS_GAME_afgelopen;
@@ -407,7 +411,7 @@ void loop_state_machine()
                         // all correct in this round
                         log_this("Luister goed");
                         LED_display_center("Luister goed");
-                        start_MP3("luister-goed.mp3");
+                        start_MP3("/spk/lg.mp3");
                         start_timeout_count_down = current_time_since_POR__ms;
                         SIMONSAYS_number_of_notes_to_guess_this_round = SIMONSAYS_number_of_notes_to_guess_this_round + 1;
                         current_main_state = SIMONSAYS_GAME_luister_goed;
@@ -421,7 +425,7 @@ void loop_state_machine()
                 {
                     log_this("Helaas! Je hebt verloren");
                     start_LED_display_scroll("Helaas! Je hebt verloren");
-                    start_MP3("gameover.mp3");
+                    start_MP3("/spk/gameover.mp3");
                     start_timeout_win_lose = current_time_since_POR__ms;
                     LED_rings_show_lose = true;
                     current_main_state = SIMONSAYS_GAME_afgelopen;
@@ -440,7 +444,7 @@ void loop_state_machine()
                 clear_LED_rings();
                 log_this("Een nieuw spel wordt gestart");
                 start_LED_display_scroll("Een nieuw spel wordt gestart");
-                start_MP3("een-nieuw-spel-wordt-gestart.mp3");
+                start_MP3("/spk/een-nieuw-spel-wordt-gestart.mp3");
                 current_main_state = SIMONSAYS_een_nieuw_spel_wordt_gestart;
             }
             break;
@@ -449,7 +453,7 @@ void loop_state_machine()
             {
                 log_this("Er wordt een willekeurig nummer gekozen");
                 start_LED_display_scroll("Er wordt een willekeurig nummer gekozen");
-                start_MP3("er-wordt-een-willekeurig-nummer-gekozen.mp3");
+                start_MP3("/spk/er-wordt-een-willekeurig-nummer-gekozen.mp3");
                 start_timeout_game_start = current_time_since_POR__ms;
                 current_main_state = SIMONSAYS_er_wordt_een_willekeurig_nummer_gekozen;
             }

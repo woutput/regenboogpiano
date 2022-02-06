@@ -24,6 +24,10 @@ void setup_LEDs()
     LED_rings.setBrightness(LED_RINGS_BRIGHTNESS);
     LED_rings.clear();
     LED_rings.show(); // Initialize all LEDs to 'off'
+
+    // TODO test only, remove for production
+    LED_rings.rainbow(0, 26);
+    LED_rings.show();
 }
 
 void loop_LEDs()
@@ -33,8 +37,6 @@ void loop_LEDs()
         // TODO implement scrolling each #defined timeout scroll step
         busy_scrolling_text = false;
     }
-    LED_rings.rainbow(0, 26);
-    LED_rings.show();
 }
 
 void start_LED_display_scroll(const char * text_to_scroll)

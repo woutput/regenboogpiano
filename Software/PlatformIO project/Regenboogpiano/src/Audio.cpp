@@ -1,7 +1,8 @@
 #include <defines.h>
 #include <Audio.h>
 #include <Debug.h>
-#include "AudioFileSourcePROGMEM.h"
+#include "SPIFFS.h"
+#include "AudioFileSourceSPIFFS.h"
 #include "AudioGeneratorMP3.h"
 #include "AudioOutputI2S.h"
 
@@ -10,9 +11,10 @@
 #include "right.h"
 
 AudioGeneratorMP3 *mp3;
-AudioFileSourcePROGMEM *file;
+AudioFileSourceSPIFFS *file;
 AudioOutputI2S *out;
 bool busy_playing_MP3 = false;
+char charp_buffer[20];
 
 const char* const note_name_for_display[] =    {"C",
                                                 "C#",
@@ -66,31 +68,46 @@ const char* const note_name_in_RTTTL[] =      { "C5",
                                                 "B6",
                                                 "C7"};
 
-const char* const color_name[NUMBER_OF_NOTES] = {"rood", // TODO change to new boomwhackers colors
-                                                 "zwart",
+// https://beenhakkers.nl/wat-zijn-boomwhackers/
+// Rood (groot en klein) is de toon C of Do.
+// Oranje is de toon D of Re.
+// Geel is de toon E of Mi.
+// Lichtgroen / Grasgroen is de toon F of Fa.
+// Donkergroen is de toon G of Sol.
+// Paars is de toon A of La.
+// Roze is de toon B of Si,
+// De vijf Chromatische aanvullings kleuren zijn
+
+// De kleur Lichtrood is de toon C# of Db.
+// De kleur Donker-oranje is de toon D# of Eb
+// De kleur ‘Gewoon” groen / blad-groen is de toon F# of Gb
+// De kleur Marine blauw is de toon G# of Ab
+// De kleur Aubergine is de toon A# of Bb
+const char* const color_name[NUMBER_OF_NOTES] = {"rood",
+                                                 "rood",
                                                  "oranje",
-                                                 "zwart",
                                                  "oranje",
                                                  "geel",
-                                                 "zwart",
-                                                 "groen",
-                                                 "zwart",
-                                                 "groen",
-                                                 "zwart",
                                                  "groen",
                                                  "groen",
-                                                 "zwart",
+                                                 "groen",
                                                  "blauw",
-                                                 "zwart",
-                                                 "blauw",
-                                                 "blauw",
-                                                 "zwart",
-                                                 "blauw",
-                                                 "zwart",
                                                  "paars",
-                                                 "zwart",
                                                  "paars",
-                                                 "paars"};
+                                                 "roze",
+                                                 "rood",
+                                                 "rood",
+                                                 "oranje",
+                                                 "oranje",
+                                                 "geel",
+                                                 "groen",
+                                                 "groen",
+                                                 "groen",
+                                                 "blauw",
+                                                 "paars",
+                                                 "paars",
+                                                 "roze",
+                                                 "rood"};
                                                 //  "indigo",
                                                 //  "violet"
 
@@ -122,8 +139,8 @@ const char* const animal_name[NUMBER_OF_NOTES] =   {"paard",
 
 void setup_audio()
 {
+    SPIFFS.begin();
     audioLogger = &Serial;
-    file = new AudioFileSourcePROGMEM(left_h, sizeof(left_h));
     out = new AudioOutputI2S();
     out->SetPinout(PIN_DAC_BCLK, PIN_DAC_LRCLK, PIN_DAC_DATA);
     mp3 = new AudioGeneratorMP3();
@@ -170,19 +187,25 @@ void start_MP3(const char * filename_of_MP3)
     {
         mp3->stop();
     }
-    file->open(left_h, sizeof(left_h));
+    file = new AudioFileSourceSPIFFS(filename_of_MP3);
     mp3->begin(file, out);
     log_this("Started MP3");
 }
 
 char * piano_note_MP3_filename(int8_t note_number)
 {
-    // TODO implement
+    strcpy(charp_buffer, "/pia/");
+    strcat(charp_buffer, note_name_in_RTTTL[note_number]);
+    strcat(charp_buffer, ".mp3");
+    return charp_buffer;
 }
 
 char * color_name_MP3_filename(int8_t note_number)
 {
-    // TODO implement
+    strcpy(charp_buffer, "/spk/");
+    strcat(charp_buffer, color_name[note_number]);
+    strcat(charp_buffer, ".mp3");
+    return charp_buffer;
 }
 
 char * animal_name_MP3_filename(int8_t note_number)
