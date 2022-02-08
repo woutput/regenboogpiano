@@ -204,7 +204,13 @@ void loop_state_machine()
             current_main_state = AUTOPLAY_LED_ring;
             break;
         case AUTOPLAY_LED_ring:
-            if (any_button_rising_edge == true)
+            if (button_rising_edge[BUTTON_MENU] == true)
+            {
+                clear_LED_display();
+                clear_LED_rings();
+                current_main_state = COLORS;
+            }
+            else if (any_key_rising_edge == true)
             {
                 start_MP3(piano_note_MP3_filename(note_in_song[chosen_song][current_note_index_in_current_song]));
                 current_main_state = AUTOPLAY_MP3;
@@ -251,7 +257,13 @@ void loop_state_machine()
             }
             break;
         case COLORS_GAME:
-            if (index_of_touched_key != -1)
+            if (button_rising_edge[BUTTON_MENU] == true)
+            {
+                clear_LED_display();
+                clear_LED_rings();
+                current_main_state = ANIMALS;
+            }
+            else if (any_key_rising_edge == true)
             {
                 LED_display_center(color_name[index_of_touched_key]);
                 turn_on_LED_ring_in_own_color(index_of_touched_key);
@@ -282,7 +294,13 @@ void loop_state_machine()
             }
             break;
         case ANIMALS_GAME:
-            if (index_of_touched_key != -1)
+            if (button_rising_edge[BUTTON_MENU] == true)
+            {
+                clear_LED_display();
+                clear_LED_rings();
+                current_main_state = SIMONSAYS;
+            }
+            else if (any_key_rising_edge == true)
             {
                 LED_display_center(animal_name[index_of_touched_key]);
                 turn_on_LED_ring_in_own_color(index_of_touched_key);

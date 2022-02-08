@@ -9,6 +9,7 @@ bool new_touch_sensor_state[NUMBER_OF_TOUCH_SENSORS];
 bool old_touch_sensor_state[NUMBER_OF_TOUCH_SENSORS];
 bool button_rising_edge[NUMBER_OF_TOUCH_SENSORS];
 bool any_button_rising_edge = false;
+bool any_key_rising_edge = false;
 uint32_t start_timeout_read_shift_registers = 0;
 int8_t index_of_touched_button = -1; // -1 means: no button touched; including menu button
 int8_t index_of_touched_key = -1; // -1 means: no button touched; excluding menu button
@@ -50,24 +51,25 @@ void loop_touch()
 
         if (digitalRead(PIN_TOUCH_25) == HIGH)
         {
-            new_touch_sensor_state[24] = true;
+            new_touch_sensor_state[BUTTON_TOUCH_25] = true;
         }
         else
         {
-            new_touch_sensor_state[24] = false;
+            new_touch_sensor_state[BUTTON_TOUCH_25] = false;
         }
 
         if (digitalRead(PIN_TOUCH_MENU) == HIGH)
         {
-            new_touch_sensor_state[25] = true;
+            new_touch_sensor_state[BUTTON_MENU] = true;
         }
         else
         {
-            new_touch_sensor_state[25] = false;
+            new_touch_sensor_state[BUTTON_MENU] = false;
         }
 
         // Conclude button_rising_edge from new_touch_sensor_state and old_touch_sensor_state
         any_button_rising_edge = false;
+        any_key_rising_edge = false;
         index_of_touched_button = -1;
         index_of_touched_key = -1;
         // for (uint8_t i = 0; i < 1; i++) // TODO replace 1 by 0<NUMBER_OF_TOUCH_SENSORS
@@ -81,9 +83,10 @@ void loop_touch()
                 log_this("Pressed button:");
                 log_this(int64_to_char_pointer(index_of_touched_button));
                 // log_this(int_to_char_pointer(random(100)));
-                if (i != 25)
+                if (i != BUTTON_MENU)
                 {
                     index_of_touched_key = i;
+                    any_key_rising_edge = true;
                 }
             }
             else
