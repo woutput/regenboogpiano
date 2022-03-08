@@ -72,8 +72,7 @@ void loop_touch()
         any_key_rising_edge = false;
         index_of_touched_button = -1;
         index_of_touched_key = -1;
-        // for (uint8_t i = 0; i < 1; i++) // TODO replace 1 by 0<NUMBER_OF_TOUCH_SENSORS
-        for (uint8_t i = 0; i < 8; i++) // TODO replace by 0<NUMBER_OF_TOUCH_SENSORS
+        for (uint8_t i = 0; i < NUMBER_OF_TOUCH_SENSORS; i++)
         {
             if ((old_touch_sensor_state[i] == false) && (new_touch_sensor_state[i] == true))
             {
@@ -82,32 +81,10 @@ void loop_touch()
                 index_of_touched_button = i;
                 log_this("Pressed button:");
                 log_this(int64_to_char_pointer(index_of_touched_button));
-                // log_this(int_to_char_pointer(random(100)));
                 if (i != BUTTON_MENU)
                 {
                     index_of_touched_key = i;
                     any_key_rising_edge = true;
-                }
-            }
-            else
-            {
-                button_rising_edge[i] = false;
-            }
-        }
-
-        for (uint8_t i = 25; i < 26; i++) // TODO test only, for produciton remove this copied loop
-        {
-            if ((old_touch_sensor_state[i] == false) && (new_touch_sensor_state[i] == true))
-            {
-                button_rising_edge[i] = true;
-                any_button_rising_edge = true;
-                index_of_touched_button = i;
-                log_this("Pressed button:");
-                log_this(int64_to_char_pointer(index_of_touched_button));
-                // log_this(int_to_char_pointer(random(100)));
-                if (i != 25)
-                {
-                    index_of_touched_key = i;
                 }
             }
             else

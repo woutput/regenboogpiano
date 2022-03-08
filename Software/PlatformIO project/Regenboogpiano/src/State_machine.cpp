@@ -69,6 +69,11 @@ void loop_state_machine()
 {
     switch (current_main_state)
     {
+        case STANDBY:
+            clear_LED_display();
+            clear_LED_rings();
+            // TODO: show something during standby?
+            break;
         case NO_POWER:
             log_this("De regenboogpiano wordt gestart...");
             start_LED_display_scroll("De regenboogpiano wordt gestart...");
@@ -116,11 +121,7 @@ void loop_state_machine()
             }
             break;
         case kies_een_spel_met_de_menu_toets:
-            if (busy_playing_MP3 == true)
-            {
-                // Do nothing: wait for MP3 to finish
-            }
-            else
+            if (busy_playing_MP3 == false)
             {
                 if (busy_scrolling_text == false)
                 {
@@ -156,7 +157,8 @@ void loop_state_machine()
             }
             if (button_rising_edge[BUTTON_MENU] == true)
             {
-                current_main_state = AUTOPLAY;
+                // current_main_state = AUTOPLAY;
+                current_main_state = COLORS; // TODO test only
             }
             break;
 
@@ -275,7 +277,7 @@ void loop_state_machine()
                 current_main_state = STANDBY;
             }
             break;
-// TODO in may states: transition to next game using MENU button
+
 
 
         case ANIMALS:
@@ -408,6 +410,7 @@ void loop_state_machine()
             }
             break;
         case SIMONSAYS_GAME_wacht_op_toets:
+            // TODO: change index_of_touched_key to any_key AND check for menu button
             if (index_of_touched_key != -1) // && (busy_playing_MP3 == false)) // don't wait for MP3 to finish
             {
                 if (note_in_song[chosen_song][current_note_index_in_current_song] == index_of_touched_key) // this note is correct

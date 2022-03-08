@@ -111,31 +111,31 @@ const char* const color_name[NUMBER_OF_NOTES] = {"rood",
                                                 //  "indigo",
                                                 //  "violet"
 
-const char* const animal_name[NUMBER_OF_NOTES] =   {"paard",
-                                                    "haan",
+const char* const animal_name[NUMBER_OF_NOTES] =   {"hond",
+                                                    "kuikens",
+                                                    "zwaan",
+                                                    "duif",
+                                                    "eend",
+                                                    "wolf",
+                                                    "roodborstje",
                                                     "leeuw",
-                                                    "ezel",
-                                                    "schaap",
-                                                    "kat",
-                                                    "olifant",
-                                                    "kip",
                                                     "koe",
-                                                    "hond",
-                                                    "X", // TODO change to new names
-                                                    "X",
-                                                    "X",
-                                                    "X",
-                                                    "X",
-                                                    "X",
-                                                    "X",
-                                                    "X",
-                                                    "X",
-                                                    "X",
-                                                    "X",
-                                                    "X",
-                                                    "X",
-                                                    "X",
-                                                    "X"};
+                                                    "varken",
+                                                    "kip",
+                                                    "uil",
+                                                    "olifant",
+                                                    "schaap",
+                                                    "kalkoen",
+                                                    "kat",
+                                                    "geit",
+                                                    "beer",
+                                                    "krokodil",
+                                                    "tijger",
+                                                    "ezel",
+                                                    "paard",
+                                                    "kikker",
+                                                    "haan",
+                                                    "pauw"};
 
 void setup_audio()
 {
@@ -210,5 +210,8 @@ char * color_name_MP3_filename(int8_t note_number)
 
 char * animal_name_MP3_filename(int8_t note_number)
 {
-    // TODO implement
+    strcpy(charp_buffer, "/anm/");
+    strcat(charp_buffer, animal_name[note_number]);
+    strcat(charp_buffer, ".mp3");
+    return charp_buffer;
 }
