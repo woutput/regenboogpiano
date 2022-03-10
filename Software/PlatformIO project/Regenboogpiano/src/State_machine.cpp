@@ -128,10 +128,11 @@ void loop_state_machine()
                     // Restart scrolling same text
                     // start_LED_display_scroll("Kies een spel met de menu-toets"); // TODO test only, enable for production
                 }
-                if (button_rising_edge[BUTTON_MENU] == true)
-                {
-                    current_main_state = PIANO;
-                }
+                // if (button_rising_edge[BUTTON_MENU] == true) // TODO test only, enable for production
+                // {
+                    // current_main_state = PIANO;
+                    current_main_state = SIMONSAYS; // TODO test only, enable for production
+                // }
             }
             break;
         case PIANO:

@@ -20,6 +20,7 @@ void setup()
     setup_audio();
     setup_LEDs();
     setup_RFID();
+    setup_songs();
     log_this("End of setup");
 }
 
