@@ -58,12 +58,12 @@ uint32_t start_timeout_game_start = 0;
 uint32_t start_timeout_count_down = 0;
 uint32_t start_timeout_win_lose = 0;
 uint8_t chosen_song = 0; // data type must to able to store MAXIMUM_NUMBER_OF_SONGS // used in AUTOPLAY and SIMONSAYS
-uint8_t total_number_of_songs = 0; // data type must to able to store MAXIMUM_NUMBER_OF_SONGS // TODO Fill this value during firmware/song update
 uint8_t SIMONSAYS_number_of_notes_to_guess_this_round; // data type must to able to store MAXIMUM_NUMBER_OF_NOTES_PER_SONG
-char* song_name[MAXIMUM_NUMBER_OF_SONGS]; // TODO Fill this array during firmware/song update
-uint8_t note_in_song[MAXIMUM_NUMBER_OF_SONGS][MAXIMUM_NUMBER_OF_NOTES_PER_SONG]; // [song_index, note_index] values 0...24 for keys C5 to C7 // TODO Fill this array during firmware/song update
 uint8_t current_note_index_in_current_song = 0; // used in AUTOPLAY and SIMONSAYS
-uint8_t number_of_notes_per_song[MAXIMUM_NUMBER_OF_SONGS]; // TODO Fill this array during firmware/song update
+extern uint8_t total_number_of_songs; // data type must to able to store MAXIMUM_NUMBER_OF_SONGS // TODO Fill this value during firmware/song update
+extern char* song_name[MAXIMUM_NUMBER_OF_SONGS]; // TODO Fill this array during firmware/song update
+extern uint8_t note_in_song[MAXIMUM_NUMBER_OF_SONGS][MAXIMUM_NUMBER_OF_NOTES_PER_SONG]; // [song_index, note_index] values 0...24 for keys C5 to C7 // TODO Fill this array during firmware/song update
+extern uint8_t number_of_notes_per_song[MAXIMUM_NUMBER_OF_SONGS]; // TODO Fill this array during firmware/song update
 
 void loop_state_machine()
 {
@@ -94,14 +94,14 @@ void loop_state_machine()
         case gelieve_aan_te_melden:
             if (busy_playing_MP3 == false)
             {
-                // if (check_for_RFID() == true) // TODO test only, enable for production
+                if (check_for_RFID() == true) // TODO test only, enable for production
                 {
                     current_main_state = MENU;
                 }
-                // else if (current_time_since_POR__ms > start_timeout_no_interaction + TIMEOUT_NO_INTERACTION__MS)
-                // {
-                //     current_main_state = STANDBY;
-                // }
+                else if (current_time_since_POR__ms > start_timeout_no_interaction + TIMEOUT_NO_INTERACTION__MS)
+                {
+                    current_main_state = STANDBY;
+                }
             }
             break;
         case MENU:
@@ -128,11 +128,10 @@ void loop_state_machine()
                     // Restart scrolling same text
                     // start_LED_display_scroll("Kies een spel met de menu-toets"); // TODO test only, enable for production
                 }
-                // if (button_rising_edge[BUTTON_MENU] == true) // TODO test only, enable for production
-                // {
-                    // current_main_state = PIANO;
-                    current_main_state = SIMONSAYS; // TODO test only, enable for production
-                // }
+                if (button_rising_edge[BUTTON_MENU] == true) // TODO test only, enable for production
+                {
+                    current_main_state = PIANO;
+                }
             }
             break;
         case PIANO:
@@ -411,8 +410,13 @@ void loop_state_machine()
             }
             break;
         case SIMONSAYS_GAME_wacht_op_toets:
-            // TODO: change index_of_touched_key to any_key AND check for menu button
-            if (index_of_touched_key != -1) // && (busy_playing_MP3 == false)) // don't wait for MP3 to finish
+            if (button_rising_edge[BUTTON_MENU] == true)
+            {
+                clear_LED_display();
+                clear_LED_rings();
+                current_main_state = PIANO;
+            }
+            else if (any_key_rising_edge == true)
             {
                 if (note_in_song[chosen_song][current_note_index_in_current_song] == index_of_touched_key) // this note is correct
                 {

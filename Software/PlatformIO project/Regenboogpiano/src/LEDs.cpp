@@ -28,7 +28,7 @@ void setup_LEDs()
     // TODO test only, remove for production
     LED_rings.rainbow(0, 26);
     LED_rings.show();
-    LED_display.rainbow(0, 4);
+    LED_display.rainbow(0, 8);
     LED_display.show();
 }
 

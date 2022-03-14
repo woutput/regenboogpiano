@@ -117,7 +117,7 @@ const char* const animal_name[NUMBER_OF_NOTES] =   {"hond",
                                                     "duif",
                                                     "eend",
                                                     "wolf",
-                                                    "roodborstje",
+                                                    "roodborst",
                                                     "leeuw",
                                                     "koe",
                                                     "varken",
@@ -182,7 +182,7 @@ void start_MP3(const char * filename_of_MP3)
     log_this("Starting MP3 file:");
     log_this(filename_of_MP3);
 
-    // TODO fix this temporary thing:
+    // TODO improve this single-sound implementation by adding a mixer:
     if (mp3->isRunning())
     {
         mp3->stop();
