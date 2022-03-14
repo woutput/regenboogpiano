@@ -18,7 +18,7 @@ Er wordt een willekeurig nummer gekozen.
 
 Leer de kleuren.
 
-Rood, Oranje, Geel, Groen, Blauw, Indigo, Violet, Paars.
+Rood, Oranje, Geel, Groen, Blauw, Indigo, Violet, Paars, Roze.
 
 Raad het dier.
 
