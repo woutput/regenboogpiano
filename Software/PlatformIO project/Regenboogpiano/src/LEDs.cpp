@@ -16,19 +16,19 @@ void setup_LEDs()
 {
     LED_display.begin();
     LED_display.setBrightness(LED_DISPLAY_BRIGHTNESS);
-    LED_display.clear();
+    // LED_display.clear();
     LED_display.show(); // Initialize all LEDs to 'off'
 
     LED_rings.begin();
     LED_rings.setBrightness(LED_RINGS_BRIGHTNESS);
-    LED_rings.clear();
+    // LED_rings.clear();
     LED_rings.show(); // Initialize all LEDs to 'off'
 
     // Test only, remove for production
-    // LED_rings.rainbow(0, 26);
-    // LED_rings.show();
-    // LED_display.rainbow(0, 8);
-    // LED_display.show();
+    LED_rings.rainbow(0, 26);
+    LED_rings.show();
+    LED_display.rainbow(0, 8);
+    LED_display.show();
 }
 
 void loop_LEDs()
@@ -62,13 +62,13 @@ void LED_display_center(const char * text_to_display)
 
 void clear_LED_display()
 {
-    LED_display.clear();
+    // LED_display.clear();
     LED_display.show();
 }
 
 void clear_LED_rings()
 {
-    LED_rings.clear();
+    // LED_rings.clear();
     LED_rings.show();
 }
 
