@@ -24,11 +24,11 @@ void setup_LEDs()
     LED_rings.clear();
     LED_rings.show(); // Initialize all LEDs to 'off'
 
-    // TODO test only, remove for production
-    LED_rings.rainbow(0, 26);
-    LED_rings.show();
-    LED_display.rainbow(0, 8);
-    LED_display.show();
+    // Test only, remove for production
+    // LED_rings.rainbow(0, 26);
+    // LED_rings.show();
+    // LED_display.rainbow(0, 8);
+    // LED_display.show();
 }
 
 void loop_LEDs()
@@ -52,16 +52,24 @@ void LED_display_center(const char * text_to_display)
     // TODO implement
     log_this("Added centered text on LED display:");
     log_this(text_to_display);
+    // LED_display.setRotation(2);
+    // LED_display.setTextWrap(false);
+    // LED_display.setTextColor(LED_display.Color(0, 0, 255));
+    // LED_display.setCursor(0, 0);
+    // LED_display.print(text_to_display);
+    // LED_display.show();
 }
 
 void clear_LED_display()
 {
-    // TODO implement
+    LED_display.clear();
+    LED_display.show();
 }
 
 void clear_LED_rings()
 {
-    // TODO implement
+    LED_rings.clear();
+    LED_rings.show();
 }
 
 void show_correct_key_using_LED_ring(uint8_t key_number)
