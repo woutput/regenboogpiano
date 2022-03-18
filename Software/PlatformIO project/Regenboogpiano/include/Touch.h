@@ -1,5 +1,22 @@
 #pragma once
 
+#include <stdint.h>
+
+// Shift registers
+#define PIN_SHIFT_CLK   21
+#define PIN_SHIFT_SHLD  22
+#define PIN_SHIFT_DATA  36
+
+// Remaining touch buttons
+#define PIN_TOUCH_MENU  37
+#define PIN_TOUCH_25    17
+
+#define TIMEOUT_SHIFT_REGISTERS__MS 50
+
+#define NUMBER_OF_SHIFT_REGISTERS 3
+#define NUMBER_OF_SHIFTS (NUMBER_OF_SHIFT_REGISTERS * 8)
+#define NUMBER_OF_TOUCH_SENSORS (NUMBER_OF_SHIFTS + 1 + 1) // T1...T24 + T25 + Tmenu
+
 #define BUTTON_TOUCH_1 0
 #define BUTTON_TOUCH_2 1
 #define BUTTON_TOUCH_3 2
@@ -26,8 +43,6 @@
 #define BUTTON_TOUCH_24 23
 #define BUTTON_TOUCH_25 24
 #define BUTTON_MENU 25
-
-#include <stdint.h>
 
 extern bool new_touch_sensor_state[NUMBER_OF_TOUCH_SENSORS];
 extern bool old_touch_sensor_state[NUMBER_OF_TOUCH_SENSORS];

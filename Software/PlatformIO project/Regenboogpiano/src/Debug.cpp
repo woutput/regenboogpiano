@@ -1,4 +1,3 @@
-#include <defines.h>
 #include <Debug.h>
 #include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
 

@@ -1,7 +1,6 @@
 // TODO
 // Use multicore?
 
-#include <defines.h>
 #include <Main.h>
 #include <Debug.h>
 #include <Wifi_stuff.h>

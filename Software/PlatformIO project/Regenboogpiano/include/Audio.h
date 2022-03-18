@@ -3,6 +3,12 @@
 #include <stdint.h>
 #include <Defines.h>
 
+// DAC
+#define PIN_DAC_DATA     32
+#define PIN_DAC_BCLK     33
+#define PIN_DAC_LRCLK    25
+
+
 #define NOTE_C5        0
 #define NOTE_C5_SHARP  1
 #define NOTE_D5        2

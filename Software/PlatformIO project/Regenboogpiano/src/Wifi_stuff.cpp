@@ -1,4 +1,3 @@
-#include <defines.h>
 #include <Wifi_stuff.h>
 #include <WiFi.h>
 

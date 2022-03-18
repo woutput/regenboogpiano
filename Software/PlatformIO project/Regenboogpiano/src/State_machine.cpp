@@ -1,12 +1,12 @@
 // TODO: create functions for state preparations that occur more than once (to be single source)
 
-#include <Defines.h>
 #include <State_machine.h>
 #include <Debug.h>
 #include <Audio.h>
 #include <Touch.h>
 #include <LEDs.h>
 #include <RFID.h>
+#include <Songs.h>
 #include <Arduino.h>
 
 enum main_states
@@ -329,7 +329,7 @@ void loop_state_machine()
             {
                 log_this("Er wordt een willekeurig nummer gekozen");
                 start_LED_display_scroll("Er wordt een willekeurig nummer gekozen");
-                start_MP3("/spk/er-wordt-een-willekeurig-nummer-gekozen.mp3");
+                start_MP3("/spk/ewewng.mp3");
                 start_timeout_game_start = current_time_since_POR__ms;
                 current_main_state = SIMONSAYS_er_wordt_een_willekeurig_nummer_gekozen;
             }
@@ -479,7 +479,7 @@ void loop_state_machine()
             {
                 log_this("Er wordt een willekeurig nummer gekozen");
                 start_LED_display_scroll("Er wordt een willekeurig nummer gekozen");
-                start_MP3("/spk/er-wordt-een-willekeurig-nummer-gekozen.mp3");
+                start_MP3("/spk/ewewng.mp3");
                 start_timeout_game_start = current_time_since_POR__ms;
                 current_main_state = SIMONSAYS_er_wordt_een_willekeurig_nummer_gekozen;
             }

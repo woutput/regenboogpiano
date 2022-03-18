@@ -1,4 +1,3 @@
-#include <defines.h>
 #include <LEDs.h>
 #include <Debug.h>
 

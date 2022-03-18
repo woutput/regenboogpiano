@@ -1,14 +1,9 @@
-#include <defines.h>
 #include <Audio.h>
 #include <Debug.h>
 #include "SPIFFS.h"
 #include "AudioFileSourceSPIFFS.h"
 #include "AudioGeneratorMP3.h"
 #include "AudioOutputI2S.h"
-
-// TODO: test only
-#include "left.h"
-#include "right.h"
 
 AudioGeneratorMP3 *mp3;
 AudioFileSourceSPIFFS *file;
@@ -148,22 +143,6 @@ void setup_audio()
 
 void loop_audio()
 {
-    // if (digitalRead(PIN_TEST_BUTTON_RIGHT) == LOW)
-    // {
-    //     if (mp3->isRunning())
-    //         mp3->stop();
-    //         file->open(right_h, sizeof(right_h));
-    //         mp3->begin(file, out);
-    //     }
-
-    // if (digitalRead(PIN_TEST_BUTTON_LEFT) == LOW)
-    // {
-    //     if (mp3->isRunning())
-    //         mp3->stop();
-    //         file->open(left_h, sizeof(left_h));
-    //         mp3->begin(file, out);
-    //     }
-
     if (mp3->isRunning())
     {
         if (!mp3->loop())
@@ -173,7 +152,6 @@ void loop_audio()
             busy_playing_MP3 = false;
         }
     }
-    // TODO implement
 }
 
 void start_MP3(const char * filename_of_MP3)
@@ -182,7 +160,8 @@ void start_MP3(const char * filename_of_MP3)
     log_this("Starting MP3 file:");
     log_this(filename_of_MP3);
 
-    // TODO improve this single-sound implementation by adding a mixer:
+    // TODO improve this single-sound implementation by adding a mixer
+    // or at least get rid of the cracking sound
     if (mp3->isRunning())
     {
         mp3->stop();

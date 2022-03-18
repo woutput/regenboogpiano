@@ -1,4 +1,3 @@
-#include <defines.h>
 #include <Touch.h>
 #include <Main.h>
 #include <LEDs.h>

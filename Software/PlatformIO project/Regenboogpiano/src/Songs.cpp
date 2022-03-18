@@ -1,10 +1,9 @@
 #include <Songs.h>
 #include <Audio.h>
-#include <Defines.h>
 #include <Arduino.h>
 
 uint8_t total_number_of_songs = 0; // data type must to able to store MAXIMUM_NUMBER_OF_SONGS // TODO Fill this value during firmware/song update
-char* song_name[MAXIMUM_NUMBER_OF_SONGS]; // Fill this array during firmware/song update
+char song_name[MAXIMUM_NUMBER_OF_SONGS][MAXIMUM_SONG_NAME_LENGTH]; // Fill this array during firmware/song update
 uint8_t note_in_song[MAXIMUM_NUMBER_OF_SONGS][MAXIMUM_NUMBER_OF_NOTES_PER_SONG]; // [song_index, note_index] values 0...24 for keys C5 to C7 // TODO Fill this array during firmware/song update
 uint8_t number_of_notes_per_song[MAXIMUM_NUMBER_OF_SONGS]; // TODO Fill this array during firmware/song update
 
